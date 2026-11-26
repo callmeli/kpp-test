@@ -62,25 +62,24 @@ export function Practice() {
   const acc = done ? Math.round((right / done) * 100) : 0;
   const ok = !!q && picked === q.a;
   return (
-    <div className="page has-dock">
+    <div className={'page practice' + (picked ? ' has-dock' : '')}>
       <header className="top">
-        {redo ? <button className="link" onClick={() => setPracticeIds(null)}><Icon n="back" /> {t('wrongSet')}</button> : <h1><img src="/icon.svg" width={28} height={28} alt="" /> {t('appName')}</h1>}
-        <CoinPill />
-      </header>
-
-      <div className="toolbar">
-        {redo ? <span className="muted small">{t('wrongMastered')}</span> : (
+        {redo ? <button className="link" onClick={() => setPracticeIds(null)}><Icon n="back" /> {t('wrongSet')}</button> : (
           <button className="filter" onClick={() => setFilter(true)}>
-            <Icon n="filter" /> <b>{t(sec === 'all' ? 'secAll' : 'sec' + sec)}</b><span>{t('mode' + mode[0].toUpperCase() + mode.slice(1))}</span><Icon n="down" />
+            <img src="/icon.svg" width={24} height={24} alt="" /><b>{t(sec === 'all' ? 'secAll' : 'sec' + sec)}</b><span>{t('mode' + mode[0].toUpperCase() + mode.slice(1))}</span><Icon n="down" />
           </button>
         )}
-        {!redo && <span className="acc">{t('statAcc')} <b>{acc}%</b></span>}
-      </div>
+        <CoinPill />
+      </header>
       {list.length > 0 && <div className="bar" aria-hidden="true"><i style={{ width: `${(Math.min(i + (picked ? 1 : 0), list.length) / list.length) * 100}%` }} /></div>}
 
       {q ? (
         <div className="q-card" key={q.id}>
-          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length}`} onNum={() => setJump(true)} />
+          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length}`} onNum={() => setJump(true)}
+            nav={<>
+              <button className="ic-btn sm" disabled={i === 0} onClick={() => go(-1)} aria-label={t('prev')}><Icon n="left" size={18} /></button>
+              <button className="ic-btn sm" onClick={() => go(1)} aria-label={t('next')}><Icon n="right" size={18} /></button>
+            </>} />
         </div>
       ) : (
         <div className="card empty">
@@ -90,17 +89,15 @@ export function Practice() {
         </div>
       )}
 
-      {q && (
-        <nav className="dock" aria-live="polite">
-          {picked && <p className={'dock-msg ' + (ok ? 'ok' : 'no')}><Icon n={ok ? 'check' : 'x'} size={18} /> {ok ? t('correct') : t('wrongAns', { a: q.a })}</p>}
-          <div className="btn-row">
-            <button className="btn secondary" disabled={i === 0} onClick={() => go(-1)}>{t('prev')}</button>
-            <button className={'btn ' + (picked ? 'primary' : 'secondary')} onClick={() => go(1)}>{t('next')}</button>
-          </div>
+      {q && picked && (
+        <nav className="dock one" aria-live="polite">
+          <p className={'dock-msg ' + (ok ? 'ok' : 'no')}><Icon n={ok ? 'check' : 'x'} size={18} /> {ok ? t('correct') : t('wrongAns', { a: q.a })}</p>
+          <button className="btn primary" onClick={() => go(1)}>{t('next')}</button>
         </nav>
       )}
 
       <Sheet open={filter} onClose={() => setFilter(false)} title={t('tabPractice')}>
+        <p className="muted sheet-sub">{t('done', { n: `${done}/${bank().length}` })} · {t('accuracy', { p: acc })}{redo ? '' : ' · ' + t('practiceFree')}</p>
         <div className="pick-list">
           {(['all', 'A', 'B', 'C'] as Sec[]).map((s) => (
             <button key={s} className={sec === s ? 'on' : ''} onClick={() => setSec(s)}>
