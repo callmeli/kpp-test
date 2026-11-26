@@ -232,7 +232,7 @@ npm run preview
 
 ```bash
 # 安装 Python 依赖
-pip install -r requirements.txt
+pip install -r scripts/requirements.txt
 
 # 运行全量抓取
 python scripts/scrape_all_sections.py
