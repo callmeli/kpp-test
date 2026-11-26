@@ -38,7 +38,7 @@
 同一家驾校、同一种驾照，不同人报的价能差 RM 2000–3000。这里让学员匿名晒实付价格（驾照类型 D / DA / B2 / B / 套餐、总价、含 KPP01 / L 牌 / JPJ 考试费 / 补考 / 接送 / 分期、报名月份、备注），整体行情免费看，具体驾校按条解锁。价格限 RM 200–20000，每人每校每种驾照一条（再交覆盖）。不实报价管理员用 `POST /api/admin/hide {price|school}` 隐藏。
 
 ## 部署（第一次）
-1. `npx wrangler d1 create kpp`，把 database_id 填进 `wrangler.jsonc`。
+1. D1 数据库 `kpp` 已创建（APAC），ID 已写在 `wrangler.jsonc`。
 2. Cloudflare Workers Builds 接 `callmeli/kpp-test`：根目录 `/`，构建命令 `npm run build`，部署命令 `npx wrangler deploy`。要和 `paycenter` 在同一个 Cloudflare 账号（Service Binding `PAY`）。
 3. 自定义域名 `kpp.luckylab.cc` 在 `routes` 里，部署时自动绑定。
 4. `ADMIN_UIDS` 填管理员的 LuckyLab 账号 ID。

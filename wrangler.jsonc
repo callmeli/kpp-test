@@ -8,8 +8,8 @@
   "routes": [{ "pattern": "kpp.luckylab.cc", "custom_domain": true }],
   "workers_dev": true,
   "d1_databases": [
-    // 第一次部署前：npx wrangler d1 create kpp，把输出的 database_id 填到这里。表结构和题库在首次请求时自动建 / 导入
-    { "binding": "DB", "database_name": "kpp", "database_id": "00000000-0000-0000-0000-000000000000" }
+    // 已创建（APAC）。表结构和题库在首次请求时自动建 / 导入
+    { "binding": "DB", "database_name": "kpp", "database_id": "523480f0-0124-4cdf-a723-b95e7402eaeb" }
   ],
   // 账号和幸运币走 LuckyLab（callmeli/holdem 仓库的 paycenter/），同一个 Cloudflare 账号内用 Service Binding 调用
   "services": [{ "binding": "PAY", "service": "paycenter" }],
