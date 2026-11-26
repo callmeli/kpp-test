@@ -1,4 +1,4 @@
-/* 模拟考试：和 JPJ 电脑考试一样 50 题 / 45 分钟 / 42 题及格；每场扣幸运币，开考时扣（同一 nonce 不重扣） */
+/* 模拟考试：默认按 2025-08 起的合并卷（KPP Gabungan）70 题 / 75 分钟 / 56 题及格，也可以选旧制 50 题 / 45 分钟 / 42 题；每场扣幸运币，开考时扣（同一 nonce 不重扣） */
 import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n';
 import { addWrong, api, bank, load, loginUrl, nonce, Q, qById, save } from '../lib';
@@ -6,12 +6,14 @@ import { QuestionView } from '../Question';
 import { CoinIcon, CoinPill, confirmBox, Icon, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
 import { trackExam } from '../utils/analytics';
 
-const N = 50, MIN = 45, PASS = 42;
-type Run = { id: string; ids: string[]; ans: Record<string, string>; end: number; i: number };
-type Done = { ids: string[]; ans: Record<string, string>; score: number; timeUp?: boolean };
+// JPJ 2025-08 起汽车 + 摩托理论合并成一张卷（KPP Gabungan）：70 题、1 小时 15 分、56 题及格；之前是 50 题、45 分钟、42 题
+const FORMATS = { new: { n: 70, min: 75, pass: 56 }, old: { n: 50, min: 45, pass: 42 } } as const;
+type Fmt = keyof typeof FORMATS;
+type Run = { id: string; ids: string[]; ans: Record<string, string>; end: number; i: number; pass: number };
+type Done = { ids: string[]; ans: Record<string, string>; score: number; pass: number; timeUp?: boolean };
 
 /** 按三部分在题库里的比例抽题，保证每部分都有 */
-function draw(): string[] {
+function draw(N: number): string[] {
   const all = bank(), out: string[] = [];
   for (const s of ['A', 'B', 'C'] as const) {
     const pool = all.filter((q) => q.s === s).map((q) => q.id);
@@ -19,6 +21,9 @@ function draw(): string[] {
     for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
     out.push(...pool.slice(0, k));
   }
+  // 四舍五入后可能差一两题：从没抽到的题里随机补齐
+  const rest = all.map((q) => q.id).filter((id) => !out.includes(id));
+  while (out.length < N && rest.length) out.push(rest.splice(Math.floor(Math.random() * rest.length), 1)[0]);
   return out.slice(0, N);
 }
 const mmss = (s: number) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
@@ -30,6 +35,8 @@ export function Exam({ active }: { active: boolean }) {
   const [done, setDone] = useState<Done | null>(null);
   const [review, setReview] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [fmt, setFmt] = useState<Fmt>(() => (load<Fmt>('fmt', 'new') === 'old' ? 'old' : 'new'));
+  const { n: N, min: MIN, pass: PASS } = FORMATS[fmt];
   const [now, setNow] = useState(Date.now());
   const [hist, setHist] = useState<{ ts: number; score: number; total: number; passed: number }[]>([]);
   const finishing = useRef(false);
@@ -45,10 +52,11 @@ export function Exam({ active }: { active: boolean }) {
     if (finishing.current) return; finishing.current = true;
     const score = r.ids.filter((id) => r.ans[id] === qById(id)?.a).length;
     r.ids.forEach((id) => { const q = qById(id); if (q && r.ans[id] && r.ans[id] !== q.a && set.autoWrong) addWrong(id, r.ans[id]); /* 没作答的不算错题 */ });
-    setDone({ ids: r.ids, ans: r.ans, score, timeUp }); setRun(null); setReview(false);
-    trackExam.submit(score, score >= PASS, r.ids.length);
+    const pass = r.pass || FORMATS.old.pass;
+    setDone({ ids: r.ids, ans: r.ans, score, pass, timeUp }); setRun(null); setReview(false);
+    trackExam.submit(score, score >= pass, r.ids.length);
     if (timeUp) toast(t('timeUp'));
-    api('/exam/finish', { id: r.id, score, total: r.ids.length, passed: score >= PASS }).catch(() => {});
+    api('/exam/finish', { id: r.id, score, total: r.ids.length, passed: score >= pass }).catch(() => {});
     finishing.current = false;
   };
   const left = run ? Math.max(0, Math.round((run.end - now) / 1000)) : 0;
@@ -62,7 +70,7 @@ export function Exam({ active }: { active: boolean }) {
       save('examNonce', '');
       setCoins(r.lc);
       setDone(null);
-      setRun({ id: r.id, ids: draw(), ans: {}, end: Date.now() + MIN * 60e3, i: 0 });
+      setRun({ id: r.id, ids: draw(N), ans: {}, end: Date.now() + MIN * 60e3, i: 0, pass: PASS });
       trackExam.start(N, MIN);
       window.scrollTo({ top: 0 });
     } catch (e) { await onErr(e); refresh(); }
@@ -108,7 +116,7 @@ export function Exam({ active }: { active: boolean }) {
 
   /* ---------- 成绩 ---------- */
   if (done) {
-    const pass = done.score >= PASS, wrongIds = done.ids.filter((id) => done.ans[id] !== qById(id)?.a);
+    const pass = done.score >= done.pass, wrongIds = done.ids.filter((id) => done.ans[id] !== qById(id)?.a);
     const pct = done.score / done.ids.length, C = 2 * Math.PI * 52;
     return (
       <div className="page">
@@ -119,7 +127,7 @@ export function Exam({ active }: { active: boolean }) {
             <div className="big-score">{done.score}<small>/{done.ids.length}</small></div>
           </div>
           <div className="badge">{pass ? t('passed') : t('failed')}</div>
-          <p className="muted">{t('scoreLine', { c: done.score, t: done.ids.length, p: PASS })}</p>
+          <p className="muted">{t('scoreLine', { c: done.score, t: done.ids.length, p: done.pass })}</p>
           <div className="row2">
             {wrongIds.length > 0 && <button className="btn secondary" onClick={() => setReview(!review)}>{t('reviewWrong')} · {wrongIds.length}</button>}
             <button className="btn primary" onClick={() => { setDone(null); }}>{t('again')}</button>
@@ -149,6 +157,10 @@ export function Exam({ active }: { active: boolean }) {
           <div><b>{N}</b><span>{t('uQ')}</span></div>
           <div><b>{MIN}</b><span>{t('uMin')}</span></div>
           <div><b>{PASS}</b><span>{t('uPass')}</span></div>
+        </div>
+        <div className="field-row">
+          <span className="muted small">{t('examFmt')}</span>
+          <Seg value={fmt} onChange={(v) => { setFmt(v); save('fmt', v); }} items={[{ v: 'new', label: t('fmtNew') }, { v: 'old', label: t('fmtOld') }]} />
         </div>
         <div className="field-row">
           <span className="muted small">{t('examLang')}</span>
