@@ -109,9 +109,12 @@ export function countAnswer(): number | null {
   return n === at[blk] ? n : null;
 }
 
-export const loginUrl = () => (location.hostname.endsWith('luckylab.cc') ? 'https://luckylab.cc/login?next=' : '/__devlogin?next=') + encodeURIComponent(location.href);
-export const walletUrl = () => 'https://luckylab.cc/wallet?next=' + encodeURIComponent(location.href);
-export const accountUrl = () => 'https://luckylab.cc/account?next=' + encodeURIComponent(location.href);
+// 登录只在 kpp.luckylab.cc 上有效（LuckyLab 的登录 Cookie 只发给 *.luckylab.cc）；workers.dev 等其他地址登录后回到正式地址。本机开发走假登录
+const isLocal = () => /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+const canonHref = () => (location.hostname.endsWith('luckylab.cc') ? location.href : 'https://kpp.luckylab.cc' + location.pathname + location.search + location.hash);
+export const loginUrl = () => (isLocal() ? '/__devlogin?next=' + encodeURIComponent(location.href) : 'https://luckylab.cc/login?next=' + encodeURIComponent(canonHref()));
+export const walletUrl = () => 'https://luckylab.cc/wallet?next=' + encodeURIComponent(canonHref());
+export const accountUrl = () => 'https://luckylab.cc/account?next=' + encodeURIComponent(canonHref());
 export const nonce = () => Math.random().toString(36).slice(2, 12) + Date.now().toString(36);
 export const lang = getLang;
 
