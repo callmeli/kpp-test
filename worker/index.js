@@ -6,6 +6,7 @@
 import SEED from './bank.json';
 
 const APP = 'kpp';
+const CANON_HOST = 'kpp.luckylab.cc';
 // 价格（幸运币）。前端从 /api/me 读同一份
 export const ECON = {
   exam: 20,          // 每场模拟考试
@@ -357,6 +358,8 @@ export default {
       const next = url.searchParams.get('next') || '/';
       return new Response(null, { status: 302, headers: { location: next.startsWith('http://localhost') || next.startsWith('http://127.0.0.1') || next.startsWith('/') ? next : '/', 'set-cookie': 'dev_uid=tester; path=/; max-age=86400; samesite=lax' } });
     }
+    // workers.dev 地址：LuckyLab 的登录 Cookie 只发给 *.luckylab.cc，在这里登录不了，网页一律转到正式地址（接口照常可用）
+    if (url.hostname.endsWith('.workers.dev') && req.method === 'GET') return Response.redirect('https://' + CANON_HOST + url.pathname + url.search, 302);
     // 老的 GitHub Pages 路径 /KPP-Test/... → 根目录
     if (url.pathname.startsWith('/KPP-Test')) return Response.redirect(url.origin + (url.pathname.slice(9) || '/') + url.search, 301);
     return env.ASSETS.fetch(req);
