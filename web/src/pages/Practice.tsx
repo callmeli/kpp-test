@@ -64,7 +64,7 @@ export function Practice() {
   return (
     <div className="page has-dock">
       <header className="top">
-        {redo ? <button className="link" onClick={() => setPracticeIds(null)}><Icon n="back" /> {t('wrongSet')}</button> : <h1><img src="/icon.svg" width={26} height={26} alt="" /> {t('appName')}</h1>}
+        {redo ? <button className="link" onClick={() => setPracticeIds(null)}><Icon n="back" /> {t('wrongSet')}</button> : <h1><img src="/icon.svg" width={28} height={28} alt="" /> {t('appName')}</h1>}
         <CoinPill />
       </header>
 
@@ -74,13 +74,13 @@ export function Practice() {
             <Icon n="filter" /> <b>{t(sec === 'all' ? 'secAll' : 'sec' + sec)}</b><span>{t('mode' + mode[0].toUpperCase() + mode.slice(1))}</span><Icon n="down" />
           </button>
         )}
-        {!redo && <span className="acc"><b>{acc}%</b> {t('statAcc')} · {done}/{bank().length}</span>}
+        {!redo && <span className="acc">{t('statAcc')} <b>{acc}%</b></span>}
       </div>
       {list.length > 0 && <div className="bar" aria-hidden="true"><i style={{ width: `${(Math.min(i + (picked ? 1 : 0), list.length) / list.length) * 100}%` }} /></div>}
 
       {q ? (
         <div className="q-card" key={q.id}>
-          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length}`} />
+          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length}`} onNum={() => setJump(true)} />
         </div>
       ) : (
         <div className="card empty">
@@ -91,19 +91,12 @@ export function Practice() {
       )}
 
       {q && (
-        <nav className={'dock' + (picked ? (ok ? ' ok' : ' no') : '')}>
-          {picked ? (
-            <>
-              <div className="dock-msg"><span className="dock-ic"><Icon n={ok ? 'check' : 'x'} /></span><span>{ok ? t('correct') : t('wrongAns', { a: q.a })}</span></div>
-              <button className="btn solid" onClick={() => go(1)}>{t('next')} <Icon n="right" /></button>
-            </>
-          ) : (
-            <>
-              <button className="ic-btn" disabled={i === 0} onClick={() => go(-1)} aria-label={t('prev')}><Icon n="left" /></button>
-              <button className="pos" onClick={() => setJump(true)}><b>{i + 1}</b> / {list.length}</button>
-              <button className="ic-btn" onClick={() => go(1)} aria-label={t('next')}><Icon n="right" /></button>
-            </>
-          )}
+        <nav className="dock" aria-live="polite">
+          {picked && <p className={'dock-msg ' + (ok ? 'ok' : 'no')}><Icon n={ok ? 'check' : 'x'} size={18} /> {ok ? t('correct') : t('wrongAns', { a: q.a })}</p>}
+          <div className="btn-row">
+            <button className="btn secondary" disabled={i === 0} onClick={() => go(-1)}>{t('prev')}</button>
+            <button className={'btn ' + (picked ? 'primary' : 'secondary')} onClick={() => go(1)}>{t('next')}</button>
+          </div>
         </nav>
       )}
 
@@ -153,11 +146,11 @@ function TipSheet({ n, onClose, loggedIn }: { n: number | null; onClose: () => v
       {loggedIn ? (
         <div className="tips">
           {(me?.econ.tips || [10, 30, 66]).map((a) => (
-            <button key={a} className="btn tip" disabled={busy} onClick={() => tip(a)}><CoinIcon size={18} /> {a}</button>
+            <button key={a} className="btn secondary" disabled={busy} onClick={() => tip(a)}><CoinIcon size={18} /> {a}</button>
           ))}
         </div>
       ) : <a className="btn primary block" href={loginUrl()}>{t('login')} · {t('tip')}</a>}
-      <button className="btn ghost block" onClick={onClose}>{t('tipLater')}</button>
+      <button className="btn secondary block" onClick={onClose}>{t('tipLater')}</button>
     </Sheet>
   );
 }

@@ -10,9 +10,10 @@ type Props = {
   noTrans?: boolean;            // 考试不显示翻译
   onPick: (l: string) => void;
   num?: string;
+  onNum?: () => void;         // 点题号（刷题：跳题）
 };
 
-export function QuestionView({ q, picked, reveal, noTrans, onPick, num }: Props) {
+export function QuestionView({ q, picked, reveal, noTrans, onPick, num, onNum }: Props) {
   const { set } = useApp();
   const ql = set.ql, tr = noTrans || set.tr === ql ? 'off' : set.tr;
   const [zoom, setZoom] = useState<string | null>(null);
@@ -24,7 +25,7 @@ export function QuestionView({ q, picked, reveal, noTrans, onPick, num }: Props)
   return (
     <div className="qv">
       <div className="q-head">
-        <span className="q-sec"><b>{t('sec' + q.s)}</b>{num && <i>{num}</i>}</span>
+        <span className="q-sec">{num && (onNum ? <button onClick={onNum}>{num}</button> : <b>{num}</b>)}<span>{t('sec' + q.s)}</span></span>
         <button className="link small" onClick={() => setRep(true)}>{t('report')}</button>
       </div>
       <h2 className="q-text">{txOr(q.t, ql)}</h2>

@@ -44,7 +44,7 @@ export function Exam({ active }: { active: boolean }) {
   const finish = async (r: Run, timeUp = false) => {
     if (finishing.current) return; finishing.current = true;
     const score = r.ids.filter((id) => r.ans[id] === qById(id)?.a).length;
-    r.ids.forEach((id) => { const q = qById(id); if (q && r.ans[id] !== q.a && set.autoWrong) addWrong(id, r.ans[id] || ''); });
+    r.ids.forEach((id) => { const q = qById(id); if (q && r.ans[id] && r.ans[id] !== q.a && set.autoWrong) addWrong(id, r.ans[id]);   // 没作答的不算错题 });
     setDone({ ids: r.ids, ans: r.ans, score, timeUp }); setRun(null); setReview(false);
     trackExam.submit(score, score >= PASS, r.ids.length);
     if (timeUp) toast(t('timeUp'));
@@ -78,8 +78,8 @@ export function Exam({ active }: { active: boolean }) {
       <div className="page has-dock exam-run">
         <header className="top">
           <button className="ic-btn" aria-label={t('examQuit')} onClick={async () => { if (await confirmBox(t('examQuitAsk'), t('examQuit'), true)) setRun(null); }}><Icon n="x" /></button>
-          <span className={'timer' + (left < 300 ? ' warn' : '')}><Icon n="clock" size={18} /> {mmss(left)}</span>
-          <button className="btn primary sm" onClick={submit}>{t('examSubmit')}</button>
+          <span className={'timer' + (left < 300 ? ' warn' : '')}>{mmss(left)}</span>
+          <button className="btn secondary sm" onClick={() => setSheet(true)}><Icon n="grid" size={16} /> {answered}/{run.ids.length}</button>
         </header>
         <div className="bar"><i style={{ width: `${(answered / run.ids.length) * 100}%` }} /></div>
         <div className="q-card" key={q.id}>
@@ -90,10 +90,11 @@ export function Exam({ active }: { active: boolean }) {
             }} />
         </div>
         <nav className="dock">
-          <button className="ic-btn" disabled={run.i === 0} onClick={() => setI(run.i - 1)} aria-label={t('prev')}><Icon n="left" /></button>
-          <button className="pos" onClick={() => setSheet(true)}><Icon n="grid" size={18} /> <b>{answered}</b> / {run.ids.length}</button>
-          {last ? <button className="btn primary sm" onClick={submit}>{t('examSubmit')}</button>
-            : <button className="ic-btn" onClick={() => setI(run.i + 1)} aria-label={t('next')}><Icon n="right" /></button>}
+          <div className="btn-row">
+            <button className="btn secondary" disabled={run.i === 0} onClick={() => setI(run.i - 1)}>{t('prev')}</button>
+            {last || answered === run.ids.length ? <button className="btn primary" onClick={submit}>{t('examSubmit')}</button>
+              : <button className="btn secondary" onClick={() => setI(run.i + 1)}>{t('next')}</button>}
+          </div>
         </nav>
         <Sheet open={sheet} onClose={() => setSheet(false)} title={`${answered} / ${run.ids.length}`}>
           <div className="grid-nums">
@@ -120,7 +121,7 @@ export function Exam({ active }: { active: boolean }) {
           <div className="badge">{pass ? t('passed') : t('failed')}</div>
           <p className="muted">{t('scoreLine', { c: done.score, t: done.ids.length, p: PASS })}</p>
           <div className="row2">
-            {wrongIds.length > 0 && <button className="btn ghost" onClick={() => setReview(!review)}>{t('reviewWrong')} · {wrongIds.length}</button>}
+            {wrongIds.length > 0 && <button className="btn secondary" onClick={() => setReview(!review)}>{t('reviewWrong')} · {wrongIds.length}</button>}
             <button className="btn primary" onClick={() => { setDone(null); }}>{t('again')}</button>
           </div>
         </div>
@@ -143,19 +144,19 @@ export function Exam({ active }: { active: boolean }) {
     <div className="page">
       <header className="top"><h1>{t('examTitle')}</h1><CoinPill /></header>
       <div className="card hero-exam">
-        <p className="eyebrow">{t('examLike')}</p>
+        <h2 className="h2">{t('examLike')}</h2>
         <div className="tiles">
-          <div><Icon n="doc" size={22} /><b>{N}</b><span>{t('uQ')}</span></div>
-          <div><Icon n="clock" size={22} /><b>{MIN}</b><span>{t('uMin')}</span></div>
-          <div><Icon n="target" size={22} /><b>{PASS}</b><span>{t('uPass')}</span></div>
+          <div><b>{N}</b><span>{t('uQ')}</span></div>
+          <div><b>{MIN}</b><span>{t('uMin')}</span></div>
+          <div><b>{PASS}</b><span>{t('uPass')}</span></div>
         </div>
         <div className="field-row">
           <span className="muted small">{t('examLang')}</span>
           <Seg value={set.ql} onChange={(v) => setSet({ ql: v })} items={[{ v: 'en', label: 'English' }, { v: 'ms', label: 'Bahasa Melayu' }]} />
         </div>
         {me?.user ? (
-          <button className="btn primary block lg" disabled={busy || bank().length < N} onClick={start}>{t('examGo')} <span className="price"><CoinIcon size={18} /> {price}</span></button>
-        ) : <a className="btn primary block lg" href={loginUrl()}>{t('login')}</a>}
+          <button className="btn primary block" disabled={busy || bank().length < N} onClick={start}>{t('examGo')} · <CoinIcon size={18} /> {price}</button>
+        ) : <a className="btn primary block" href={loginUrl()}>{t('login')}</a>}
         <p className="muted small">{me?.user ? t('examNoTrans') : t('loginHint')}</p>
       </div>
       {hist.length > 0 && (

@@ -55,8 +55,8 @@ export function Confirmer() {
     <Sheet open={!!c} onClose={() => done(false)}>
       <p className="confirm-msg">{c?.msg}</p>
       <div className="row2">
-        <button className="btn ghost" onClick={() => done(false)}>{t('cancel')}</button>
-        <button className={'btn ' + (c?.danger ? 'danger' : 'primary')} onClick={() => done(true)}>{c?.ok}</button>
+        <button className="btn secondary" onClick={() => done(false)}>{t('cancel')}</button>
+        <button className={'btn primary' + (c?.danger ? ' danger' : '')} onClick={() => done(true)}>{c?.ok}</button>
       </div>
     </Sheet>
   );

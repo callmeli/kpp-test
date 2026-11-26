@@ -104,7 +104,7 @@ function WrongSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
       ) : list.length === 0 ? <p className="center">{t('wrongEmpty')}</p> : (
         <>
           <div className="row2">
-            <button className="btn ghost" onClick={async () => { if (await confirmBox(t('wrongClearAsk', { n: list.length }), t('wrongClear'), true)) { clearWrong(); setList([]); } }}>{t('wrongClear')}</button>
+            <button className="btn secondary" onClick={async () => { if (await confirmBox(t('wrongClearAsk', { n: list.length }), t('wrongClear'), true)) { clearWrong(); setList([]); } }}>{t('wrongClear')}</button>
             <button className="btn primary" onClick={() => { setPracticeIds(list.map((x) => x.qid)); go('practice'); onClose(); }}>{t('wrongPractice')} ({list.length})</button>
           </div>
           <ul className="wrong-list">

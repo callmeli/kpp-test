@@ -46,7 +46,7 @@ export function Schools({ active }: { active: boolean }) {
   return (
     <div className="page">
       <header className="top"><h1>{t('schoolsTitle')}</h1><CoinPill /></header>
-      <p className="lead-box">{t('schoolsWhy')}</p>
+      <p className="lead">{t('schoolsWhy')}</p>
       <div className="filters">
         <select className="input" value={state} onChange={(e) => setState(e.target.value)} aria-label={t('state')}>
           <option value="">{t('allStates')}</option>
@@ -55,7 +55,7 @@ export function Schools({ active }: { active: boolean }) {
         <input className="input" placeholder={t('searchSchool')} value={qq} onChange={(e) => setQq(e.target.value)} />
       </div>
 
-      <button className="btn accent block" onClick={() => setForm({})}>
+      <button className="btn secondary block" onClick={() => setForm({})}>
         {canEarn ? <><CoinIcon size={18} /> {t('shareMine', { n: econ!.report })}</> : t('shareMineNoReward')}
       </button>
 
@@ -127,7 +127,7 @@ function SchoolSheet({ id, onClose, onShare }: { id: string | null; onClose: () 
               {me?.user ? <button className="btn primary block" disabled={busy || !d.n} onClick={unlock}><CoinIcon size={18} /> {t('unlockSchool', { n: d.price })}</button> : <LoginCard />}
             </div>
           )}
-          <button className="btn ghost block" onClick={() => onShare(d.school.id)}>{t('shareMineNoReward')}</button>
+          <button className="btn secondary block" onClick={() => onShare(d.school.id)}>{t('shareMineNoReward')}</button>
         </>
       )}
     </Sheet>
