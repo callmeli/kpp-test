@@ -1,0 +1,14 @@
+{
+  "name": "kpp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cd web && npm ci && npm run build",
+    "bank": "python3 scripts/build_bank.py",
+    "dev": "wrangler dev --var DEV_LK:1",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.155.0"
+  }
+}

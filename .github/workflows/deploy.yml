@@ -1,10 +1,9 @@
 name: Deploy to GitHub Pages
 
+# 2026-11 起正式地址是 kpp.luckylab.cc（Cloudflare Workers，见 README）。前端改成从 /api/bank 取题库，GitHub Pages 跑不了接口，
+# 这里不再自动部署（旧的 Pages 版本保持原样，不受影响）
 on:
-  push:
-    branches:
-      - main  # 或者你的主分支名称，如 master
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
 
 permissions:
   contents: read

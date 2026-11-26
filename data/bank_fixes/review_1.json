@@ -1,0 +1,2150 @@
+[
+ {
+  "id": "section-a-a-question-set-1-q1",
+  "ms": {
+   "q": "Apakah langkah yang boleh anda ambil untuk mengelakkan kemalangan di kawasan ini?",
+   "o": {
+    "A": "Perlahankan kenderaan dan beralih ke lorong kanan",
+    "B": "Perlahankan kenderaan dan pasang lampu tinggi",
+    "C": "Perlahankan kenderaan dan gunakan gear rendah"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q2",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Zon teksi",
+    "B": "Kawasan letak kereta",
+    "C": "Perhentian bas"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q3",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kenderaan yang melebihi had berat dilarang masuk",
+    "B": "Kenderaan yang melebihi had tinggi dilarang masuk",
+    "C": "Kenderaan yang melebihi had lebar dilarang masuk"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q4",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lencongan di hadapan",
+    "B": "Papan tanda selekoh ke kanan",
+    "C": "Papan tanda selekoh ke kiri"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q5",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Ikut arah anak panah",
+    "B": "Bonggol di hadapan",
+    "C": "Jalan sempit di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "前方有路拱"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q6",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan licin di hadapan",
+    "B": "Lorong mendaki",
+    "C": "Jalan dua hala berpembahagi"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "爬坡车道",
+    "C": "双向分隔道路"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q7",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Motosikal dibenarkan di jalan ini",
+    "B": "Motosikal dilarang memasuki jalan ini",
+    "C": "Tempat letak motosikal sahaja"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "这条路允许摩哆通行",
+    "B": "禁止摩哆驶入这条路",
+    "C": "仅限摩哆停放"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q8",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Stesen minyak",
+    "B": "Cuci kereta",
+    "C": "Tandas"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q9",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan sempit di hadapan",
+    "B": "Jambatan sempit di hadapan",
+    "C": "Lorong kanan menyempit di hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q10",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kawasan lintasan murid sekolah",
+    "B": "Lintasan pejalan kaki buta",
+    "C": "Lintasan pejalan kaki warga emas"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "学童过路区",
+    "C": "老人过路处"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q11",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kerja jalan di hadapan",
+    "B": "Kawasan pengapit roda",
+    "C": "Zon tunda"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "锁车轮区",
+    "C": "拖车区"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q12",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Zon Letak Kereta'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q13",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Jalan Dua Hala'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q14",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Hanya jenis kenderaan ini sahaja tidak dibenarkan di jalan ini'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q15",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Lorong Mendaki'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“爬坡车道”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q16",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Maklumat Jarak'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择表示“距离信息”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q17",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Dilarang Membuat Pusingan U'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“禁止掉头”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q18",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Perlahankan kenderaan dan beri laluan kepada kenderaan dari kanan",
+    "B": "Perlahankan kenderaan dan beri laluan kepada pejalan kaki",
+    "C": "Perlahankan kenderaan dan beri laluan kepada kenderaan yang lebih kecil"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q19",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kawasan tanah runtuh, teruskan perjalanan dengan berhati-hati",
+    "B": "Kawasan perkhemahan, teruskan dengan berhati-hati",
+    "C": "Zon kemalangan, teruskan dengan berhati-hati"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q20",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lintasan pejalan kaki buta",
+    "B": "Lintasan pejalan kaki",
+    "C": "Lintasan pejalan kaki kurang upaya"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q21",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lintasan orang kurang upaya",
+    "B": "Lintasan pejalan kaki buta",
+    "C": "Tempat duduk khas untuk orang kurang upaya"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q22",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Papan tanda selekoh ke kiri",
+    "B": "Papan tanda selekoh ke kanan",
+    "C": "Selekoh berbahaya di hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q23",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi pernyataan berikut: i) Perlahankan kenderaan ii) Tukar ke gear rendah iii) Selekoh berbahaya di hadapan",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q24",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Basikal dilarang berhenti",
+    "B": "Basikal dilarang di lorong ini",
+    "C": "Hanya basikal dibenarkan di lorong ini"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-1-q25",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi pernyataan berikut: i) Beri isyarat awal ii) Perhatikan cermin pandang belakang iii) Buat pusingan U",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "为以下陈述选择正确的路标：i) 提早打方向灯 ii) 观察后视镜 iii) 掉头"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q1",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Pusat Rawatan Veterinar",
+    "B": "Persatuan Bulan Sabit Merah",
+    "C": "Klinik Kesihatan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Same red-crescent sign as set-2-q20 but answered 'Health Clinic' there vs 'No horn' in q20; both consistent with KPP book (hospital/clinic sign).",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-2-q2",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Dilarang Menunggu'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“禁止等候”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Malaysian X-cross sign = no stopping/waiting; single slash (option B) = no parking. Consistent with set-3-q5.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-2-q3",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Terus atau ke kanan sahaja'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“只准直行或右转”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q4",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Tanah Runtuh'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q5",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Simpang Tiga (simpang-T)'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q6",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kenderaan yang melebihi had tinggi yang ditetapkan tidak dibenarkan melalui jalan ini",
+    "B": "Kenderaan yang melebihi had berat yang ditetapkan dilarang melalui jalan ini",
+    "C": "Kenderaan yang melebihi had lebar yang ditetapkan tidak dibenarkan melalui jalan ini"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q7",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Perlahankan kenderaan dan beri laluan kepada kenderaan dari arah bertentangan",
+    "B": "Perlahankan kenderaan dan beri laluan kepada kenderaan di lorong kanan",
+    "C": "Dilarang masuk"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Road-narrows sign; KPP answer give way to oncoming traffic.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-2-q8",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Perlahankan kenderaan, tukar ke gear neutral dan teruskan perjalanan",
+    "B": "Perlahankan kenderaan, tukar ke gear rendah dan teruskan perjalanan",
+    "C": "Perlahankan kenderaan, tukar ke gear tinggi dan teruskan perjalanan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q9",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jangan teruskan",
+    "B": "Dilarang membelok ke kiri",
+    "C": "Dilarang membelok ke kanan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q10",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Tiada lorong kiri",
+    "B": "Ikut kanan",
+    "C": "Dilarang memotong di kawasan ini"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q11",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan licin",
+    "B": "Jalan tidak rata di hadapan",
+    "C": "Bahu jalan lembut di hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q12",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lorong kiri ditutup",
+    "B": "Lorong tengah ditutup",
+    "C": "Lorong kanan berakhir"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "中间车道封闭"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q13",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Tempat letak lori",
+    "B": "Stesen timbang",
+    "C": "Kawasan menunggu lori"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q14",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi pernyataan berikut: i) Perlahankan kenderaan ii) Pandu dengan berhati-hati iii) Bersedia untuk berhenti pada bila-bila masa",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q15",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu apabila melalui jalan yang mempunyai papan tanda jalan raya ini?",
+   "o": {
+    "A": "Perlahankan kenderaan, berhati-hati dan jalan terus",
+    "B": "Perlahankan kenderaan, berwaspada dan ikut kenderaan lain",
+    "C": "Perlahankan kenderaan, berhati-hati dan patuhi arahan pengawal lalu lintas"
+   }
+  },
+  "zh_fix": {
+   "q": "驾驶员经过设有这些路标的道路时应该怎样做？"
+  },
+  "en_fix": {
+   "q": "What should a driver do when passing through roads with these road signs?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q16",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Papan tanda berhenti di hadapan",
+    "B": "Jalan tidak rata di hadapan",
+    "C": "Papan tanda selekoh tajam"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "前方有停车（BERHENTI）标志"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q17",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Jalan Mati'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“死路”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q18",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Persimpangan Empat di Hadapan'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q19",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Kenderaan yang melebihi had tinggi tidak dibenarkan masuk'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q20",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Dilarang membunyikan hon",
+    "B": "Beri laluan kepada pejalan kaki",
+    "C": "Letak kenderaan anda di pintu masuk hospital"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "禁止鸣笛"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Hospital sign; 'No horn' is best of the options (KPP convention).",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-2-q21",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Berhenti sebelum garisan putih",
+    "B": "Awas",
+    "C": "Selekoh tajam di hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q22",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Sehala sahaja",
+    "B": "Lorong kiri ditutup",
+    "C": "Lorong kanan ditutup"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "单行道",
+    "B": "左车道封闭"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Left lane closed"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q23",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Berhenti sebelum garisan putih",
+    "B": "Berhenti selepas garisan putih",
+    "C": "Berhenti untuk kanak-kanak melintas"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q24",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Beri isyarat jika anda perlu membelok ke kiri",
+    "B": "Jangan beri isyarat jika anda perlu membelok ke kanan",
+    "C": "Beri isyarat jika anda hendak membelok ke kanan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "若要左转，须打方向灯",
+    "B": "若要右转，不必打方向灯",
+    "C": "若要右转，须打方向灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-2-q25",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan licin di hadapan",
+    "B": "Bahu jalan lembut",
+    "C": "Sila nyatakan di hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Answer OK; option C 'Please onstate ahead' is garbled English (meaning unclear), BM/zh kept literal.",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q1",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan sempit di hadapan",
+    "B": "Jalan bercabang di hadapan",
+    "C": "Simpang tirus ke kiri"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q2",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu apabila melihat papan tanda jalan raya ini?",
+   "o": {
+    "A": "Memandu di lorong yang sesuai",
+    "B": "Memecut",
+    "C": "Memberhentikan kenderaan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q3",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi pernyataan berikut: i) Rancang laluan ii) Perlahankan kenderaan iii) Beri keutamaan kepada kenderaan dari kanan",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q4",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Kenderaan dilarang masuk'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q5",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Dilarang Meletak Kenderaan'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q6",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Had Laju Tamat'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q7",
+  "ms": {
+   "q": "Di manakah anda boleh melihat papan tanda jalan raya ini?",
+   "o": {
+    "A": "Kawasan berbukit",
+    "B": "Tepi pantai",
+    "C": "Kawasan bandar"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "q": "Where can you see these road signs?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q8",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kenderaan tidak dibenarkan meletak kenderaan dalam lingkungan 800 meter di sini",
+    "B": "Telefon awam di hadapan",
+    "C": "Bangunan Telekom di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "前方有电信大楼"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q9",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Perlahankan kenderaan, pandu dengan berhati-hati dan jangan memotong",
+    "B": "Perlahankan kenderaan, pandu dengan berhati-hati dan jangan buat pusingan U",
+    "C": "Perlahankan kenderaan, pandu dengan berhati-hati dan bersedia untuk memotong"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q10",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lintasan rel automatik di hadapan",
+    "B": "Kawasan lintasan lembu",
+    "C": "Papan tanda berhenti di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "牛只穿越区"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Automatic level crossing in front",
+    "C": "Stop sign in front"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q11",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Selekoh ke kiri",
+    "B": "Sehala sahaja",
+    "C": "Lencongan tajam laluan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "向左弯",
+    "B": "单行道",
+    "C": "路线急转改道"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q12",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan berliku di hadapan",
+    "B": "Bonggol di hadapan",
+    "C": "Sila gunakan gear tinggi"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "前方弯曲道路",
+    "B": "前方有路拱"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Winding road in front"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q13",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Motosikal tidak dilarang memasuki jalan ini",
+    "B": "Motosikal dilarang meletak kenderaan di sini",
+    "C": "Hanya motosikal tidak dibenarkan memasuki jalan ini"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "这条路不禁止摩哆进入",
+    "B": "这里禁止停放摩哆",
+    "C": "仅禁止摩哆驶入这条路"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "C": "Only motorcycles are not allowed to enter this road"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q14",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Simpang ke penjuru kanan",
+    "B": "Selekoh ke kanan",
+    "C": "Selekoh ke kiri"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "右侧路口",
+    "B": "向右弯",
+    "C": "向左弯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q15",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Selekoh ke kanan",
+    "B": "Simpang ke kanan",
+    "C": "Simpang ke penjuru kiri"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "向右弯",
+    "B": "右侧路口",
+    "C": "左侧路口"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q16",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Berhenti dan abaikan kenderaan di belakang",
+    "B": "Memecut dan teruskan seperti biasa",
+    "C": "Perlahankan kenderaan, pandu di lorong yang betul dan patuhi isyarat lampu isyarat"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "停车，不理会后方车辆",
+    "B": "加速并照常行驶"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q17",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Pusingan U'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q18",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi pernyataan berikut: i) Perlahankan kenderaan ii) Berhenti sebelum garisan putih iii) Lihat ke kiri dan kanan iv) Teruskan perjalanan jika tiada kenderaan lain",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q19",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Had Laju Tamat'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Duplicate of set-3-q6 (same question and same answer).",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q20",
+  "ms": {
+   "q": "Apabila berada di mana-mana kawasan ini, pemandu perlu",
+   "o": {
+    "A": "Menambah kelajuan kenderaan",
+    "B": "Memperlahankan kenderaan",
+    "C": "Memasang lampu amaran bahaya"
+   }
+  },
+  "zh_fix": {
+   "q": "驾驶员在这些区域时应该"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q21",
+  "ms": {
+   "q": "Di manakah biasanya anda melihat papan tanda jalan raya ini?",
+   "o": {
+    "A": "Zon pembinaan",
+    "B": "Terowong",
+    "C": "Kawasan perumahan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "住宅区"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q22",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi pernyataan berikut: i) Perlahankan kenderaan ii) Beri isyarat untuk membelok iii) Boleh membelok ke kiri atau ke kanan",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q23",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu apabila melalui jalan mengikut papan tanda jalan raya ini?",
+   "o": {
+    "A": "Perlahankan kenderaan, tukar ke gear rendah dan ikut kanan",
+    "B": "Perlahankan kenderaan, pandu dengan berhati-hati dan jangan memotong",
+    "C": "Bunyikan hon dan teruskan perjalanan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Hazard/obstruction marker post; answer follows KPP.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-3-q24",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Berhenti dan tunggu sehingga pintu pagar kereta api dibuka",
+    "B": "Perlahankan kenderaan dan teruskan perjalanan",
+    "C": "Perlahankan kenderaan dan teruskan perjalanan jika tiada kereta api melintasi kawasan ini"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "停车并等待铁路闸门打开"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-3-q25",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Menunjukkan maklumat kawasan",
+    "B": "Menunjukkan maklumat keadaan jalan",
+    "C": "Menunjukkan maklumat arah"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q1",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Sehala sahaja",
+    "B": "Lencongan",
+    "C": "Berhenti"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "单行道",
+    "B": "改道"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q2",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Simpang tiga di hadapan",
+    "B": "Jalan mati di hadapan",
+    "C": "Persimpangan empat di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "前方死路"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q3",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kenderaan yang beratnya melebihi 3.5 meter dilarang masuk",
+    "B": "Kenderaan yang lebarnya melebihi 3.5 meter dilarang masuk",
+    "C": "Kenderaan yang tingginya melebihi 3.5 meter tidak dibenarkan masuk"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q4",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Selekoh ke kanan",
+    "B": "Selekoh ke kiri di hadapan",
+    "C": "Lengkungan ke kiri di hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q5",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Simpang sehala di hadapan",
+    "B": "Simpang tiga di hadapan",
+    "C": "Simpang dua hala di hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q6",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Perlahankan kenderaan dan beri laluan kepada kenderaan dari kanan",
+    "B": "Perlahankan kenderaan, jangan memotong dan pandu dengan berhati-hati",
+    "C": "Perlahankan kenderaan dan beri laluan kepada kenderaan yang lebih kecil"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q7",
+  "ms": {
+   "q": "Tindakan yang perlu diambil oleh pemandu apabila menghampiri jalan yang mempunyai papan tanda ini ialah",
+   "o": {
+    "A": "Memecut dan memotong",
+    "B": "Perlahankan kenderaan dan gunakan gear tinggi",
+    "C": "Perlahankan kenderaan dan gunakan gear rendah"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q8",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Tukar ke gear rendah'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择表示“换低档”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q9",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Perlahankan kenderaan dan beri laluan kepada kenderaan dari kanan'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择表示“减速并让右方车辆先行”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q10",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Kawasan tanah runtuh, teruskan perjalanan dengan berhati-hati'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q11",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Kenderaan perlahan di lorong kiri dan kenderaan yang memotong di lorong kanan'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q12",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Perlahankan kenderaan, berhenti dan teruskan perjalanan apabila pintu pagar ditutup",
+    "B": "Perlahankan kenderaan, berhenti dan teruskan perjalanan apabila pintu pagar dibuka",
+    "C": "Lajukan kenderaan, berhenti dan teruskan perjalanan apabila pintu pagar dibuka"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "减速、停车，待闸门关闭时继续行驶",
+    "B": "减速、停车，待闸门打开时继续行驶",
+    "C": "加速、停车，待闸门打开时继续行驶"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q13",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Lintasan Pejalan Kaki'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q14",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Papan tanda tanah runtuh",
+    "B": "Papan tanda kawasan lintasan lembu",
+    "C": "Jalan tidak rata"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "牛只穿越区路标"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q15",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lalu lintas sehala",
+    "B": "Lalu lintas dua hala",
+    "C": "Lalu lintas tiga hala"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "单向交通",
+    "C": "三向交通"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q16",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan berliku, perlahankan kenderaan dan jangan memotong",
+    "B": "Jalan berliku, perlahankan kenderaan dan memotong",
+    "C": "Jalan berliku, lajukan kenderaan dan memotong"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q17",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Pembahagi jalan di hadapan",
+    "B": "Tukar ke gear tinggi",
+    "C": "Bahan binaan di tepi jalan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "前方有道路分隔带"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q18",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Kerja jalan sedang dijalankan",
+    "B": "Kenderaan dilarang masuk",
+    "C": "Dilarang berhenti"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "禁止停车"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q19",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Beri isyarat untuk membelok",
+    "B": "Dilarang berhenti",
+    "C": "Jangan beri keutamaan kepada kenderaan di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "禁止停车"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "C": "Do not give priority to vehicle in front"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q20",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Beri keutamaan kepada kenderaan dari kanan'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择表示“让右方驶来的车辆先行”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q21",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Beri isyarat untuk membelok'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择表示“打方向灯示意转弯”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q22",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Stesen Bas'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“巴士站”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q23",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Maklumat arah dan maklumat ke lebuh raya'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择表示“方向信息及前往大道的信息”的正确路标"
+  },
+  "en_fix": {
+   "q": "Pick the CORRECT road sign for 'Direction information and information to the highway'"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q24",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila melihat papan tanda jalan raya ini?",
+   "o": {
+    "A": "Tambah kelajuan kenderaan",
+    "B": "Tukar ke gear rendah",
+    "C": "Tukar ke gear lebih tinggi"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-4-q25",
+  "ms": {
+   "q": "Berapakah jarak ke Kuantan?",
+   "o": {
+    "A": "69 km",
+    "B": "119 km",
+    "C": "193 km"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q1",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Hanya jenis kenderaan ini dibenarkan di kawasan ini",
+    "B": "Hanya jenis kenderaan ini tidak dibenarkan di kawasan ini",
+    "C": "Hanya jenis kenderaan ini boleh dipandu di jalan ini"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "o": {
+    "B": "Only these types of vehicles are not permitted in this area"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q2",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Jalan menyempit di hadapan",
+    "B": "Pembahagi jalan dua hala berakhir di hadapan",
+    "C": "Simpang ke kanan di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "前方双向道路分隔带结束",
+    "C": "前方右侧路口"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q3",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila melihat papan tanda jalan raya ini?",
+   "o": {
+    "A": "Pusingan U dibenarkan",
+    "B": "Gunakan gear rendah",
+    "C": "Gunakan gear tinggi"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q4",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu apabila melihat papan tanda jalan raya ini?",
+   "o": {
+    "A": "Pusingan U dibenarkan",
+    "B": "Membelok ke kiri sahaja",
+    "C": "Membelok ke kanan sahaja"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "q": "What should a driver do when he/she sees this road sign?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q5",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Pembahagi jalan di hadapan",
+    "B": "Pembahagi jalan dua hala berakhir",
+    "C": "Jalan menyempit di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "前方有道路分隔带",
+    "B": "双向道路分隔带结束"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q6",
+  "ms": {
+   "q": "Semasa menunggang motosikal, anda menerima saman kerana melakukan kesalahan. Papan tanda jalan raya manakah yang telah anda langgar?",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "骑摩哆时，你因违规而收到传票。你违反了以下哪个路标？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Option C (no overtaking) could also apply to a motorcyclist; A is the motorcycle-specific intended answer.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-5-q7",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Semua kenderaan dibenarkan membuat pusingan U",
+    "B": "Semua kenderaan tidak dibenarkan membuat pusingan U",
+    "C": "Semua kenderaan dibenarkan membelok ke kiri"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q8",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lampu isyarat di hadapan",
+    "B": "Persimpangan di hadapan",
+    "C": "Halangan di hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "前方有障碍物"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Red-dot diamond = obstruction/hazard ahead.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-5-q9",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Jalan sempit di hadapan'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“前方道路狭窄”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q10",
+  "ms": {
+   "q": "Pilih papan tanda jalan raya yang BETUL bagi 'Simpang Berselang Kiri dan Kanan'.",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q11",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila melihat papan tanda jalan raya ini?",
+   "o": {
+    "A": "Jaga jarak",
+    "B": "Beri laluan kepada kenderaan dari kanan",
+    "C": "Memotong kenderaan lain"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "超车"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q12",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan raya ini.",
+   "o": {
+    "A": "Lampu isyarat di hadapan",
+    "B": "Polis di hadapan",
+    "C": "Patuhi had laju yang ditetapkan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "o": {
+    "A": "Traffic lights in front"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q13",
+  "ms": {
+   "q": "Apakah yang TIDAK boleh anda lakukan apabila melihat papan tanda jalan raya berikut?",
+   "o": {
+    "A": "Memotong",
+    "B": "Tukar ke gear lebih rendah",
+    "C": "Dilarang membuat pusingan U"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "超车"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ }
+]

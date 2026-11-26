@@ -1,0 +1,2204 @@
+[
+ {
+  "id": "section-a-a-question-set-5-q14",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan ini;",
+   "o": {
+    "A": "Lorong kanan licin",
+    "B": "Lorong kanan ditutup kepada lalu lintas",
+    "C": "Lorong kiri ditutup"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "右车道封闭"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Right lane is closed to traffic"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q15",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan ini;",
+   "o": {
+    "A": "Belok sahaja apabila ada kenderaan dari arah bertentangan",
+    "B": "Tambah kelajuan kenderaan",
+    "C": "Ikut arah anak panah"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q16",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila melihat papan tanda jalan ini?",
+   "o": {
+    "A": "Bunyikan hon jika ada orang buta melintas jalan",
+    "B": "Perlahankan dan hentikan kenderaan anda jika ada orang buta melintas jalan",
+    "C": "Terus memandu jika ada orang buta melintas jalan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q17",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan ini;",
+   "o": {
+    "A": "Zoo Negara di hadapan",
+    "B": "Haiwan liar melintas jalan",
+    "C": "Lembu melintas jalan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "前方国家动物园"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "National Zoo ahead"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q18",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Bulatan'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q19",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Terus atau ke kanan sahaja'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q20",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Kerja-kerja membaiki jalan'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q21",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Patuhi had laju yang ditetapkan'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q22",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Beri laluan kepada kenderaan dari arah bertentangan di sebelah kanan'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Sign A is actually \"road narrows on the left/lane ends\" (no explicit give-way-to-oncoming sign among options); A is best fit.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-a-a-question-set-5-q23",
+  "ms": {
+   "q": "Seorang pemandu menerima saman kerana membunyikan hon di dalam kawasan hospital. Papan tanda jalan yang manakah telah dilanggar oleh pemandu tersebut?",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q24",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Perlahankan kenderaan, berhenti dan teruskan perjalanan apabila pintu palang dibuka'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": {
+   "q": "选择“减速、停车，待闸门打开后才继续行驶”的正确路标"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-5-q25",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila melihat papan tanda jalan ini?",
+   "o": {
+    "A": "Bunyikan hon dan perlahankan kenderaan",
+    "B": "Matikan enjin kenderaan dan beri laluan kepada kanak-kanak yang melintas",
+    "C": "Hentikan kenderaan anda dan teruskan perjalanan apabila menerima isyarat jalan daripada pengawas lalu lintas"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "熄火并让过马路的儿童先行",
+    "C": "停车，待交通协管员发出通行信号后才继续行驶"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q1",
+  "ms": {
+   "q": "Berapakah jarak yang dibenarkan untuk meletak kenderaan anda di kawasan ini?",
+   "o": {
+    "A": "5 meter",
+    "B": "3 meter",
+    "C": "4 meter"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q2",
+  "ms": {
+   "q": "Di manakah papan tanda jalan ini boleh dilihat?",
+   "o": {
+    "A": "Kawasan bandar",
+    "B": "Sekolah",
+    "C": "Kawasan hospital"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "q": "Where can you see this road sign?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q3",
+  "ms": {
+   "q": "Di manakah papan tanda jalan SEMENTARA ini boleh dilihat?",
+   "o": {
+    "A": "Kawasan bandar",
+    "B": "Kawasan perumahan",
+    "C": "Kawasan kerja-kerja membaiki jalan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "住宅区"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q4",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi papan tanda jalan ini;",
+   "o": {
+    "A": "Lintasan pejalan kaki",
+    "B": "Lintasan kereta api berpalang automatik",
+    "C": "Zon lintasan kereta api"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "行人过道（斑马线）",
+    "B": "自动栏杆铁路平交道",
+    "C": "火车道口区"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q5",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Perlahankan kenderaan dan beri laluan kepada kenderaan dari arah bertentangan'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q6",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Simpang T'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q7",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Simpang sempit ke kiri'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q8",
+  "ms": {
+   "q": "Pilih papan tanda jalan yang BETUL bagi 'Jangan melebihi had laju'",
+   "o": {
+    "A": null,
+    "B": null,
+    "C": null
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q9",
+  "ms": {
+   "q": "Lorong X ditutup kepada lalu lintas kerana kerja-kerja jalan. Pilih maksud yang BETUL bagi rajah ini:",
+   "o": {
+    "A": "Kenderaan dari lorong X perlu membuat pusingan U",
+    "B": "Kenderaan dari lorong Y perlu masuk ke lorong X secara berselang-seli dengan kenderaan dari lorong tersebut",
+    "C": "Kenderaan dari lorong X perlu masuk ke lorong Y secara berselang-seli dengan kenderaan dari lorong tersebut"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q10",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan B perlu memberi keutamaan kepada kenderaan A",
+    "B": "Kenderaan A mesti memberi keutamaan kepada kenderaan B",
+    "C": "Kenderaan A mesti menambah kelajuan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "B 车必须让 A 车优先",
+    "B": "A 车必须让 B 车优先"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q11",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan di lorong A mesti memberi keutamaan kepada kenderaan di lorong B",
+    "B": "Kenderaan di lorong B perlu memberi keutamaan kepada kenderaan di lorong A",
+    "C": "Kenderaan di lorong A mesti memotong kenderaan di lorong B"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "A 车道的车辆必须让 B 车道的车辆优先",
+    "B": "B 车道的车辆必须让 A 车道的车辆优先"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q12",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan A berada di lorong yang betul",
+    "B": "Kenderaan C berada di lorong yang betul",
+    "C": "Kenderaan B berada di lorong yang betul"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Diagram labels ambiguous (label B sits on exit lane, A next to left-turning car which also looks correct); kept key C-vehicle.",
+  "conf": "low"
+ },
+ {
+  "id": "section-a-a-question-set-6-q13",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan C mempunyai hak keutamaan jalan ke atas kenderaan A",
+    "B": "Kenderaan B mempunyai hak keutamaan jalan ke atas kenderaan A",
+    "C": "Kenderaan B mempunyai hak keutamaan jalan ke atas kenderaan C"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "车辆 C 比车辆 A 具有道路优先权"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Vehicle C has road priority over vehicle A"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q14",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan A mempunyai hak keutamaan jalan ke atas kenderaan B",
+    "B": "Kenderaan C mempunyai hak keutamaan jalan ke atas kenderaan B",
+    "C": "Kenderaan C mempunyai hak keutamaan jalan ke atas kenderaan A"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "车辆 C 比车辆 B 具有道路优先权"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Vehicle C has road priority over Vehicle B"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q15",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan C perlu memberi keutamaan kepada kenderaan B",
+    "B": "Kenderaan B mesti memberi keutamaan kepada kenderaan C",
+    "C": "Kenderaan C perlu memberi keutamaan kepada kenderaan A"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "C 车必须让 B 车优先",
+    "B": "B 车必须让 C 车优先"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q16",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan C mempunyai hak keutamaan jalan ke atas kenderaan A",
+    "B": "Kenderaan A mempunyai hak keutamaan jalan ke atas kenderaan B",
+    "C": "Kenderaan B mempunyai hak keutamaan jalan ke atas kenderaan A"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "车辆 A 比车辆 B 具有道路优先权"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Vehicle A has road priority over vehicle B"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q17",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu A sebelum membelok ke kanan di simpang tersebut?",
+   "o": {
+    "A": "Beri isyarat ke kanan, beri laluan kepada kenderaan dari arah bertentangan dan belok ke kanan",
+    "B": "Beri isyarat ke kiri, beri laluan kepada kenderaan dari arah bertentangan dan belok ke kiri",
+    "C": "Tidak perlu memberi isyarat untuk membelok"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "不需要打方向灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q18",
+  "ms": {
+   "q": "Berdasarkan rajah berikut, apakah yang perlu dilakukan oleh pemandu AB sebelum membelok ke kanan?",
+   "o": {
+    "A": "Membenarkan kenderaan AC meneruskan perjalanan",
+    "B": "Membenarkan kenderaan AD melintas dahulu",
+    "C": "Membenarkan kenderaan AC dan AD melintas"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "让 AC 车继续行驶",
+    "C": "让 AC 车和 AD 车通过"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q19",
+  "ms": {
+   "q": "Apabila anda tiba di simpang X, anda:",
+   "o": {
+    "A": "Tidak perlu berhenti atau memberi isyarat",
+    "B": "Tidak perlu berhenti kerana tiada kenderaan di jalan utama",
+    "C": "Mesti berhenti, memberi isyarat dan memastikan tiada kenderaan di jalan utama sebelum keluar"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "不需要停车或打方向灯",
+    "C": "必须停车、打方向灯，并确保主干道上没有车辆才驶出"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q20",
+  "ms": {
+   "q": "Ketika kenderaan B memberi isyarat untuk memasuki simpang X, kenderaan A sudah berada di simpang X. Apakah tindakan yang perlu diambil oleh pemandu kenderaan A?",
+   "o": {
+    "A": "Pemandu kenderaan B boleh meneruskan perjalanan jika tiada kenderaan lain selain kenderaan A",
+    "B": "Pemandu kenderaan X boleh meneruskan perjalanan jika tiada kenderaan lain selain kenderaan B",
+    "C": "Pemandu kenderaan A mesti berhenti dan menunggu sehingga pemandu kenderaan B memasuki persimpangan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Options garbled (option B mentions \"vehicle X\", which is a junction label; A/B describe B, not A). Key C is the only plausible one.",
+  "conf": "low"
+ },
+ {
+  "id": "section-a-a-question-set-6-q21",
+  "ms": {
+   "q": "Pilih maksud yang SALAH bagi rajah ini",
+   "o": {
+    "A": "Kenderaan C mesti memberi keutamaan jalan kepada kenderaan B",
+    "B": "Kenderaan B perlu memberi keutamaan jalan kepada kenderaan C",
+    "C": "Kenderaan A perlu memberi keutamaan jalan kepada kenderaan C"
+   }
+  },
+  "zh_fix": {
+   "q": "选择该图的错误含义"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q22",
+  "ms": {
+   "q": "Pilih maksud yang BETUL bagi rajah ini",
+   "o": {
+    "A": "Kenderaan A mempunyai keutamaan untuk membelok dahulu",
+    "B": "Kenderaan B mempunyai keutamaan untuk membelok",
+    "C": "Kenderaan A dan B boleh membelok serentak"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q23",
+  "ms": {
+   "q": "Pilih susunan keutamaan yang BETUL berdasarkan rajah berikut",
+   "o": {
+    "A": "Kenderaan C -> Kenderaan B -> Kenderaan A",
+    "B": "Kenderaan A -> Kenderaan C -> Kenderaan B",
+    "C": "Kenderaan B -> Kenderaan A -> Kenderaan C"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-a-a-question-set-6-q24",
+  "ms": {
+   "q": "Apabila anda memandu kenderaan C, anda boleh:",
+   "o": {
+    "A": "Keluar dari simpang selepas kenderaan C melintas",
+    "B": "Keluar dari simpang selepas kenderaan B berlalu",
+    "C": "Keluar dari simpang selepas kenderaan A membelok"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q1",
+  "ms": {
+   "q": "Apakah tujuan \"mengenal pasti\" di bawah Konsep Pemanduan Selamat?",
+   "o": {
+    "A": "Untuk mengenal pasti peraturan mengekori kenderaan",
+    "B": "Untuk mengenal pasti had laju di jalan raya",
+    "C": "Untuk menentukan keadaan yang boleh menyebabkan kemalangan"
+   }
+  },
+  "zh_fix": {
+   "q": "安全驾驶概念中“识别”的目的是什么？",
+   "o": {
+    "A": "识别跟车的规则"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q2",
+  "ms": {
+   "q": "Semasa berhenti di simpang, anda patut:",
+   "o": {
+    "A": "Menukar ke gear neutral",
+    "B": "Menukar ke gear paling tinggi",
+    "C": "Menukar ke gear undur"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q3",
+  "ms": {
+   "q": "Antara pernyataan berikut, yang manakah BENAR semasa memandu di lebuh raya tiga lorong?",
+   "o": {
+    "A": "Lorong kiri untuk pemanduan perlahan, lorong tengah untuk pemanduan laju, lorong kanan untuk memotong",
+    "B": "Lorong kanan untuk pemanduan perlahan, lorong kiri untuk pemanduan laju, lorong tengah untuk memotong",
+    "C": "Lorong tengah untuk pemanduan perlahan, lorong kanan untuk pemanduan laju, lorong kiri untuk memotong"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q4",
+  "ms": {
+   "q": "Kemalangan semasa mengundurkan kenderaan dapat dielakkan jika pemandu:",
+   "o": {
+    "A": "Menilai keadaan sebelum memasuki kenderaan, memeriksa cermin pandang belakang dan cermin sisi sebelum mengundur",
+    "B": "Tidak mengenal pasti keadaan sebelum memasuki kenderaan, tidak melihat cermin pandang belakang dan cermin sisi sebelum mengundur",
+    "C": "Mengenal pasti keadaan sebelum memasuki kenderaan, hanya melihat cermin pandang belakang sebelum mengundur"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "上车前先评估情况，倒车前检查后视镜和侧镜",
+    "B": "上车前不评估情况，倒车前不看后视镜和侧镜",
+    "C": "上车前评估情况，倒车前只看后视镜"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q5",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila lampu isyarat hijau bertukar kuning?",
+   "o": {
+    "A": "Terus memandu dan melepasi garisan berhenti",
+    "B": "Hentikan kenderaan jika belum melepasi garisan berhenti",
+    "C": "Hentikan kenderaan serta-merta di tengah jalan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q6",
+  "ms": {
+   "q": "Pemandu yang mengamalkan pemanduan selamat akan melakukan perkara berikut:",
+   "o": {
+    "A": "Memulakan perjalanan dengan segera",
+    "B": "Sentiasa menukar laluan perjalanan",
+    "C": "Merancang perjalanan sebelum bertolak"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q7",
+  "ms": {
+   "q": "Berapakah had laju maksimum di lebuh raya bagi van persendirian?",
+   "o": {
+    "A": "110 km/j",
+    "B": "80 km/j",
+    "C": "150 km/j"
+   }
+  },
+  "zh_fix": {
+   "q": "私人客货车（van）在大道上的最高时速限制是多少？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Per National Speed Limit Order light vans may be limited to 90 km/h; 110 is the conventional KPP answer and best of the options.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-1-q8",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan semasa memandu dalam hujan lebat?",
+   "o": {
+    "A": "Memandu secara melulu",
+    "B": "Menyalakan lampu hadapan",
+    "C": "Menambah kelajuan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "开启车头灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q9",
+  "ms": {
+   "q": "Apakah tindakan yang sesuai sebelum memulakan perjalanan untuk mengelakkan kerosakan kenderaan?",
+   "o": {
+    "A": "Pastikan petrol hanya separuh",
+    "B": "Pastikan lampu hadapan anda rosak",
+    "C": "Pastikan kenderaan anda dalam keadaan baik"
+   }
+  },
+  "zh_fix": {
+   "q": "出发前应采取什么适当措施以避免车辆抛锚？"
+  },
+  "en_fix": {
+   "o": {
+    "B": "Ensure your headlights are malfunctioning"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q10",
+  "ms": {
+   "q": "Kebanyakan kemalangan jalan raya yang berlaku dalam keadaan hujan disebabkan oleh:",
+   "o": {
+    "A": "Kawalan stereng, tayar dan brek yang tidak berfungsi dengan baik",
+    "B": "Kawalan stereng, pengelap cermin dan lampu hadapan",
+    "C": "Kawalan stereng dan lampu hadapan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q11",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan untuk mengelakkan kemalangan mengikut Konsep Pemanduan Selamat?",
+   "o": {
+    "A": "Kenal pasti, analisis, buat keputusan dan ambil tindakan",
+    "B": "Perhati, periksa dan tidak mengambil sebarang tindakan",
+    "C": "Perhati, periksa dan membuat keputusan yang bertentangan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q12",
+  "ms": {
+   "q": "Apakah tindakan yang perlu diambil untuk mengelakkan titik buta?",
+   "o": {
+    "A": "Menoleh sedikit ke kanan atau ke kiri sebelum bergerak",
+    "B": "Hanya melihat cermin pandang belakang sebelum bergerak",
+    "C": "Bergerak tanpa memberi isyarat"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "起步前稍微转头向右或向左查看",
+    "C": "不打方向灯就移动"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q13",
+  "ms": {
+   "q": "Berapakah kandungan alkohol maksimum dalam 100 mililiter darah yang dibenarkan bagi pemegang Lesen Memandu Kompeten (CDL) semasa memandu mengikut Akta Pengangkutan Jalan 1987?",
+   "o": {
+    "A": "70 miligram",
+    "B": "90 miligram",
+    "C": "120 miligram"
+   }
+  },
+  "zh_fix": {
+   "q": "根据1987年陆路交通法令，正式驾照（CDL）持有人驾驶时，每100毫升血液中允许的最高酒精含量是多少？"
+  },
+  "en_fix": null,
+  "ans_ok": false,
+  "ans_suggest": null,
+  "reason": "Outdated/no correct option: RTA 1987 (amended 2020, s.45G) limit is 50 mg per 100 ml blood (previously 80 mg); 70/90/120 are all wrong. Options need rewriting.",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q14",
+  "ms": {
+   "q": "Antara peraturan berikut, yang manakah digunakan untuk mengelakkan perlanggaran dengan kenderaan di hadapan?",
+   "o": {
+    "A": "Peraturan 2 saat",
+    "B": "Peraturan 4 saat",
+    "C": "Peraturan 3 saat"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q15",
+  "ms": {
+   "q": "Seseorang yang Lesen Memandu Percubaan (PDL)nya telah dibatalkan tidak dibenarkan memandu, memegang atau memohon lesen memandu, termasuk Lesen Belajar Memandu (LDL), dalam tempoh;",
+   "o": {
+    "A": "6 bulan",
+    "B": "3 bulan",
+    "C": "12 bulan"
+   }
+  },
+  "zh_fix": {
+   "q": "暂准驾照（P牌/PDL）被吊销者，在多长期限内不得驾驶、持有或申请任何驾照，包括学习驾照（LDL）？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Question says \"suspended\"; KPP/RTA wording is PDL \"revoked\" (dibatalkan) -> 12 months.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-1-q16",
+  "ms": {
+   "q": "Berdasarkan pernyataan berikut, pilih jenis perlanggaran yang mungkin berlaku. i) Pemandu di hadapan tidak melihat cermin pandang belakang ii) Pemandu di hadapan gagal memberi isyarat dalam masa yang sesuai iii) Pemandu di belakang mengekori terlalu rapat",
+   "o": {
+    "A": "Perlanggaran dengan kenderaan di belakang",
+    "B": "Perlanggaran dengan kenderaan di sebelah kiri",
+    "C": "Perlanggaran dengan kenderaan di hadapan"
+   }
+  },
+  "zh_fix": {
+   "q": "根据下列陈述，选择可能发生的碰撞类型。i) 前车司机没有看后视镜 ii) 前车司机没有在适当时间内打方向灯 iii) 后车司机跟得太近"
+  },
+  "en_fix": {
+   "q": "Based on the following statements, select the type of collision that may occur. i) Driver in front does not look in the rear view mirror ii) Driver in front fails to give a signal within the appropriate time iii) Driver behind is tailing too closely"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q17",
+  "ms": {
+   "q": "Semasa mengekori kenderaan lain pada waktu malam, anda patut",
+   "o": {
+    "A": "Mengekori rapat kenderaan tersebut dan menyalakan lampu tinggi",
+    "B": "Mengekori pada jarak yang betul tanpa menyalakan lampu",
+    "C": "Mengekori pada jarak yang betul dan merendahkan lampu"
+   }
+  },
+  "zh_fix": {
+   "q": "夜间跟随另一辆车行驶时，您应该",
+   "o": {
+    "A": "紧跟前车并开远光灯",
+    "B": "保持适当距离且不开车灯",
+    "C": "保持适当距离并使用近光灯"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Tail up close with the vehicle and turn on full-beam headlights"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q18",
+  "ms": {
+   "q": "Apakah tindakan yang perlu diambil untuk mengelakkan titik buta?",
+   "o": {
+    "A": "Bergerak dengan laju",
+    "B": "Memberi isyarat sebelum bergerak",
+    "C": "Bergerak ke kiri atau ke kanan tanpa memberi isyarat"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "高速行驶",
+    "B": "移动前先打方向灯",
+    "C": "不打方向灯就向左或向右移动"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q19",
+  "ms": {
+   "q": "Apakah cara yang BETUL memegang stereng?",
+   "o": {
+    "A": "Pegang stereng dengan kedua-dua tangan pada kedudukan jam 10.00 (tangan kiri) dan 2.00 (tangan kanan)",
+    "B": "Pegang stereng dengan kedua-dua tangan pada kedudukan jam 7.00 (tangan kiri) dan 5.00 (tangan kanan)",
+    "C": "Pegang stereng dengan kedua-dua tangan pada kedudukan jam 12.00 (tangan kiri) dan 6.00 (tangan kanan)"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q20",
+  "ms": {
+   "q": "Bagaimanakah cara menghentikan kenderaan anda dengan selamat?",
+   "o": {
+    "A": "Lihat cermin pandang belakang, beri isyarat dan hentikan kenderaan di tengah jalan",
+    "B": "Lihat cermin pandang belakang, beri isyarat dan hentikan kenderaan di sebelah kiri jalan",
+    "C": "Lihat cermin pandang belakang, beri isyarat dan hentikan kenderaan di sebelah kanan jalan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "看后视镜，打方向灯，然后将车停在路中间",
+    "B": "看后视镜，打方向灯，然后将车停在道路左侧",
+    "C": "看后视镜，打方向灯，然后将车停在道路右侧"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q21",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan semasa menuruni bukit?",
+   "o": {
+    "A": "Gunakan gear paling tinggi",
+    "B": "Gunakan gear paling rendah",
+    "C": "Gunakan gear neutral"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q22",
+  "ms": {
+   "q": "Susun mengikut urutan langkah-langkah penting yang perlu anda ambil untuk mengelakkan kemalangan. i) Bertindak ii) Analisis iii) Kenal pasti iv) Buat keputusan",
+   "o": {
+    "A": "iii), ii), i), iv)",
+    "B": "iii), ii), iv), i)",
+    "C": "ii), iii), iv), i)"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q23",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan jika kenderaan anda tiba-tiba terbakar?",
+   "o": {
+    "A": "Hentikan kenderaan, matikan radio dan lari keluar dari kereta",
+    "B": "Hentikan kenderaan, matikan radio dan menjerit di dalam kereta",
+    "C": "Hentikan kenderaan, matikan enjin dan selamatkan penumpang"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "停车，关闭引擎并救出乘客"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q24",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila menghampiri lintasan pejalan kaki?",
+   "o": {
+    "A": "Teruskan perjalanan dan tarik brek kecemasan sejurus selepas lintasan pejalan kaki",
+    "B": "Tambah kelajuan kenderaan dan abaikan lintasan pejalan kaki",
+    "C": "Perlahankan kenderaan supaya anda mempunyai masa yang cukup untuk berhenti jika perlu"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "继续行驶，过了人行道后立即拉紧急刹车",
+    "B": "加速并无视人行道"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-1-q25",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan jika brek gagal berfungsi semasa menuruni bukit?",
+   "o": {
+    "A": "Tukar ke gear neutral, gunakan brek tangan dan matikan enjin",
+    "B": "Tukar ke gear rendah, gunakan brek tangan dan matikan enjin",
+    "C": "Tukar ke gear paling tinggi, gunakan brek tangan dan matikan enjin"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q1",
+  "ms": {
+   "q": "Peraturan jarak yang manakah perlu diamalkan semasa mengekori kenderaan lain?",
+   "o": {
+    "A": "Peraturan 2 saat, 4 saat dan 12 saat",
+    "B": "Peraturan 2 saat, 12 saat dan 4 saat",
+    "C": "Peraturan 12 saat, 4 saat dan 2 saat"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q2",
+  "ms": {
+   "q": "Sebagai pemandu berhemah, apakah yang perlu anda lakukan jika anda ingin ke selatan melalui Kuala Lumpur dan mendapati lalu lintas sesak, terutamanya pada waktu puncak?",
+   "o": {
+    "A": "Perlu memotong kenderaan lain dan memandu laju",
+    "B": "Perlu merancang perjalanan untuk mengelakkan waktu puncak atau menggunakan laluan kecemasan",
+    "C": "Rancang perjalanan untuk mengelakkan waktu puncak atau pilih laluan alternatif"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "必须超越其他车辆并加速"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q3",
+  "ms": {
+   "q": "Menurut satu kajian, berapakah kebarangkalian pemandu mabuk terlibat dalam kemalangan jalan raya berbanding pemandu yang tidak mabuk?",
+   "o": {
+    "A": "30 kali ganda",
+    "B": "20 kali ganda",
+    "C": "25 kali ganda"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "30倍",
+    "B": "20倍",
+    "C": "25倍"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Statistic not verifiable from law; accepted as KPP convention.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-2-q4",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila lampu isyarat di hadapan bertukar dari merah ke hijau?",
+   "o": {
+    "A": "Teruskan perjalanan jika selamat",
+    "B": "Hentikan kenderaan serta-merta",
+    "C": "Perlahankan kenderaan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q5",
+  "ms": {
+   "q": "Antara pernyataan berikut, yang manakah menggambarkan sikap pemanduan yang betul?",
+   "o": {
+    "A": "Tidak bersopan santun",
+    "B": "Tidak melakukan kesalahan lalu lintas",
+    "C": "Mengelakkan kemalangan jalan raya"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "不讲礼貌",
+    "B": "不违反交通规则"
+   }
+  },
+  "en_fix": {
+   "q": "Which of the following statements reflects the correct driving attitude?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q6",
+  "ms": {
+   "q": "Apakah yang TIDAK patut anda lakukan apabila kenderaan anda sedang dipotong oleh kenderaan lain?",
+   "o": {
+    "A": "Perlahankan kenderaan anda",
+    "B": "Tambah kelajuan kenderaan anda",
+    "C": "Beri laluan kepada kenderaan tersebut"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q7",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan semasa memandu di jalan yang kurang dilalui kenderaan?",
+   "o": {
+    "A": "Tambah kelajuan dan melebihi had laju kenderaan anda",
+    "B": "Melebihi had laju kenderaan anda dan memandu dengan berhati-hati",
+    "C": "Kurangkan kelajuan kenderaan anda dan memandu dengan berhati-hati"
+   }
+  },
+  "zh_fix": {
+   "q": "在车辆稀少的道路上行驶时应该怎么做？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q8",
+  "ms": {
+   "q": "Salah satu punca kemalangan jalan raya ialah faktor kenderaan. Apakah yang perlu anda lakukan untuk mengelakkan kemalangan?",
+   "o": {
+    "A": "Pastikan kenderaan anda berada dalam keadaan baik",
+    "B": "Pastikan petrol mencukupi",
+    "C": "Pastikan pengelap cermin berfungsi"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q9",
+  "ms": {
+   "q": "Memberi perhatian kepada pengguna jalan raya lain bermaksud:",
+   "o": {
+    "A": "Pemandu tidak perlu berhati-hati",
+    "B": "Pemandu mesti berhati-hati dalam situasi tertentu",
+    "C": "Pemandu mesti berhati-hati dalam apa jua situasi"
+   }
+  },
+  "zh_fix": {
+   "q": "关注其他道路使用者意味着："
+  },
+  "en_fix": {
+   "o": {
+    "C": "A driver must be cautious in any situation"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q10",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila menghampiri lampu isyarat?",
+   "o": {
+    "A": "Patuhi isyarat lampu isyarat",
+    "B": "Tambah kelajuan kenderaan anda",
+    "C": "Hentikan kenderaan anda serta-merta"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q11",
+  "ms": {
+   "q": "Kenderaan dari arah bertentangan menggunakan lampu tinggi semasa memandu pada waktu malam. Anda patut",
+   "o": {
+    "A": "Menyalakan lampu tinggi sekali untuk mengingatkan pemandu kenderaan tersebut supaya merendahkan lampunya",
+    "B": "Menyalakan lampu tinggi sepanjang perjalanan untuk mengingatkan pemandu kenderaan tersebut supaya merendahkan lampunya",
+    "C": "Menyalakan lampu tinggi dan membunyikan hon dengan kuat secara berterusan untuk mengingatkan pemandu kenderaan tersebut supaya merendahkan lampunya"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "闪一次远光灯，提醒对方司机调低车灯",
+    "B": "沿途一直开着远光灯，提醒对方司机调低车灯",
+    "C": "开远光灯并持续大声鸣喇叭，提醒对方司机调低车灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q12",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila melihat sekumpulan kanak-kanak bermain di tepi jalan semasa memandu?",
+   "o": {
+    "A": "Tambah kelajuan kenderaan anda",
+    "B": "Hentikan kenderaan dan bermain bersama mereka",
+    "C": "Perlahankan kenderaan, bersedia untuk membrek dan berhenti jika perlu"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "减速，准备刹车，必要时停车"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q13",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan untuk mengelakkan perlanggaran secara berdepan dengan kenderaan dari arah bertentangan semasa memandu?",
+   "o": {
+    "A": "Tambah kelajuan",
+    "B": "Kurangkan kelajuan",
+    "C": "Bergerak ke tengah jalan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q14",
+  "ms": {
+   "q": "Apakah tindakan yang sesuai sebelum memandu?",
+   "o": {
+    "A": "Laraskan tempat duduk dan cermin sisi",
+    "B": "Laraskan tempat duduk dan pakai tali pinggang keledar",
+    "C": "Laraskan tempat duduk, cermin pandang belakang dan cermin sisi serta pakai tali pinggang keledar"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q15",
+  "ms": {
+   "q": "Papan tanda jalan di selekoh menunjukkan bahawa pemandu patut",
+   "o": {
+    "A": "Perlahankan kenderaan dan memandu dengan berhati-hati",
+    "B": "Memandu lebih laju",
+    "C": "Belok ke kanan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q16",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila kenderaan dari arah bertentangan tiba-tiba hilang kawalan dan menuju ke arah anda semasa memandu?",
+   "o": {
+    "A": "Hentikan kenderaan anda di sebelah kiri jalan",
+    "B": "Hentikan kenderaan anda di sebelah kanan jalan",
+    "C": "Hentikan kenderaan anda di tengah jalan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q17",
+  "ms": {
+   "q": "Tujuan pelaksanaan Kurikulum Pendidikan Pemandu (KPP) ialah",
+   "o": {
+    "A": "Untuk melahirkan pemandu yang berpengetahuan, berkemahiran, selamat dan laju",
+    "B": "Untuk melahirkan pemandu yang berpengetahuan, berkemahiran, selamat dan cekap",
+    "C": "Melahirkan pemandu yang berpengetahuan, berkemahiran, selamat dan perlahan"
+   }
+  },
+  "zh_fix": {
+   "q": "实施驾驶教育课程（KPP/DEC）的目的是"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q18",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila menghampiri persimpangan empat?",
+   "o": {
+    "A": "Tambah kelajuan, memandu di lorong yang betul dan berhenti sebelum garisan putih",
+    "B": "Kurangkan kelajuan, memandu di lorong yang betul dan berhenti selepas garisan putih",
+    "C": "Kurangkan kelajuan, memandu di lorong yang betul dan berhenti sebelum garisan putih"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q19",
+  "ms": {
+   "q": "Pemanduan Selamat bermaksud",
+   "o": {
+    "A": "Cara pemanduan yang dapat mencegah kemalangan jalan raya",
+    "B": "Cara pemanduan yang dapat mencegah kesesakan lalu lintas",
+    "C": "Cara pemanduan yang dapat mencegah kereta masuk ke lorong yang salah"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q20",
+  "ms": {
+   "q": "Berapakah kandungan alkohol maksimum yang dibenarkan dalam 100 ml air kencing?",
+   "o": {
+    "A": "105 mg alkohol",
+    "B": "107 mg alkohol",
+    "C": "110 mg alkohol"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": false,
+  "ans_suggest": null,
+  "reason": "Outdated: since the 2020 RTA amendment the urine limit is 67 mg/100 ml (107 mg was the pre-2020 limit). Keep B only if bank follows old KPP material.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-2-q21",
+  "ms": {
+   "q": "Berapakah jumlah keseluruhan gerakan atau pergerakan yang dilakukan semasa memandu?",
+   "o": {
+    "A": "Enam",
+    "B": "Lapan",
+    "C": "Tujuh"
+   }
+  },
+  "zh_fix": {
+   "q": "驾驶时共有多少种操控动作？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "KPP convention; not verifiable.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-2-q22",
+  "ms": {
+   "q": "Jika anda berasa letih semasa memandu, anda patut",
+   "o": {
+    "A": "Tambah kelajuan kenderaan anda",
+    "B": "Teruskan perjalanan seperti biasa",
+    "C": "Hentikan kenderaan dan berehat"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q23",
+  "ms": {
+   "q": "Di manakah anda DILARANG membunyikan hon?",
+   "o": {
+    "A": "Hospital",
+    "B": "Perhentian bas",
+    "C": "Stesen minyak"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q24",
+  "ms": {
+   "q": "Bagaimanakah cara mengelakkan kemalangan yang disebabkan oleh keadaan jalan?",
+   "o": {
+    "A": "Abaikan keadaan jalan",
+    "B": "Sesuaikan kelajuan kenderaan anda dengan keadaan jalan",
+    "C": "Tambah kelajuan anda"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-2-q25",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan semasa memandu di jalan yang licin?",
+   "o": {
+    "A": "Memandu perlahan supaya kenderaan mudah dikawal",
+    "B": "Memandu lebih laju supaya kenderaan mudah dikawal",
+    "C": "Memandu dengan lampu tinggi supaya kenderaan mudah dikawal"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q1",
+  "ms": {
+   "q": "Masa minimum untuk memberi isyarat sebelum mengubah kedudukan atau arah kenderaan ialah",
+   "o": {
+    "A": "1 saat",
+    "B": "3 saat",
+    "C": "2 saat"
+   }
+  },
+  "zh_fix": {
+   "q": "改变车辆位置或方向之前，打方向灯的最短时间是"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q2",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila melihat haiwan ternakan di tengah jalan semasa memandu?",
+   "o": {
+    "A": "Perlahankan kenderaan, tidak membunyikan hon dan teruskan pemanduan",
+    "B": "Perlahankan kenderaan, bunyikan hon berterusan dan bersedia untuk berhenti",
+    "C": "Perlahankan kenderaan, tidak membunyikan hon dan bersedia untuk berhenti"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q3",
+  "ms": {
+   "q": "Pilih cara yang BETUL untuk memotong kenderaan",
+   "o": {
+    "A": "Mengamalkan Peraturan 12 saat",
+    "B": "Mengamalkan Peraturan 2 saat",
+    "C": "Mengamalkan Peraturan 4 saat"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "实行12秒规则",
+    "B": "实行2秒规则",
+    "C": "实行4秒规则"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q4",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila menyedari anda belum memakai tali pinggang keledar semasa memandu?",
+   "o": {
+    "A": "Berhenti di tengah jalan dan pakai tali pinggang keledar",
+    "B": "Berhenti di sebelah kanan jalan dan pakai tali pinggang keledar",
+    "C": "Berhenti di sebelah kiri jalan dan pakai tali pinggang keledar"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q5",
+  "ms": {
+   "q": "Peraturan manakah yang digunakan untuk mengelakkan perlanggaran dengan kenderaan di hadapan?",
+   "o": {
+    "A": "Peraturan 2 saat",
+    "B": "Peraturan 3 saat",
+    "C": "Peraturan 4 saat"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q6",
+  "ms": {
+   "q": "Semasa memotong, pemandu sebuah kereta telah melanggar kenderaan di hadapan. Peraturan jarak yang manakah TIDAK dipatuhi oleh pemandu tersebut?",
+   "o": {
+    "A": "Peraturan 2 saat",
+    "B": "Peraturan 12 saat",
+    "C": "Peraturan 4 saat"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "q": "While overtaking, the driver of a car crashes into a vehicle ahead. Which distance rule did the driver NOT obey?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q7",
+  "ms": {
+   "q": "Apakah yang perlu anda pertimbangkan sebelum menambah kelajuan kenderaan semasa memandu?",
+   "o": {
+    "A": "Keadaan jalan, lalu lintas, cuaca dan kenderaan serta kemahiran memandu",
+    "B": "Keadaan jalan, lalu lintas, cuaca dan kenderaan",
+    "C": "Keadaan jalan, lalu lintas, cuaca dan kenderaan lain"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q8",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila lampu isyarat bertukar hijau dan anda melihat pejalan kaki sedang melintas jalan?",
+   "o": {
+    "A": "Bunyikan hon kepada pejalan kaki sebagai isyarat supaya tidak melintas jalan",
+    "B": "Tunggu dan beri keutamaan kepada pejalan kaki",
+    "C": "Teruskan menggerakkan kenderaan anda dan bunyikan hon"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "向行人鸣喇叭，示意对方不要过马路",
+    "C": "继续驾驶并鸣喇叭"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Honk at the pedestrian to signal them not to cross the road"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q9",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan untuk mula menggerakkan kenderaan dengan cara yang betul?",
+   "o": {
+    "A": "Gunakan gear kedua",
+    "B": "Gunakan gear tinggi",
+    "C": "Gunakan gear pertama"
+   }
+  },
+  "zh_fix": {
+   "q": "如何正确地起步？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q10",
+  "ms": {
+   "q": "Apakah cara terbaik untuk memperlahankan kenderaan semasa menuruni bukit?",
+   "o": {
+    "A": "Tukar ke gear undur dan gunakan brek kaki",
+    "B": "Tukar ke gear rendah dan gunakan brek kaki",
+    "C": "Tukar ke gear paling tinggi dan gunakan brek tangan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "换至倒档并使用脚刹",
+    "B": "换至低速档并使用脚刹"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q11",
+  "ms": {
+   "q": "Apakah langkah keselamatan yang perlu anda ambil semasa mengekori kenderaan pada waktu malam?",
+   "o": {
+    "A": "Amalkan peraturan jarak selamat dan nyalakan lampu rendah",
+    "B": "Amalkan peraturan jarak selamat dan nyalakan lampu tinggi",
+    "C": "Amalkan peraturan jarak selamat dan padamkan lampu"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "遵守安全距离规则并使用近光灯",
+    "B": "遵守安全距离规则并使用远光灯",
+    "C": "遵守安全距离规则并关掉车灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q12",
+  "ms": {
+   "q": "Apakah pemanduan berbahaya yang boleh menyebabkan kemalangan jalan raya?",
+   "o": {
+    "A": "Memandu secara melulu tanpa timbang rasa",
+    "B": "Memandu dengan berhati-hati dan bertimbang rasa",
+    "C": "Memandu perlahan dan mematuhi peraturan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q13",
+  "ms": {
+   "q": "Apakah faktor yang boleh menyebabkan kemalangan pada penghujung perjalanan? i) Keletihan dan mengantuk ii) Kesan cahaya dan cuaca iii) Kerosakan mekanikal kenderaan",
+   "o": {
+    "A": "i dan ii",
+    "B": "i, ii dan iii",
+    "C": "i dan iii"
+   }
+  },
+  "zh_fix": {
+   "q": "哪些因素可能在旅程即将结束时导致事故？i) 疲劳和困倦 ii) 光线和天气的影响 iii) 车辆机械故障",
+   "o": {
+    "C": "一和三"
+   }
+  },
+  "en_fix": {
+   "q": "What factors could be the cause of an accident at the end of a journey? i) Tiredness and sleepiness ii) The effect of light and weather iii) Mechanical fault of vehicle",
+   "o": {
+    "A": "i and ii",
+    "B": "i, ii and iii",
+    "C": "i and iii"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q14",
+  "ms": {
+   "q": "Apakah tindakan yang perlu diambil jika kenderaan dari arah bertentangan tiba-tiba menuju ke arah anda?",
+   "o": {
+    "A": "Perlahankan kenderaan untuk menghalang kenderaan tersebut",
+    "B": "Perlahankan kenderaan dan bunyikan hon",
+    "C": "Perlahankan kenderaan, bergerak ke kiri dan berhenti jika perlu"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q15",
+  "ms": {
+   "q": "Apakah cara Pemanduan Selamat di lebuh raya?",
+   "o": {
+    "A": "Memandu di lorong kiri dalam had laju yang ditetapkan",
+    "B": "Memandu di lorong kanan tanpa mematuhi had laju",
+    "C": "Memandu di lorong kiri tanpa mematuhi had laju"
+   }
+  },
+  "zh_fix": {
+   "q": "在大道上安全驾驶的方法是什么？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q16",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu semasa melalui selekoh?",
+   "o": {
+    "A": "Gunakan gear undur",
+    "B": "Gunakan gear tinggi",
+    "C": "Gunakan gear rendah"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q17",
+  "ms": {
+   "q": "Jika anda ingin membelok ke kanan di bulatan, lorong manakah yang patut anda gunakan semasa menghampirinya?",
+   "o": {
+    "A": "Lorong kanan",
+    "B": "Lorong tengah",
+    "C": "Lorong kiri"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "中间车道"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q18",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu semasa menuruni bukit yang curam?",
+   "o": {
+    "A": "Tukar ke gear rendah sahaja",
+    "B": "Tukar ke gear paling tinggi dan bersedia untuk membrek",
+    "C": "Tukar ke gear rendah dan bersedia untuk membrek"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q19",
+  "ms": {
+   "q": "Apabila anda perlu menghentikan kenderaan di tepi jalan dan keluar dari kenderaan, anda patut",
+   "o": {
+    "A": "Melihat cermin pandang belakang dan memastikan tiada kenderaan datang dari hadapan",
+    "B": "Melihat cermin sisi dan memastikan tiada kenderaan datang dari belakang",
+    "C": "Melihat cermin sisi kiri dan memastikan tiada kenderaan datang dari hadapan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "观察车内后视镜，确保前方没有来车",
+    "B": "观察侧镜，确保后方没有来车",
+    "C": "观察左侧镜，确保前方没有来车"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q20",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan semasa memandu dalam hujan lebat dan jarak penglihatan di jalan raya terhad?",
+   "o": {
+    "A": "Teruskan perjalanan",
+    "B": "Hentikan kenderaan di kawasan yang selamat dan tunggu sehingga hujan berhenti",
+    "C": "Teruskan pemanduan dan nyalakan lampu tinggi"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q21",
+  "ms": {
+   "q": "Objektif utama program Pemanduan Selamat ialah?",
+   "o": {
+    "A": "Untuk mencegah kemalangan jalan raya",
+    "B": "Untuk mengelakkan kesesakan lalu lintas",
+    "C": "Untuk melahirkan pelumba"
+   }
+  },
+  "zh_fix": {
+   "q": "安全驾驶课程的主要目标是？",
+   "o": {
+    "C": "培养赛车手"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q22",
+  "ms": {
+   "q": "Jika anda ingin memotong kenderaan, anda patut mengamalkan",
+   "o": {
+    "A": "Peraturan 4 saat",
+    "B": "Peraturan 2 saat",
+    "C": "Peraturan 12 saat"
+   }
+  },
+  "zh_fix": {
+   "q": "如果您想超车，您应该采用"
+  },
+  "en_fix": {
+   "q": "If you wish to overtake a vehicle, you should apply"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q23",
+  "ms": {
+   "q": "Merancang perjalanan bermaksud",
+   "o": {
+    "A": "Merancang masa perjalanan yang mencukupi",
+    "B": "Bertindak secara spontan",
+    "C": "Merancang pada hari perjalanan"
+   }
+  },
+  "zh_fix": {
+   "q": "规划行程意味着",
+   "o": {
+    "B": "随兴而行",
+    "C": "当天才计划"
+   }
+  },
+  "en_fix": {
+   "q": "Planning your journey means"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q24",
+  "ms": {
+   "q": "Dalam situasi manakah anda sukar menganggarkan jarak dan kelajuan kenderaan dari arah bertentangan?",
+   "o": {
+    "A": "Memandu pada waktu malam",
+    "B": "Memandu pada waktu malam ketika hujan lebat",
+    "C": "Memandu pada waktu pagi"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "q": "In which situation would you find it difficult to gauge the distance and speed of an oncoming vehicle?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-3-q25",
+  "ms": {
+   "q": "Dalam situasi manakah anda perlu memotong kenderaan? i) Apabila mengekori kenderaan yang boleh menyebabkan kemalangan ii) Apabila kenderaan di hadapan bergerak terlalu perlahan iii) Apabila kenderaan di hadapan menukar arah ke kiri",
+   "o": {
+    "A": "i dan ii",
+    "B": "i, ii dan iii",
+    "C": "ii dan iii"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "o": {
+    "A": "i and ii",
+    "B": "i, ii and iii"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-4-q1",
+  "ms": {
+   "q": "Apakah cara yang betul dan paling selamat untuk memandu di selekoh tajam?",
+   "o": {
+    "A": "Membelok dengan pantas tanpa membrek kenderaan",
+    "B": "Memandu perlahan dan menggunakan gear tinggi",
+    "C": "Memandu perlahan dan menggunakan gear yang sesuai"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-4-q2",
+  "ms": {
+   "q": "Nyatakan cara yang selamat untuk membuat pusingan U;",
+   "o": {
+    "A": "Memandu di lorong kanan, memberi isyarat dengan betul, memperlahankan kenderaan dan membuat pusingan U apabila selamat",
+    "B": "Memandu di lorong kanan, memperlahankan kenderaan dan membuat pusingan U apabila selamat",
+    "C": "Memandu di lorong kanan, memberi isyarat dengan betul dan membuat pusingan U dengan segera"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "在右侧车道行驶，正确打方向灯，减速并在安全时掉头"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ }
+]

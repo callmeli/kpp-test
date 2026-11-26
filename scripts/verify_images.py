@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 def verify_images():
-    json_file = Path("web/src/data/questions.json")
+    json_file = Path("data/source/questions.json")
     public_dir = Path("web/public")
     
     if not json_file.exists():
