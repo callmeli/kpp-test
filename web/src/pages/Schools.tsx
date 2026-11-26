@@ -5,8 +5,11 @@ import { api, load, save } from '../lib';
 import { CoinIcon, CoinPill, LoginCard, Sheet, toast, useApp, useSpendError } from '../ui';
 
 type Stat = { cls: string; n: number; min: number; max: number; med: number };
-type School = { id: string; name: string; state: string; city?: string; n: number; open: boolean };
-type Detail = { school: School; n: number; open: boolean; price: number; stats?: Stat[]; rows?: { id: number; cls: string; price: number; ym?: string; incl: string[]; note?: string; ts: number; mine: boolean }[]; classes?: string[] };
+type School = { id: string; name: string; state: string; city?: string; n: number; open: boolean; rating?: number | null; rn?: number };
+type Comment = { id: number; name?: string; text: string; ts: number; mine: boolean };
+const DURS = [1, 2, 3, 6, 12];
+const Stars = ({ v }: { v: number }) => <span className="stars" aria-label={v + ' / 5'}>{'★'.repeat(Math.round(v))}<i>{'★'.repeat(5 - Math.round(v))}</i></span>;
+type Detail = { school: School; n: number; open: boolean; price: number; stats?: Stat[]; rows?: { id: number; cls: string; price: number; ym?: string; incl: string[]; note?: string; ts: number; rating?: number | null; dur?: number | null; mine: boolean }[]; rating?: number | null; rn?: number; cn?: number; comments?: Comment[]; classes?: string[] };
 const INCL = ['kpp01', 'ldl', 'jpj', 'retest', 'pickup', 'install'];
 const rm = (n: number) => 'RM ' + n.toLocaleString('en-MY');
 
@@ -73,7 +76,7 @@ export function Schools({ active }: { active: boolean }) {
               <button onClick={() => setOpen(s.id)}>
                 <span className="sn">{s.name}</span>
                 <span className="sm">{s.city ? s.city + ', ' : ''}{s.state}</span>
-                <span className="sr">{t('reports', { n: s.n })}{s.open ? ' · ✓' : ''}</span>
+                <span className="sr">{s.rating ? <><b className="star">★</b> {s.rating.toFixed(1)} · </> : null}{t('reports', { n: s.n })}{s.open ? ' · ✓' : ''}</span>
               </button>
             </li>
           ))}
@@ -99,12 +102,20 @@ function SchoolSheet({ id, onClose, onShare }: { id: string | null; onClose: () 
     catch (e) { await onErr(e); }
     setBusy(false);
   };
+  const [cmt, setCmt] = useState('');
+  const sendCmt = async () => {
+    setBusy(true);
+    try { await api('/schools/' + id + '/comments', { text: cmt.trim() }); setCmt(''); toast(t('fThanks')); get(); }
+    catch (e) { await onErr(e); }
+    setBusy(false);
+  };
   const med = d?.stats?.[0]?.med;
   return (
     <Sheet open={!!id} onClose={onClose} title={d ? d.school.name : '…'}>
       {d && (
         <>
           <p className="muted">{d.school.city ? d.school.city + ', ' : ''}{d.school.state} · {t('reports', { n: d.n })}</p>
+          {d.rating ? <p className="rating-line"><Stars v={d.rating} /> <b>{d.rating.toFixed(1)}</b> <span className="muted small">{t('ratedBy', { n: d.rn || 0 })}</span></p> : null}
           {d.open ? (
             <>
               <Stats list={d.stats || []} />
@@ -114,16 +125,30 @@ function SchoolSheet({ id, onClose, onShare }: { id: string | null; onClose: () 
                   <li key={r.id}>
                     <div><b>{rm(r.price)}</b> · {t('cls_' + r.cls)}{r.mine && <span className="tag">{t('mine')}</span>}</div>
                     <div className="muted small">{r.ym || new Date(r.ts).toISOString().slice(0, 7)}{r.incl.length ? ' · ' + r.incl.map((x) => t('incl_' + x)).join(' / ') : ''}</div>
+                    {(r.rating || r.dur) && <div className="small">{r.rating ? <Stars v={r.rating} /> : null}{r.dur ? <span className="muted"> {t('durGot', { d: t('dur_' + r.dur) })}</span> : null}</div>}
                     {r.note && <p className="note">{r.note}</p>}
                   </li>
                 ))}
               </ul>
+              <h3 className="sub-h">{t('cmtTitle')}{d.comments?.length ? ` · ${d.comments.length}` : ''}</h3>
+              {(d.comments || []).length === 0 && <p className="muted small">{t('cmtEmpty')}</p>}
+              <ul className="rows cmts">
+                {(d.comments || []).map((c) => (
+                  <li key={c.id}><p>{c.text}</p><div className="muted small">{c.name || '—'} · {new Date(c.ts).toISOString().slice(0, 10)}{c.mine && <span className="tag">{t('mine')}</span>}</div></li>
+                ))}
+              </ul>
+              {me?.user && (
+                <div className="cmt-box">
+                  <textarea className="input" rows={2} maxLength={400} placeholder={t('cmtPh')} value={cmt} onChange={(e) => setCmt(e.target.value)} />
+                  <button className="btn secondary sm" disabled={busy || cmt.trim().length < 4} onClick={sendCmt}>{t('cmtSend')}</button>
+                </div>
+              )}
             </>
           ) : (
             <div className="locked">
               {d.classes && d.classes.length > 0 && <p className="chips">{d.classes.map((c) => <span key={c} className="chip">{t('cls_' + c)}</span>)}</p>}
               <div className="blur" aria-hidden="true"><b>RM 2,8██</b><b>RM 4,1██</b><b>RM 3,3██</b></div>
-              <p>{t('schoolLocked')}</p>
+              <p>{t('schoolLocked')}{d.cn ? ' · ' + t('cmtCount', { n: d.cn }) : ''}</p>
               {me?.user ? <button className="btn primary block" disabled={busy || !d.n} onClick={unlock}><CoinIcon size={18} /> {t('unlockSchool', { n: d.price })}</button> : <LoginCard />}
             </div>
           )}
@@ -140,6 +165,7 @@ function PriceForm({ open, sid, schools, onClose, onDone }: { open: boolean; sid
   const [name, setName] = useState(''), [st, setSt] = useState(''), [city, setCity] = useState('');
   const [cls, setCls] = useState('DA'), [price, setPrice] = useState(''), [ym, setYm] = useState(new Date().toISOString().slice(0, 7));
   const [incl, setIncl] = useState<string[]>(['kpp01', 'ldl', 'jpj']), [note, setNote] = useState(''), [busy, setBusy] = useState(false);
+  const [rating, setRating] = useState(0), [dur, setDur] = useState(0);
   useEffect(() => {
     if (!open) return;
     const s = schools.find((x) => x.id === sid);
@@ -152,7 +178,7 @@ function PriceForm({ open, sid, schools, onClose, onDone }: { open: boolean; sid
     try {
       const match = schools.find((x) => x.name.toLowerCase() === name.trim().toLowerCase() && x.state === st);
       const id = match ? match.id : (await api<{ id: string }>('/schools', { name: name.trim(), state: st, city })).id;
-      const r = await api<{ gained: number; lc: number }>('/prices', { sid: id, cls, price: p, ym, incl, note });
+      const r = await api<{ gained: number; lc: number }>('/prices', { sid: id, cls, price: p, ym, incl, note, rating: rating || null, dur: dur || null });
       setCoins(r.lc); toast(r.gained ? t('fGained', { n: r.gained }) : t('fThanks'));
       refresh(); onDone(); setPrice(''); setNote('');
     } catch (e) { await onErr(e); }
@@ -183,6 +209,12 @@ function PriceForm({ open, sid, schools, onClose, onDone }: { open: boolean; sid
       <label className="field">{t('fIncl')}
         <div className="chips">{INCL.map((x) => <button key={x} className={'chip' + (incl.includes(x) ? ' on' : '')} onClick={() => setIncl(incl.includes(x) ? incl.filter((y) => y !== x) : [...incl, x])}>{t('incl_' + x)}</button>)}</div>
       </label>
+      <div className="field">{t('fRating')}
+        <div className="star-pick" role="radiogroup">{[1, 2, 3, 4, 5].map((n) => <button key={n} role="radio" aria-checked={rating === n} aria-label={n + ' / 5'} className={n <= rating ? 'on' : ''} onClick={() => setRating(rating === n ? 0 : n)}>★</button>)}</div>
+      </div>
+      <div className="field">{t('fDur')}
+        <div className="chips">{DURS.map((x) => <button key={x} className={'chip' + (dur === x ? ' on' : '')} onClick={() => setDur(dur === x ? 0 : x)}>{t('dur_' + x)}</button>)}</div>
+      </div>
       <label className="field">{t('fNote')}<textarea rows={2} maxLength={300} value={note} onChange={(e) => setNote(e.target.value)} /></label>
       <p className="muted small">{t('fReward', { n: me.econ.report, c: me.econ.reportCap, l: me.reportsLeft ?? 0 })}</p>
       <button className="btn primary block" disabled={!ok || busy} onClick={submit}>{t('fSend')}</button>

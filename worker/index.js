@@ -45,6 +45,11 @@ async function schema(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS reports (id INTEGER PRIMARY KEY AUTOINCREMENT, qid TEXT NOT NULL, uid TEXT, kind TEXT NOT NULL, suggest TEXT, note TEXT, lang TEXT, ts INTEGER NOT NULL, status TEXT NOT NULL DEFAULT \'open\')'),
     db.prepare('CREATE TABLE IF NOT EXISTS tips (ref TEXT PRIMARY KEY, uid TEXT NOT NULL, amount INTEGER NOT NULL, ts INTEGER NOT NULL)'),
   ]);
+  // 后加的列：评分（1–5）、从报名到拿到驾照用了几个月（1 / 2 / 3 / 6 / 12 = 一个月内 … 半年以上）。老库没有就补上
+  for (const col of ['rating INTEGER', 'dur INTEGER']) { try { await db.prepare('ALTER TABLE prices ADD COLUMN ' + col).run(); } catch (e) { /* 已有 */ } }
+  // 学员补充：对某所驾校的文字补充（教练、排期、隐形收费……），解锁这所驾校的人能看
+  await db.prepare('CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY AUTOINCREMENT, sid TEXT NOT NULL, uid TEXT NOT NULL, name TEXT, text TEXT NOT NULL, ts INTEGER NOT NULL, hidden INTEGER NOT NULL DEFAULT 0)').run();
+  await db.prepare('CREATE INDEX IF NOT EXISTS comments_sid ON comments (sid, ts)').run();
   schemaOk = true;
 }
 const kvGet = async (db, k) => ((await db.prepare('SELECT v FROM kv WHERE k = ?').bind(k).first()) || {}).v;
@@ -183,7 +188,7 @@ async function api(env, req, url, ctx) {
 
   if (path === '/schools' && m === 'GET') {
     const st = url.searchParams.get('state') || '', qq = clip(url.searchParams.get('q'), 40).toLowerCase();
-    let sql = 'SELECT s.id, s.name, s.state, s.city, COUNT(p.id) n, MAX(p.ts) last FROM schools s LEFT JOIN prices p ON p.sid = s.id AND p.hidden = 0 WHERE s.hidden = 0';
+    let sql = 'SELECT s.id, s.name, s.state, s.city, COUNT(p.id) n, MAX(p.ts) last, ROUND(AVG(p.rating), 1) rating, COUNT(p.rating) rn FROM schools s LEFT JOIN prices p ON p.sid = s.id AND p.hidden = 0 WHERE s.hidden = 0';
     const args = [];
     if (STATES.includes(st)) { sql += ' AND s.state = ?'; args.push(st); }
     if (qq) { sql += ' AND lower(s.name) LIKE ?'; args.push('%' + qq.replace(/[%_]/g, '') + '%'); }
@@ -199,13 +204,19 @@ async function api(env, req, url, ctx) {
     const sid = path.slice(9);
     const s = await db.prepare('SELECT id, name, state, city FROM schools WHERE id = ? AND hidden = 0').bind(sid).first();
     if (!s) return bad('not_found', 404);
-    const rows = (await db.prepare('SELECT id, uid, cls, price, ym, incl, note, ts FROM prices WHERE sid = ? AND hidden = 0 ORDER BY ts DESC').bind(sid).all()).results;
+    const rows = (await db.prepare('SELECT id, uid, cls, price, ym, incl, note, ts, rating, dur FROM prices WHERE sid = ? AND hidden = 0 ORDER BY ts DESC').bind(sid).all()).results;
     const mine = me ? rows.filter((x) => x.uid === me.id) : [];
     const open = me && (mine.length || (await db.prepare('SELECT 1 FROM unlocks WHERE uid = ? AND item = ?').bind(me.id, 'school:' + sid).first()));
-    const out = { ok: true, school: s, n: rows.length, open: !!open, price: ECON.school };
+    const rated = rows.filter((x) => x.rating);
+    // 评分免费看；逐条报价、用时、补充内容要解锁
+    const out = { ok: true, school: s, n: rows.length, open: !!open, price: ECON.school, rating: rated.length ? Math.round((rated.reduce((a, x) => a + x.rating, 0) / rated.length) * 10) / 10 : null, rn: rated.length };
+    const cn = await db.prepare('SELECT COUNT(*) n FROM comments WHERE sid = ? AND hidden = 0').bind(sid).first();
+    out.cn = cn.n;
     if (open) {
       out.stats = stats(rows);
-      out.rows = rows.map((x) => ({ id: x.id, cls: x.cls, price: x.price, ym: x.ym, incl: JSON.parse(x.incl || '[]'), note: x.note, ts: x.ts, mine: !!me && x.uid === me.id }));
+      out.rows = rows.map((x) => ({ id: x.id, cls: x.cls, price: x.price, ym: x.ym, incl: JSON.parse(x.incl || '[]'), note: x.note, ts: x.ts, rating: x.rating, dur: x.dur, mine: !!me && x.uid === me.id }));
+      const cs = await db.prepare('SELECT id, uid, name, text, ts FROM comments WHERE sid = ? AND hidden = 0 ORDER BY ts DESC LIMIT 100').bind(sid).all();
+      out.comments = cs.results.map((c) => ({ id: c.id, name: c.name, text: c.text, ts: c.ts, mine: !!me && c.uid === me.id }));
     } else out.classes = [...new Set(rows.map((x) => x.cls))];
     return json(out);
   }
@@ -285,6 +296,16 @@ async function api(env, req, url, ctx) {
     await db.prepare('INSERT INTO schools (id, name, state, city, uid, ts) VALUES (?, ?, ?, ?, ?, ?)').bind(id, name, state, city || null, me.id, Date.now()).run();
     return json({ ok: true, id });
   }
+  const cm = /^\/schools\/([a-z0-9]{2,20})\/comments$/.exec(path);
+  if (cm && m === 'POST') {   // 学员补充：登录就能写，每人每天 5 条
+    const sid = cm[1], text = clip(body.text, 400);
+    if (text.length < 4) return bad('too_short');
+    if (!(await db.prepare('SELECT 1 FROM schools WHERE id = ? AND hidden = 0').bind(sid).first())) return bad('not_found', 404);
+    const n = await db.prepare('SELECT COUNT(*) n FROM comments WHERE uid = ? AND ts > ?').bind(me.id, Date.now() - 86400e3).first();
+    if (n.n >= 5) return bad('too_many', 429);
+    await db.prepare('INSERT INTO comments (sid, uid, name, text, ts) VALUES (?, ?, ?, ?, ?)').bind(sid, me.id, clip(me.name, 20), text, Date.now()).run();
+    return json({ ok: true });
+  }
   if (path === '/prices' && m === 'POST') {   // 晒学费：每人每校每种驾照一条（再交就覆盖）；每校第一次交给奖励，每人最多 reportCap 次
     const sid = clip(body.sid, 20), cls = String(body.cls || ''), price = Math.round(Number(body.price));
     if (!(await db.prepare('SELECT 1 FROM schools WHERE id = ? AND hidden = 0').bind(sid).first())) return bad('not_found', 404);
@@ -292,9 +313,11 @@ async function api(env, req, url, ctx) {
     if (!(price >= 200 && price <= 20000)) return bad('bad_price');
     const ym = /^20\d\d-(0[1-9]|1[0-2])$/.test(body.ym || '') ? body.ym : null;
     const incl = JSON.stringify((Array.isArray(body.incl) ? body.incl : []).filter((x) => ['jpj', 'retest', 'kpp01', 'ldl', 'pickup', 'install'].includes(x)).slice(0, 6));
-    await db.prepare(`INSERT INTO prices (sid, uid, cls, price, ym, incl, note, ts) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-      ON CONFLICT(sid, uid, cls) DO UPDATE SET price = excluded.price, ym = excluded.ym, incl = excluded.incl, note = excluded.note, ts = excluded.ts`)
-      .bind(sid, me.id, cls, price, ym, incl, clip(body.note, 300) || null, Date.now()).run();
+    const rating = [1, 2, 3, 4, 5].includes(Number(body.rating)) ? Number(body.rating) : null;
+    const dur = [1, 2, 3, 6, 12].includes(Number(body.dur)) ? Number(body.dur) : null;
+    await db.prepare(`INSERT INTO prices (sid, uid, cls, price, ym, incl, note, ts, rating, dur) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(sid, uid, cls) DO UPDATE SET price = excluded.price, ym = excluded.ym, incl = excluded.incl, note = excluded.note, ts = excluded.ts, rating = excluded.rating, dur = excluded.dur`)
+      .bind(sid, me.id, cls, price, ym, incl, clip(body.note, 300) || null, Date.now(), rating, dur).run();
     let gained = 0;
     const already = await db.prepare('SELECT 1 FROM prices WHERE sid = ? AND uid = ? AND rewarded = 1').bind(sid, me.id).first();
     const cnt = await db.prepare('SELECT COUNT(*) n FROM prices WHERE uid = ? AND rewarded = 1').bind(me.id).first();
@@ -339,6 +362,7 @@ async function api(env, req, url, ctx) {
     }
     if (path === '/admin/hide' && m === 'POST') {
       if (body.price) await db.prepare('UPDATE prices SET hidden = ? WHERE id = ?').bind(body.hide === false ? 0 : 1, Number(body.price) | 0).run();
+      if (body.comment) await db.prepare('UPDATE comments SET hidden = ? WHERE id = ?').bind(body.hide === false ? 0 : 1, Number(body.comment) | 0).run();
       if (body.school) await db.prepare('UPDATE schools SET hidden = ? WHERE id = ?').bind(body.hide === false ? 0 : 1, clip(body.school, 20)).run();
       return json({ ok: true });
     }

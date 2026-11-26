@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { t } from './i18n';
 import { api, Q, tx, txOr } from './lib';
 import { Icon, Sheet, toast, useApp } from './ui';
@@ -11,9 +11,10 @@ type Props = {
   onPick: (l: string) => void;
   num?: string;
   onNum?: () => void;         // 点题号（刷题：跳题）
+  nav?: ReactNode;            // 题号行右边的小按钮（刷题：上一题 / 下一题）
 };
 
-export function QuestionView({ q, picked, reveal, noTrans, onPick, num, onNum }: Props) {
+export function QuestionView({ q, picked, reveal, noTrans, onPick, num, onNum, nav }: Props) {
   const { set } = useApp();
   const ql = set.ql, tr = noTrans || set.tr === ql ? 'off' : set.tr;
   const [zoom, setZoom] = useState<string | null>(null);
@@ -26,7 +27,7 @@ export function QuestionView({ q, picked, reveal, noTrans, onPick, num, onNum }:
     <div className="qv">
       <div className="q-head">
         <span className="q-sec">{num && (onNum ? <button onClick={onNum}>{num}</button> : <b>{num}</b>)}<span>{t('sec' + q.s)}</span></span>
-        <button className="link small" onClick={() => setRep(true)}>{t('report')}</button>
+        <span className="q-tools"><button className="link small" onClick={() => setRep(true)}>{t('report')}</button>{nav}</span>
       </div>
       <h2 className="q-text">{txOr(q.t, ql)}</h2>
       {tr !== 'off' && tx(q.t, tr) && <p className="q-tr">{tx(q.t, tr)}</p>}
