@@ -1,0 +1,2541 @@
+[
+ {
+  "id": "section-b-b-question-set-8-q16",
+  "ms": {
+   "q": "Cara yang BETUL untuk memegang stereng ialah",
+   "o": {
+    "A": "Pegang stereng dengan kedua-dua tangan pada kedudukan jam 10.00 dan 2.00 bagi tangan kiri dan kanan masing-masing",
+    "B": "Pegang stereng dengan kedua-dua tangan pada kedudukan jam 6.00 dan 12.00 bagi tangan kiri dan kanan masing-masing",
+    "C": "Pegang stereng dengan kedua-dua tangan pada kedudukan jam 12.00 dan 5.00 bagi tangan kiri dan kanan masing-masing"
+   }
+  },
+  "zh_fix": {
+   "q": "正确的握方向盘方法是",
+   "o": {
+    "A": "左手和右手分别握在方向盘的10点和2点钟位置",
+    "B": "左手和右手分别握在方向盘的6点和12点钟位置",
+    "C": "左手和右手分别握在方向盘的12点和5点钟位置"
+   }
+  },
+  "en_fix": {
+   "q": "The CORRECT way to hold the steering wheel is"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q17",
+  "ms": {
+   "q": "Berapakah umur minimum untuk Lesen Memandu Kelas C?",
+   "o": {
+    "A": "16 tahun",
+    "B": "17 tahun",
+    "C": "18 tahun"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "16岁",
+    "B": "17岁",
+    "C": "18岁"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q18",
+  "ms": {
+   "q": "Berikut adalah pernyataan yang BETUL mengenai sistem KEJARA, KECUALI",
+   "o": {
+    "A": "Diwujudkan untuk meningkatkan kesedaran pemandu terhadap keselamatan jalan raya",
+    "B": "Diwujudkan untuk meningkatkan bilangan kemalangan jalan raya",
+    "C": "Diwujudkan untuk mengurangkan bilangan kemalangan jalan raya"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "旨在增加道路事故数量"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q19",
+  "ms": {
+   "q": "Apabila mengekori kenderaan lain pada waktu malam, anda hendaklah",
+   "o": {
+    "A": "Mengekori rapat dan menyalakan lampu besar tinggi",
+    "B": "Mengekori pada jarak yang betul tanpa menyalakan sebarang lampu",
+    "C": "Mengekori pada jarak yang betul dan merendahkan lampu"
+   }
+  },
+  "zh_fix": {
+   "q": "夜间跟随另一辆车行驶时，您应该",
+   "o": {
+    "A": "紧贴前车并开远光灯",
+    "B": "保持正确距离，不开任何车灯",
+    "C": "保持正确距离并使用近光灯"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Tail up close to it and turn on the high beam headlights"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q20",
+  "ms": {
+   "q": "Apakah yang dimaksudkan dengan Peraturan 2 Saat?",
+   "o": {
+    "A": "Peraturan untuk memotong kenderaan lain",
+    "B": "Peraturan untuk mengekori kenderaan",
+    "C": "Peraturan untuk memberhentikan kenderaan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "超车规则",
+    "B": "跟车规则",
+    "C": "停车规则"
+   }
+  },
+  "en_fix": {
+   "q": "What is meant by the 2-second Rule?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q21",
+  "ms": {
+   "q": "Umur minimum bagi Lesen Memandu Kelas C ialah",
+   "o": {
+    "A": "16 tahun",
+    "B": "17 tahun",
+    "C": "18 tahun"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "16岁",
+    "B": "17岁",
+    "C": "18岁"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q22",
+  "ms": {
+   "q": "Untuk mula menggerakkan kenderaan anda dengan cara yang betul, anda hendaklah",
+   "o": {
+    "A": "Menggunakan gear neutral",
+    "B": "Menggunakan gear tinggi",
+    "C": "Menggunakan gear pertama"
+   }
+  },
+  "zh_fix": {
+   "q": "以正确方式起步时，您应该",
+   "o": {
+    "B": "使用高档",
+    "C": "使用一档"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q23",
+  "ms": {
+   "q": "Sebelum membelok ke kanan di simpang, pemandu hendaklah",
+   "o": {
+    "A": "Memberi isyarat ke kanan, memberi laluan kepada kenderaan dari arah bertentangan dan membelok ke kanan",
+    "B": "Memberi isyarat ke kiri, memberi laluan kepada kenderaan dari arah bertentangan dan membelok ke kanan",
+    "C": "Tidak perlu memberi isyarat dan terus membelok"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "无需打灯，直接转弯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q24",
+  "ms": {
+   "q": "Peraturan manakah digunakan untuk mengelakkan perlanggaran dengan kenderaan di hadapan?",
+   "o": {
+    "A": "Peraturan 2 Saat",
+    "B": "Peraturan 3 Saat",
+    "C": "Peraturan 4 Saat"
+   }
+  },
+  "zh_fix": {
+   "q": "为避免与前车相撞，应遵守哪条规则？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-8-q25",
+  "ms": {
+   "q": "Susun mengikut turutan langkah-langkah penting yang perlu diambil untuk mengelakkan kemalangan.",
+   "o": {
+    "A": "Analisis > Kenal pasti > Buat keputusan > Tidak bertindak",
+    "B": "Kenal pasti > Analisis > Buat keputusan > Bertindak",
+    "C": "Bertindak > Kenal pasti > Buat keputusan > Analisis"
+   }
+  },
+  "zh_fix": {
+   "q": "请按顺序列出为避免发生事故应采取的重要步骤。",
+   "o": {
+    "C": "行动 > 识别 > 做出决定 > 分析"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q1",
+  "ms": {
+   "q": "Antara tindakan berikut, yang manakah perlu DIELAKKAN oleh pemandu apabila melihat papan tanda jalan di selekoh?",
+   "o": {
+    "A": "Memperlahankan kenderaan dan tidak memotong kenderaan lain",
+    "B": "Menambah kelajuan kenderaan",
+    "C": "Memperlahankan kenderaan dan memandu dengan berhati-hati"
+   }
+  },
+  "zh_fix": {
+   "q": "驾驶员在弯道处看到路标时，应避免以下哪种行为？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q2",
+  "ms": {
+   "q": "Antara berikut, yang manakah TIDAK digalakkan semasa memandu dalam hujan lebat?",
+   "o": {
+    "A": "Memandu melebihi had laju",
+    "B": "Menyalakan lampu besar",
+    "C": "Memandu dengan lebih berhati-hati"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "超速驾驶",
+    "B": "打开大灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q3",
+  "ms": {
+   "q": "Apabila diekori rapat oleh kenderaan lain, apakah yang perlu dilakukan untuk mengelakkan perlanggaran dengan kenderaan di belakang?",
+   "o": {
+    "A": "Memberi isyarat dan memotong kenderaan di hadapan",
+    "B": "Memberi isyarat dan memberi laluan kepada kenderaan itu untuk memotong anda apabila selamat",
+    "C": "Membunyikan hon dan menghalang kenderaan itu daripada memotong anda walaupun keadaan selamat"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "打灯并超越前车",
+    "B": "在安全时打灯并让后车超越",
+    "C": "即使安全也鸣喇叭并阻挡后车超车"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q4",
+  "ms": {
+   "q": "Kenal pasti dalam Konsep Pemanduan Selamat bermaksud",
+   "o": {
+    "A": "Menentukan peraturan untuk mengekori kenderaan lain",
+    "B": "Menentukan had laju kenderaan di jalan raya",
+    "C": "Menentukan keadaan yang boleh menyebabkan kemalangan berlaku"
+   }
+  },
+  "zh_fix": {
+   "q": "安全驾驶理念中的“识别”是指",
+   "o": {
+    "A": "确定跟车规则"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q5",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan jika berasa letih dan mengantuk semasa memandu?",
+   "o": {
+    "A": "Berhenti di tepi jalan dan berehat",
+    "B": "Berhenti di kawasan yang selamat dan berehat atau tidur jika perlu",
+    "C": "Berhentikan kenderaan dengan serta-merta"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "B is the bank/JPJ answer; A is close but roadside stopping is not necessarily safe.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-9-q6",
+  "ms": {
+   "q": "Faktor-faktor berikut boleh menyebabkan kemalangan, KECUALI",
+   "o": {
+    "A": "Memotong",
+    "B": "Bercakap",
+    "C": "Memandu laju"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "说话",
+    "C": "超速"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Weak question (talking can distract), but B is intended.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-9-q7",
+  "ms": {
+   "q": "Perkara berikut perlu dirancang sebelum memulakan perjalanan untuk mengelakkan kemalangan, KECUALI",
+   "o": {
+    "A": "Memastikan kenderaan dalam keadaan baik",
+    "B": "Memberitahu jiran",
+    "C": "Memastikan anda merancang laluan terlebih dahulu"
+   }
+  },
+  "zh_fix": {
+   "q": "出行前为避免发生事故必须计划以下事项，除了"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q8",
+  "ms": {
+   "q": "Menurut kajian, berapakah kebarangkalian pemandu mabuk terlibat dalam kemalangan jalan raya berbanding pemandu yang tidak mabuk?",
+   "o": {
+    "A": "15 kali",
+    "B": "10 kali",
+    "C": "25 kali"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "15倍",
+    "B": "10倍",
+    "C": "25倍"
+   }
+  },
+  "en_fix": {
+   "q": "According to studies, how many times more likely is a drunk driver to be involved in a traffic accident compared to a sober driver?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Matches KPP bank figure (25x); not independently verifiable.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-9-q9",
+  "ms": {
+   "q": "Apabila lampu isyarat di hadapan bertukar daripada merah kepada hijau, anda hendaklah",
+   "o": {
+    "A": "Teruskan perjalanan jika selamat",
+    "B": "Berhenti",
+    "C": "Tekan pedal untuk memperlahankan kenderaan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "在安全的情况下继续行驶",
+    "C": "踩踏板减速"
+   }
+  },
+  "en_fix": {
+   "q": "When the traffic light ahead changes from red to green, you should"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q10",
+  "ms": {
+   "q": "Had laju maksimum bagi van persendirian di lebuh raya ialah",
+   "o": {
+    "A": "110 km/j",
+    "B": "130 km/j",
+    "C": "150 km/j"
+   }
+  },
+  "zh_fix": {
+   "q": "私人客货车在大道上的最高限速为"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-9-q11",
+  "ms": {
+   "q": "Apakah punca utama kemalangan berlaku di jalan yang lurus?",
+   "o": {
+    "A": "Memandu perlahan",
+    "B": "Memotong",
+    "C": "Memandu melebihi had laju"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "q": "What is the main cause of accidents on a straight road?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q12",
+  "ms": {
+   "q": "Bilakah hon dibenarkan dibunyikan?",
+   "o": {
+    "A": "Semasa memecut",
+    "B": "Sejurus sebelum memotong",
+    "C": "Semasa memberi isyarat untuk membelok ke kiri atau ke kanan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "打灯示意左转或右转时"
+   }
+  },
+  "en_fix": {
+   "q": "When is honking permitted?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-9-q13",
+  "ms": {
+   "q": "Berikut adalah teknik asas menunggang motosikal, KECUALI",
+   "o": {
+    "A": "Kedudukan badan yang salah",
+    "B": "Kedudukan tangan dan kaki yang betul",
+    "C": "Mengimbangkan kedudukan badan semasa membelok"
+   }
+  },
+  "zh_fix": {
+   "q": "以下是骑摩哆的基本技巧，除了"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q14",
+  "ms": {
+   "q": "Bagaimanakah anda mengawal kemarahan semasa memandu?",
+   "o": {
+    "A": "Berhenti di tempat yang selamat sehingga anda dapat mengawal emosi semula",
+    "B": "Teruskan perjalanan dalam keadaan marah",
+    "C": "Menambah kelajuan kenderaan anda"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "在安全的地方停下来，直到情绪恢复平静",
+    "B": "带着怒气继续行驶"
+   }
+  },
+  "en_fix": {
+   "q": "How do you control your anger while driving?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q15",
+  "ms": {
+   "q": "Anda perlu melakukan perkara berikut sebelum memulakan perjalanan jauh, KECUALI",
+   "o": {
+    "A": "Memeriksa petrol",
+    "B": "Memeriksa keadaan kereta anda",
+    "C": "Memeriksa radio"
+   }
+  },
+  "zh_fix": {
+   "q": "在长途出行之前，您应该做以下事项，除了"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q16",
+  "ms": {
+   "q": "Faktor utama kemalangan jalan raya ialah",
+   "o": {
+    "A": "Lampu isyarat",
+    "B": "Pemandu",
+    "C": "Jalan raya"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "驾驶者",
+    "C": "道路"
+   }
+  },
+  "en_fix": {
+   "q": "The main factor in road accidents is"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-b-b-question-set-9-q17",
+  "ms": {
+   "q": "Kandungan alkohol maksimum yang dibenarkan dalam 100 ml air kencing ialah",
+   "o": {
+    "A": "110 mg alkohol",
+    "B": "107 mg alkohol",
+    "C": "104 mg alkohol"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "107 mg/100 ml was the pre-2020 limit; RTA amendment (2020) lowered it to 67 mg/100 ml urine. Matches bank but outdated; no option reflects current law.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-b-b-question-set-9-q18",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan semasa memandu melalui jalan yang dinaiki air dengan pejalan kaki berhampiran?",
+   "o": {
+    "A": "Memperlahankan kenderaan dan membrek secara mengejut",
+    "B": "Menambah kelajuan kenderaan supaya air terpercik ke arah pejalan kaki",
+    "C": "Memperlahankan kenderaan supaya air tidak terpercik ke arah pejalan kaki"
+   }
+  },
+  "zh_fix": {
+   "q": "驾车经过积水路段且附近有行人时，应该怎么做？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q1",
+  "ms": {
+   "q": "Antara berikut, yang manakah BUKAN jenis Lesen Vokasional?",
+   "o": {
+    "A": "Lesen Memandu Kompeten (CDL)",
+    "B": "Lesen Konduktor",
+    "C": "Lesen Memandu Barangan (GDL)"
+   }
+  },
+  "zh_fix": {
+   "q": "以下哪一项不属于职业驾照？",
+   "o": {
+    "A": "正式驾照 (CDL)",
+    "B": "售票员执照",
+    "C": "货车驾驶执照 (GDL)"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q2",
+  "ms": {
+   "q": "Antara berikut, yang manakah merupakan pengalaman tekanan fisiologi?",
+   "o": {
+    "A": "Berasa gembira",
+    "B": "Ketegangan mental dan fizikal",
+    "C": "Lulus ujian memandu"
+   }
+  },
+  "zh_fix": {
+   "q": "以下哪项属于生理上的压力反应？",
+   "o": {
+    "A": "感到快乐"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q3",
+  "ms": {
+   "q": "Apakah kesalahan yang dilakukan oleh pemandu di bawah Akta Pengangkutan Jalan 1987 dan peraturan-peraturannya, jika dia meletakkan kenderaannya di perhentian bas dan membiarkan enjin hidup semasa dia pergi membeli surat khabar?",
+   "o": {
+    "A": "Meletak kenderaan di kawasan larangan",
+    "B": "Meninggalkan kenderaan dengan tingkap terbuka",
+    "C": "Meletak kenderaan di kawasan yang tidak dilarang"
+   }
+  },
+  "zh_fix": {
+   "q": "根据《1987年陆路交通法令》及其条例，如果司机把车停在巴士站，并在发动机运转的情况下离开去买报纸，他犯了什么罪？",
+   "o": {
+    "B": "离开车辆且车窗敞开",
+    "C": "在非禁止区域停车"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Leaving the vehicle with the windows open"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q4",
+  "ms": {
+   "q": "Pilih keadaan yang menunjukkan tekanan positif",
+   "o": {
+    "A": "Perkahwinan",
+    "B": "Kematian",
+    "C": "Sakit"
+   }
+  },
+  "zh_fix": {
+   "q": "选择属于正面压力的情况",
+   "o": {
+    "C": "生病"
+   }
+  },
+  "en_fix": {
+   "q": "Select a condition that shows positive stress",
+   "o": {
+    "C": "Sickness"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q5",
+  "ms": {
+   "q": "Had laju maksimum yang ditetapkan bagi kereta di lebuh raya ialah",
+   "o": {
+    "A": "90 km/j",
+    "B": "110 km/j",
+    "C": "120 km/j"
+   }
+  },
+  "zh_fix": {
+   "q": "汽车在大道上的最高限速为"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q6",
+  "ms": {
+   "q": "Antara berikut, yang manakah TIDAK melayakkan pemohon mendapat Lesen Belajar Memandu (LDL) di Malaysia?",
+   "o": {
+    "A": "Tidak menghadiri kursus KPP selama 5 jam dan dikeluarkan sijil kehadiran, JPJL2A",
+    "B": "Menghadiri latihan Pra-L selama 6 jam dan dikeluarkan sijil kehadiran, JPJL2B",
+    "C": "Lulus Ujian Teori Undang-Undang (Bahagian 1) dalam tempoh 2 tahun dari tarikh permohonan"
+   }
+  },
+  "zh_fix": {
+   "q": "以下哪一项不能使申请人在马来西亚获得学习驾照 (LDL) 资格？",
+   "o": {
+    "A": "未参加5小时的KPP课程并获发出席证书 JPJL2A",
+    "B": "参加了6小时的Pre-L培训并获发出席证书 JPJL2B",
+    "C": "自申请之日起2年内通过交通规则理论考试（第一部分）"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Attended the 6-hour Pre-L training and was issued a certificate of attendance, JPJL2B",
+    "C": "Passed the Regulations Theory Examination (Part 1) within a 2-year period from the date of application"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q7",
+  "ms": {
+   "q": "Lesen Belajar Memandu (LDL) boleh diperbaharui",
+   "o": {
+    "A": "Setahun sekali",
+    "B": "1 atau 2 tahun",
+    "C": "3 atau 6 bulan sekali"
+   }
+  },
+  "zh_fix": {
+   "q": "学习驾照 (LDL) 可以更新",
+   "o": {
+    "B": "每1或2年",
+    "C": "每3或6个月一次"
+   }
+  },
+  "en_fix": {
+   "q": "Learner Driving Licence (LDL) can be renewed",
+   "o": {
+    "C": "Once every 3 or 6 months"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q8",
+  "ms": {
+   "q": "Apakah hukuman jika pemandu memandu ketika lesennya telah dibatalkan?",
+   "o": {
+    "A": "Denda RM2,000 dan penjara 6 bulan",
+    "B": "Tidak boleh memandu selama 1 tahun",
+    "C": "Tidak dibenarkan memohon lesen baharu"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "不允许申请新驾照"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Bank answer; exact current penalty not verified.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-1-q9",
+  "ms": {
+   "q": "Lesen Memandu Kompeten (CDL) boleh digantung mengikut sistem KEJARA jika pemegangnya didapati bersalah atas kesalahan berikut, KECUALI",
+   "o": {
+    "A": "Memandu dengan cermat dan berhati-hati",
+    "B": "Terlibat dalam perlumbaan haram",
+    "C": "Memandu tanpa timbang rasa dan secara melulu"
+   }
+  },
+  "zh_fix": {
+   "q": "根据 KEJARA 制度，正式驾照 (CDL) 持有人若被判犯有以下罪行，驾照可能会被吊销，除了",
+   "o": {
+    "B": "参与非法赛车",
+    "C": "不顾他人及鲁莽驾驶"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Taking part in illegal races"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q10",
+  "ms": {
+   "q": "Mengikut sistem KEJARA, pemegang Lesen Memandu Percubaan (PDL) akan dikenakan mata demerit bagi kesalahan berikut, KECUALI",
+   "o": {
+    "A": "Gagal membawa Lesen Memandu Percubaan semasa memandu",
+    "B": "Gagal ujian kandungan alkohol tahap 0.00 dalam nafas, darah atau air kencing",
+    "C": "Mempamerkan plat 'P' pada kenderaan"
+   }
+  },
+  "zh_fix": {
+   "q": "根据 KEJARA 制度，暂准驾照 (PDL) 持有人在以下违规行为中会被扣分，除了",
+   "o": {
+    "B": "呼气、血液或尿液酒精含量未达到 0.00 标准",
+    "C": "在车上展示“P”牌"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "C": "Displaying the 'P' plates on the vehicle"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q11",
+  "ms": {
+   "q": "Seorang pemandu meletakkan kenderaan secara sembarangan di kawasan yang sibuk. Mengikut Seksyen 48 Akta Pengangkutan Jalan 1987, tindakan ini merupakan satu kesalahan kerana ia",
+   "o": {
+    "A": "Menimbulkan bahaya, halangan atau kesukaran kepada pengguna jalan raya lain",
+    "B": "Menimbulkan keselamatan, halangan atau kesukaran kepada pengguna jalan raya lain",
+    "C": "Menimbulkan keselamatan, halangan atau memudahkan pengguna jalan raya lain"
+   }
+  },
+  "zh_fix": {
+   "q": "一名司机在繁忙地区随意停车。根据《1987年陆路交通法令》第48条，这种行为属于违法，因为它",
+   "o": {
+    "A": "对其他道路使用者造成危险、阻碍或不便",
+    "B": "对其他道路使用者造成安全、阻碍或不便",
+    "C": "对其他道路使用者造成安全、阻碍或方便"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Creates danger, obstruction or difficulty for other road users",
+    "B": "Creates safety, obstruction or difficulty for other road users",
+    "C": "Creates safety, obstruction or ease for other road users"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q12",
+  "ms": {
+   "q": "Kesalahan berikut akan dikenakan mata demerit mengikut sistem KEJARA, KECUALI",
+   "o": {
+    "A": "Memandu secara membabi buta",
+    "B": "Mematuhi papan tanda jalan",
+    "C": "Tidak mempedulikan papan tanda jalan"
+   }
+  },
+  "zh_fix": {
+   "q": "根据 KEJARA 制度，以下违规行为会被扣分，除了",
+   "o": {
+    "C": "不理会路标"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Driving recklessly",
+    "C": "Ignoring road signs"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q13",
+  "ms": {
+   "q": "Tempoh sah Lesen Memandu Percubaan ialah",
+   "o": {
+    "A": "1 tahun",
+    "B": "2 tahun",
+    "C": "3 tahun"
+   }
+  },
+  "zh_fix": {
+   "q": "暂准驾照的有效期为"
+  },
+  "en_fix": {
+   "q": "The validity period for the Probationary Driving Licence is"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q14",
+  "ms": {
+   "q": "Bagaimanakah anda boleh mengurangkan tekanan ke tahap paling rendah semasa memandu?",
+   "o": {
+    "A": "Menambah kelajuan kenderaan",
+    "B": "Terus memandu sehingga sampai ke destinasi",
+    "C": "Berhenti untuk berehat dan melakukan senaman ringan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "加快车速"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Increase the speed of the vehicle",
+    "B": "Keep driving until you reach your destination"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q15",
+  "ms": {
+   "q": "Antara situasi berikut, yang manakah TIDAK memerlukan anda memotong kenderaan?",
+   "o": {
+    "A": "Semasa mengekori kenderaan dan keadaan itu tidak akan menyebabkan kemalangan",
+    "B": "Apabila kenderaan di hadapan bergerak terlalu perlahan",
+    "C": "Apabila kenderaan di hadapan menukar arah ke kiri"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "跟随前车且不会造成事故时",
+    "C": "当前车向左转向时"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Poorly worded question; A is intended.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-1-q16",
+  "ms": {
+   "q": "Apakah cara yang betul dan paling selamat untuk memandu di selekoh tajam?",
+   "o": {
+    "A": "Menambah kelajuan dan menggunakan gear yang tidak sesuai",
+    "B": "Memandu perlahan dan menggunakan gear yang sesuai",
+    "C": "Memandu perlahan dan menggunakan gear yang tidak sesuai"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "加速并挂入不合适的档位",
+    "C": "缓慢驾驶并挂入不合适的档位"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Accelerating and engaging the inappropriate gear"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q17",
+  "ms": {
+   "q": "Apakah langkah berjaga-jaga yang perlu anda ambil apabila anda perlu memberhentikan kenderaan di tepi jalan dan keluar dari kenderaan?",
+   "o": {
+    "A": "Perhatikan cermin sisi dan pastikan ada kenderaan datang dari hadapan",
+    "B": "Perhatikan cermin sisi dan pastikan ada kenderaan datang dari belakang",
+    "C": "Perhatikan cermin sisi dan pastikan tiada kenderaan datang dari belakang"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "观察侧镜，确认有车辆从前方驶来",
+    "B": "观察侧镜，确认有车辆从后方驶来",
+    "C": "观察侧镜，确保后方没有车辆驶来"
+   }
+  },
+  "en_fix": {
+   "q": "What precaution should you take when you need to stop your vehicle at the side of the road and step out of it?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q18",
+  "ms": {
+   "q": "Bagaimanakah cara mengelakkan membrek secara mengejut semasa memandu?",
+   "o": {
+    "A": "Mengekalkan jarak selamat dan menyesuaikan pemanduan mengikut keadaan cuaca dan jalan raya",
+    "B": "Mengekalkan jarak yang dekat dan menyesuaikan pemanduan mengikut keadaan cuaca dan jalan raya",
+    "C": "Mengekalkan jarak selamat dan tidak menyesuaikan pemanduan mengikut keadaan cuaca dan jalan raya"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "与前车保持近距离，并根据天气和路况调整驾驶"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q19",
+  "ms": {
+   "q": "Kawasan yang dibenarkan untuk memotong",
+   "o": {
+    "A": "Di jalan yang sangat licin",
+    "B": "Di selekoh di hadapan",
+    "C": "Di jalan lurus yang mempunyai garisan putus-putus"
+   }
+  },
+  "zh_fix": {
+   "q": "允许超车的地方",
+   "o": {
+    "B": "在前方的弯道上",
+    "C": "在有虚线的直路上"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "On a bend ahead",
+    "C": "On a straight road with broken lines"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q20",
+  "ms": {
+   "q": "Jika anda ingin membelok ke kanan semasa menghampiri bulatan, lorong manakah yang patut anda gunakan?",
+   "o": {
+    "A": "Lorong kiri",
+    "B": "Lorong kanan",
+    "C": "Lorong tengah"
+   }
+  },
+  "zh_fix": {
+   "q": "如果您在接近回旋处时想右转，应该使用哪条车道？",
+   "o": {
+    "B": "右车道",
+    "C": "中间车道"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q21",
+  "ms": {
+   "q": "Memandu menuruni bukit yang curam memerlukan sikap sangat berhati-hati. Apakah yang perlu dilakukan oleh pemandu dalam situasi sebegini?",
+   "o": {
+    "A": "Tukar ke gear tinggi dan bersedia untuk membrek",
+    "B": "Tukar ke gear rendah dan bersedia untuk membrek",
+    "C": "Tukar ke gear neutral dan membrek"
+   }
+  },
+  "zh_fix": {
+   "q": "驾车下陡坡时需要格外小心。在这种情况下，驾驶员应该怎么做？",
+   "o": {
+    "A": "换高档并准备刹车",
+    "B": "换低档并准备刹车",
+    "C": "换空档并刹车"
+   }
+  },
+  "en_fix": {
+   "q": "Driving down a steep hill requires great caution. What should a driver do in such a situation?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q22",
+  "ms": {
+   "q": "Pemanduan tanpa timbang rasa yang boleh menimbulkan situasi berbahaya termasuklah",
+   "o": {
+    "A": "Sentiasa menyalakan lampu besar tinggi semasa memandu pada waktu malam",
+    "B": "Sentiasa memberi isyarat sebelum membelok atau memotong",
+    "C": "Sentiasa memandu dengan berhati-hati"
+   }
+  },
+  "zh_fix": {
+   "q": "可能造成危险的不顾他人驾驶行为包括"
+  },
+  "en_fix": {
+   "q": "Inconsiderate driving that could create dangerous situations includes"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q23",
+  "ms": {
+   "q": "Apakah yang perlu dilakukan oleh pemandu semasa mengambil selekoh?",
+   "o": {
+    "A": "Menggunakan gear neutral",
+    "B": "Menggunakan gear tinggi",
+    "C": "Menggunakan gear rendah"
+   }
+  },
+  "zh_fix": {
+   "q": "驾驶员在过弯时应该怎么做？",
+   "o": {
+    "B": "使用高档",
+    "C": "使用低档"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q24",
+  "ms": {
+   "q": "Nyatakan satu kaedah Pemanduan Selamat di lebuh raya",
+   "o": {
+    "A": "Memandu di sebelah kiri dan melebihi had laju yang ditetapkan",
+    "B": "Memandu di lorong kiri dalam had laju yang ditetapkan",
+    "C": "Memandu di lorong kanan dan memecut"
+   }
+  },
+  "zh_fix": {
+   "q": "说出在大道上安全驾驶的一种方法",
+   "o": {
+    "B": "在指定限速内沿左车道行驶",
+    "C": "沿右车道行驶并加速"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-1-q25",
+  "ms": {
+   "q": "Apakah tindakan yang perlu anda ambil jika kenderaan di hadapan tiba-tiba menghala ke arah anda?",
+   "o": {
+    "A": "Menambah kelajuan, bergerak ke lorong tengah dan berhenti jika perlu",
+    "B": "Menambah kelajuan, bergerak ke kanan dan berhenti jika perlu",
+    "C": "Memperlahankan kenderaan, bergerak ke kiri dan berhenti jika perlu"
+   }
+  },
+  "zh_fix": {
+   "q": "如果前方车辆突然朝您驶来，您应该怎么做？",
+   "o": {
+    "B": "加速，向右靠并在必要时停车",
+    "C": "减速，向左靠并在必要时停车"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q1",
+  "ms": {
+   "q": "Apakah faktor yang boleh menyebabkan kemalangan pada akhir perjalanan?",
+   "o": {
+    "A": "Cahaya bulan",
+    "B": "Keletihan dan mengantuk",
+    "C": "Kenderaan dalam keadaan baik"
+   }
+  },
+  "zh_fix": {
+   "q": "哪些因素可能导致在行程结束时发生事故？",
+   "o": {
+    "B": "疲劳和困倦"
+   }
+  },
+  "en_fix": {
+   "q": "What factors could cause an accident at the end of a journey?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q2",
+  "ms": {
+   "q": "Apakah langkah keselamatan yang perlu anda ambil semasa mengekori kenderaan pada waktu malam?",
+   "o": {
+    "A": "Amalkan peraturan jarak selamat dan nyalakan lampu rendah",
+    "B": "Amalkan peraturan jarak selamat dan nyalakan lampu besar tinggi",
+    "C": "Amalkan peraturan jarak selamat dan membunyikan hon dengan kuat semasa memandu"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "遵守安全距离规则并使用近光灯",
+    "B": "遵守安全距离规则并使用远光灯",
+    "C": "遵守安全距离规则，并在驾驶时猛按喇叭"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "B": "Practise the safe distance rule and switch on the high beam headlights"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q3",
+  "ms": {
+   "q": "Apakah cara terbaik untuk memperlahankan kenderaan semasa memandu menuruni bukit?",
+   "o": {
+    "A": "Tukar ke gear neutral dan gunakan brek kaki",
+    "B": "Tukar ke gear tinggi dan gunakan brek kaki",
+    "C": "Tukar ke gear rendah dan gunakan brek kaki"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "换空档并踩脚刹",
+    "B": "换高档并踩脚刹",
+    "C": "换低档并踩脚刹"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q4",
+  "ms": {
+   "q": "Antara berikut, yang manakah BUKAN cara yang baik untuk mengelakkan memandu secara tergesa-gesa?",
+   "o": {
+    "A": "Bertolak lebih awal",
+    "B": "Menambah kelajuan semasa memandu",
+    "C": "Merancang setiap perjalanan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q5",
+  "ms": {
+   "q": "Semasa memotong, pemandu sebuah kenderaan telah melanggar kenderaan dari arah bertentangan. Peraturan jarak manakah yang tidak dipatuhi oleh pemandu tersebut?",
+   "o": {
+    "A": "Peraturan 6 Saat",
+    "B": "Peraturan 12 Saat",
+    "C": "Peraturan 4 Saat"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "o": {
+    "B": "12-second Rule"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Per KPP bank (12-second rule for overtaking/look-ahead).",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-2-q6",
+  "ms": {
+   "q": "Antara situasi berikut, yang manakah boleh menyebabkan kemalangan jalan raya?",
+   "o": {
+    "A": "Memandu dengan berhati-hati",
+    "B": "Lalu lintas, pencahayaan dan jalan raya",
+    "C": "Pemandu, kenderaan, cuaca, lalu lintas, pencahayaan dan jalan raya"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "q": "Which of the following factors could cause a traffic accident?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Ambiguous (B is a subset of C); C is intended as most complete.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-2-q7",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan jika anda mengantuk semasa memandu?",
+   "o": {
+    "A": "Berhentikan kenderaan dan berehat",
+    "B": "Teruskan memandu",
+    "C": "Berhenti di tengah jalan"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": {
+   "o": {
+    "B": "Continue driving"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q8",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila menyedari anda tidak memakai tali pinggang keledar semasa memandu?",
+   "o": {
+    "A": "Berhenti di tengah jalan dan pakai tali pinggang keledar",
+    "B": "Berhenti di sebelah kiri jalan dan pakai tali pinggang keledar",
+    "C": "Abaikan dan teruskan memandu"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q9",
+  "ms": {
+   "q": "Pemandu yang tidak bertimbang rasa bukan sahaja dapat dilihat melalui pemanduan melebihi had laju yang ditetapkan atau pemanduan berbahaya, tetapi juga melalui perbuatan seperti",
+   "o": {
+    "A": "Memandu dengan berhati-hati",
+    "B": "Mematuhi peraturan lampu isyarat",
+    "C": "Gagal memberi isyarat yang betul"
+   }
+  },
+  "zh_fix": {
+   "q": "不顾他人的驾驶者不仅表现在超速或危险驾驶上，还表现在以下行为上："
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q10",
+  "ms": {
+   "q": "Tanggungjawab pemandu terhadap pengguna jalan raya lain bermaksud",
+   "o": {
+    "A": "Mengamalkan sikap bertolak ansur terhadap semua pengguna jalan raya dalam pelbagai keadaan",
+    "B": "Mengamalkan sikap melulu terhadap semua pengguna jalan raya mengikut pelbagai keadaan",
+    "C": "Mengamalkan sikap cuai terhadap semua pengguna jalan raya mengikut pelbagai keadaan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "在各种情况下对所有道路使用者采取互相礼让的态度"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Adopting an accommodating attitude towards all road users under various circumstances"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q11",
+  "ms": {
+   "q": "Apabila memandu di lebuh raya dan jarak penglihatan sangat rendah kerana hujan lebat, anda hendaklah",
+   "o": {
+    "A": "Membunyikan hon",
+    "B": "Menggunakan lampu besar tinggi",
+    "C": "Menggunakan lampu besar rendah"
+   }
+  },
+  "zh_fix": {
+   "q": "在大道上行驶时，若因大雨导致能见度很低，您应该"
+  },
+  "en_fix": {
+   "o": {
+    "A": "Use the horn"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q12",
+  "ms": {
+   "q": "Apakah maksud memberi perhatian kepada pengguna jalan raya lain?",
+   "o": {
+    "A": "Pemandu mesti bersikap melulu dalam apa jua keadaan",
+    "B": "Pemandu mesti berhati-hati dalam apa jua keadaan",
+    "C": "Pemandu mesti bersikap cuai dalam apa jua keadaan"
+   }
+  },
+  "zh_fix": {
+   "q": "关注其他道路使用者是什么意思？",
+   "o": {
+    "C": "驾驶员在任何情况下都必须粗心大意"
+   }
+  },
+  "en_fix": {
+   "q": "What does giving attention to other road users mean?",
+   "o": {
+    "B": "A driver must be cautious in any situation"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q13",
+  "ms": {
+   "q": "Empat peraturan yang perlu dipatuhi untuk mengelakkan perlanggaran secara berdepan ialah",
+   "o": {
+    "A": "Lihat ke hadapan, bergerak ke kanan, tambah kelajuan dan keluar dari jalan",
+    "B": "Lihat ke belakang, bergerak ke kanan, perlahankan kenderaan dan keluar dari jalan",
+    "C": "Lihat ke hadapan, bergerak ke kiri, perlahankan kenderaan dan keluar dari jalan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "向前看，靠右，加速并驶离道路",
+    "B": "向后看，靠右，减速并驶离道路",
+    "C": "向前看，靠左，减速并驶离道路"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q14",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan jika anda melihat haiwan di tengah jalan semasa memandu?",
+   "o": {
+    "A": "Memandu perlahan, tidak membunyikan hon dan bersedia untuk berhenti",
+    "B": "Memandu perlahan, membunyikan hon dan terus memandu",
+    "C": "Menambah kelajuan dan terus memandu laju"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "加速并继续高速行驶"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Drive slowly, do not honk and get ready to stop",
+    "C": "Increase speed and continue speeding"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Per KPP bank (avoid startling the animal).",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-2-q15",
+  "ms": {
+   "q": "Mengapakah anda perlu sentiasa memerhatikan cermin pandang belakang dan cermin sisi semasa memandu?",
+   "o": {
+    "A": "Untuk memeriksa keadaan lalu lintas di hadapan kenderaan anda",
+    "B": "Untuk memeriksa keadaan lalu lintas di belakang kenderaan anda",
+    "C": "Untuk memeriksa keadaan lalu lintas kenderaan lain di sekeliling anda"
+   }
+  },
+  "zh_fix": {
+   "q": "为什么驾驶时要经常观察后视镜和侧镜？"
+  },
+  "en_fix": {
+   "q": "Why should you always observe the rear-view and side mirrors while driving?",
+   "o": {
+    "A": "To check the traffic situation in front of your vehicle"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "C is arguably also correct (side mirrors cover surroundings); B is the bank answer.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-2-q16",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan apabila lampu isyarat bertukar kuning?",
+   "o": {
+    "A": "Menambah kelajuan kenderaan sebelum lampu merah",
+    "B": "Memberhentikan kenderaan di hadapan garisan putih",
+    "C": "Memberhentikan kenderaan di belakang garisan putih jika selamat berbuat demikian"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "在红灯亮起前加速",
+    "B": "将车辆停在白线前方（越过白线）",
+    "C": "如果安全，将车辆停在白线后方"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "Speed up before the light turns red"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q17",
+  "ms": {
+   "q": "Mengikut sistem KEJARA, antara kesalahan berikut, yang manakah akan dikenakan mata demerit?",
+   "o": {
+    "A": "Mengabaikan papan tanda jalan",
+    "B": "Memberi isyarat semasa membelok",
+    "C": "Tidak menyalakan lampu besar"
+   }
+  },
+  "zh_fix": {
+   "q": "根据 KEJARA 制度，以下哪项违规行为会被扣分？",
+   "o": {
+    "B": "转弯时打灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "C is ambiguous (not using headlights at night may be an offence), A intended.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-2-q18",
+  "ms": {
+   "q": "Pilih pernyataan yang BETUL berkaitan penggunaan gear",
+   "o": {
+    "A": "Tukar ke gear undur semasa mendaki bukit",
+    "B": "Tukar ke gear tinggi semasa mendaki bukit",
+    "C": "Tukar ke gear rendah semasa mendaki bukit"
+   }
+  },
+  "zh_fix": {
+   "q": "选择有关使用排档的正确说法",
+   "o": {
+    "B": "上坡行驶时换高档",
+    "C": "上坡行驶时换低档"
+   }
+  },
+  "en_fix": {
+   "q": "Select the CORRECT statement regarding the use of gears"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q19",
+  "ms": {
+   "q": "Apakah maksud Peraturan 2 Saat?",
+   "o": {
+    "A": "Peraturan untuk memotong kenderaan lain",
+    "B": "Peraturan untuk mengekori kenderaan",
+    "C": "Peraturan untuk memberhentikan kenderaan"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "超车规则",
+    "B": "跟车规则",
+    "C": "停车规则"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q20",
+  "ms": {
+   "q": "Berapakah umur minimum untuk mengambil Lesen Memandu Kelas C?",
+   "o": {
+    "A": "16 tahun",
+    "B": "17 tahun",
+    "C": "18 tahun"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "16岁",
+    "B": "17岁",
+    "C": "18岁"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q21",
+  "ms": {
+   "q": "Berapakah umur minimum bagi pemegang lesen memandu kelas B2 dan D?",
+   "o": {
+    "A": "16 tahun dan 17 tahun ke atas",
+    "B": "18 tahun dan 21 tahun ke atas",
+    "C": "19 tahun dan 25 tahun ke atas"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "分别为16岁及17岁以上",
+    "B": "分别为18岁及21岁以上",
+    "C": "分别为19岁及25岁以上"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "16 and 17 years and above",
+    "B": "18 and 21 years and above",
+    "C": "19 and 25 years and above"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q22",
+  "ms": {
+   "q": "Mengikut sistem KEJARA, siapakah yang layak diberi bonus?",
+   "o": {
+    "A": "Lesen Belajar Memandu (LDL)",
+    "B": "Lesen Memandu Percubaan (PDL)",
+    "C": "Lesen Memandu Kompeten (CDL)"
+   }
+  },
+  "zh_fix": {
+   "q": "根据 KEJARA 制度，谁有资格获得奖励（减分）？",
+   "o": {
+    "A": "学习驾照 (LDL)",
+    "B": "暂准驾照 (PDL)",
+    "C": "正式驾照 (CDL)"
+   }
+  },
+  "en_fix": {
+   "q": "According to the KEJARA system, who is eligible to be given a bonus?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-2-q23",
+  "ms": {
+   "q": "Apakah yang perlu anda lakukan semasa memandu di selekoh tajam?",
+   "o": {
+    "A": "Memperlahankan kenderaan dan memandu di lorong kanan",
+    "B": "Mengurangkan kelajuan dan memandu di lorong kiri",
+    "C": "Menambah kelajuan dan memandu di lorong kiri"
+   }
+  },
+  "zh_fix": {
+   "q": "在急弯行驶时应该怎么做？",
+   "o": {
+    "B": "减速并在左车道行驶",
+    "A": "减速并在右车道行驶"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q24",
+  "ms": {
+   "q": "Jika anda ingin membelok ke kanan di bulatan dua lorong, lorong manakah yang patut anda gunakan?",
+   "o": {
+    "A": "Lorong tengah",
+    "B": "Lorong kanan",
+    "C": "Lorong kiri"
+   }
+  },
+  "zh_fix": {
+   "q": "如果您想在双车道回旋处右转，应该使用哪条车道？",
+   "o": {
+    "A": "中间车道",
+    "B": "右车道"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "'Middle lane' option makes no sense on a two-lane roundabout; B correct.",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-2-q25",
+  "ms": {
+   "q": "Semasa memandu mendaki cerun yang curam, anda hendaklah",
+   "o": {
+    "A": "Menggunakan gear rendah",
+    "B": "Menggunakan gear neutral",
+    "C": "Menggunakan gear paling tinggi"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "使用低档",
+    "C": "使用最高档"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q1",
+  "ms": {
+   "q": "Berapakah umur minimum untuk Lesen Memandu Kelas D?",
+   "o": {
+    "A": "15 tahun",
+    "B": "16 tahun",
+    "C": "17 tahun"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "A": "15岁",
+    "B": "16岁",
+    "C": "17岁"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q2",
+  "ms": {
+   "q": "Kelas lesen manakah diperlukan untuk menunggang motosikal beroda tiga?",
+   "o": {
+    "A": "Kelas C",
+    "B": "Kelas D",
+    "C": "Kelas E"
+   }
+  },
+  "zh_fix": {
+   "q": "骑三轮摩哆需要哪一级别的驾照？",
+   "o": {
+    "A": "C 级",
+    "B": "D 级",
+    "C": "E 级"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q3",
+  "ms": {
+   "q": "Sistem KEJARA ialah singkatan bagi",
+   "o": {
+    "A": "Sistem Keselamatan Jalan Raya",
+    "B": "Sistem Mata Demerit Bagi Kesalahan Lalu Lintas",
+    "C": "Sistem Jalan Raya Keselamatan"
+   }
+  },
+  "zh_fix": {
+   "q": "KEJARA 制度是以下哪一项的缩写？"
+  },
+  "en_fix": {
+   "q": "The KEJARA system is an acronym for"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q4",
+  "ms": {
+   "q": "Kelas lesen manakah yang anda perlukan untuk menunggang motosikal berkuasa lebih daripada 500 cc?",
+   "o": {
+    "A": "B",
+    "B": "C",
+    "C": "D"
+   }
+  },
+  "zh_fix": {
+   "q": "骑排量超过500cc的摩哆需要哪一级别的驾照？",
+   "o": {
+    "A": "B"
+   }
+  },
+  "en_fix": {
+   "q": "Which licence class do you need to ride a motorcycle with an engine capacity of more than 500 cc?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q5",
+  "ms": {
+   "q": "Umur minimum yang layak untuk mendapatkan lesen memandu ialah",
+   "o": {
+    "A": "18 tahun",
+    "B": "15 tahun",
+    "C": "16 tahun"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "B": "15岁",
+    "C": "16岁"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q6",
+  "ms": {
+   "q": "Tempoh sah keputusan ujian Bahagian II dan III bagi tujuan permohonan lesen memandu ialah",
+   "o": {
+    "A": "6 bulan",
+    "B": "1 tahun",
+    "C": "2 tahun"
+   }
+  },
+  "zh_fix": {
+   "q": "用于申请驾照的第二部分和第三部分考试成绩的有效期为"
+  },
+  "en_fix": {
+   "o": {
+    "C": "2 years"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-3-q7",
+  "ms": {
+   "q": "Apakah tahap kesihatan pemohon yang diperlukan untuk lesen memandu?",
+   "o": {
+    "A": "Sihat tubuh badan, boleh melihat pada jarak 18 meter dan buta warna",
+    "B": "Sihat tubuh badan, boleh melihat pada jarak 20 meter dan buta warna",
+    "C": "Sihat tubuh badan, boleh melihat pada jarak 23 meter dan tidak buta warna"
+   }
+  },
+  "zh_fix": {
+   "q": "申请驾照的申请人需要达到什么健康要求？",
+   "o": {
+    "A": "身体健康，能看清18米距离，且色盲",
+    "B": "身体健康，能看清20米距离，且色盲",
+    "C": "身体健康，能看清23米距离，且非色盲"
+   }
+  },
+  "en_fix": {
+   "q": "What level of health is required of an applicant for a driving licence?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q8",
+  "ms": {
+   "q": "Berapakah had laju maksimum yang ditetapkan bagi kereta di lebuh raya?",
+   "o": {
+    "A": "90 km/j",
+    "B": "110 km/j",
+    "C": "120 km/j"
+   }
+  },
+  "zh_fix": {
+   "q": "汽车在大道上的指定最高限速是多少？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q9",
+  "ms": {
+   "q": "Antara kesalahan berikut, yang manakah boleh dihukum di bawah Akta Pengangkutan Jalan 1987?",
+   "o": {
+    "A": "Memandu tidak melebihi had laju yang ditetapkan",
+    "B": "Memandu dalam had laju yang ditetapkan",
+    "C": "Memandu melebihi had laju yang ditetapkan"
+   }
+  },
+  "zh_fix": {
+   "q": "根据《1987年陆路交通法令》，以下哪项行为会受到处罚？",
+   "o": {
+    "C": "超过指定限速驾驶"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q10",
+  "ms": {
+   "q": "Selepas berapa tahun tamat tempoh, Lesen Memandu Kompeten (CDL) tidak boleh diperbaharui?",
+   "o": {
+    "A": "2 tahun",
+    "B": "3 tahun",
+    "C": "4 tahun"
+   }
+  },
+  "zh_fix": {
+   "q": "正式驾照 (CDL) 过期多少年后就不能更新？"
+  },
+  "en_fix": {
+   "q": "After how many years of expiry can a Competent Driving Licence (CDL) no longer be renewed?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q11",
+  "ms": {
+   "q": "Berapakah tempoh sah Lesen Memandu Percubaan (PDL)?",
+   "o": {
+    "A": "12 bulan",
+    "B": "18 bulan",
+    "C": "24 bulan"
+   }
+  },
+  "zh_fix": {
+   "q": "暂准驾照 (PDL) 的有效期是多长？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q12",
+  "ms": {
+   "q": "Berapakah umur minimum yang layak untuk permohonan Lesen Belajar Memandu (LDL) Kelas B?",
+   "o": {
+    "A": "16 tahun",
+    "B": "17 tahun",
+    "C": "18 tahun"
+   }
+  },
+  "zh_fix": {
+   "q": "申请 B 级学习驾照 (LDL) 的最低年龄是多少？",
+   "o": {
+    "A": "16岁",
+    "B": "17岁",
+    "C": "18岁"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Matches bank; JPJ rules on full Class B (>500cc) have additional requirements; low certainty.",
+  "conf": "low"
+ },
+ {
+  "id": "section-c-c-question-set-3-q13",
+  "ms": {
+   "q": "Keputusan Ujian Undang-Undang Jalan Raya (Bahagian I) sah untuk tempoh berapa lama?",
+   "o": {
+    "A": "Dua tahun dari tarikh lulus",
+    "B": "Tiga tahun dari tarikh lulus",
+    "C": "Empat tahun dari tarikh lulus"
+   }
+  },
+  "zh_fix": {
+   "q": "交通规则考试（第一部分）成绩的有效期是多久？"
+  },
+  "en_fix": {
+   "q": "How long are the Road Regulations Examination (Part I) results valid?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-3-q14",
+  "ms": {
+   "q": "Tempoh sah sijil keputusan ujian memandu (JPJL3) bagi pemohon untuk mendapatkan lesen memandu ialah",
+   "o": {
+    "A": "6 bulan",
+    "B": "1 tahun",
+    "C": "2 tahun"
+   }
+  },
+  "zh_fix": {
+   "q": "申请人用于领取驾照的驾驶考试成绩证书 (JPJL3) 的有效期为"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-3-q15",
+  "ms": {
+   "q": "Pemegang Lesen Memandu Percubaan (PDL) mesti sentiasa mempamerkan",
+   "o": {
+    "A": "Plat P di bahagian hadapan dan belakang kenderaan",
+    "B": "Plat P di bahagian hadapan kenderaan sahaja",
+    "C": "Plat P di bahagian belakang kenderaan sahaja"
+   }
+  },
+  "zh_fix": {
+   "q": "暂准驾照 (PDL) 持有人必须始终展示",
+   "o": {
+    "A": "在车辆前后展示P牌",
+    "B": "仅在车辆前方展示P牌",
+    "C": "仅在车辆后方展示P牌"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q16",
+  "ms": {
+   "q": "Cara yang betul untuk mempamerkan plat 'P' bagi kereta ialah",
+   "o": {
+    "A": "Di tengah-tengah cermin hadapan dan cermin belakang",
+    "B": "Di sebelah kanan cermin hadapan dan cermin belakang",
+    "C": "Di sebelah kiri cermin hadapan dan cermin belakang"
+   }
+  },
+  "zh_fix": {
+   "q": "汽车展示“P”牌的正确方法是"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-3-q17",
+  "ms": {
+   "q": "Seseorang yang Lesen Memandu Percubaan (PDL)nya telah dibatalkan tidak dibenarkan memandu, memegang atau memohon lesen memandu, termasuk Lesen Belajar Memandu (LDL), dalam tempoh",
+   "o": {
+    "A": "6 bulan",
+    "B": "12 bulan",
+    "C": "18 bulan"
+   }
+  },
+  "zh_fix": {
+   "q": "暂准驾照 (PDL) 被吊销者在多长时间内不得驾驶、持有或申请任何驾照（包括学习驾照 LDL）？"
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q18",
+  "ms": {
+   "q": "Kelas lesen memandu manakah dikecualikan daripada keperluan Lesen Memandu Percubaan (PDL)?",
+   "o": {
+    "A": "Kelas E",
+    "B": "Kelas D",
+    "C": "Kelas B"
+   }
+  },
+  "zh_fix": {
+   "q": "哪一级别的驾照无需经过暂准驾照 (PDL) 阶段？",
+   "o": {
+    "A": "E 级",
+    "B": "D 级",
+    "C": "B 级"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-3-q19",
+  "ms": {
+   "q": "Bilakah Lesen Memandu Percubaan (PDL) boleh ditukar kepada Lesen Memandu Kompeten (CDL)?",
+   "o": {
+    "A": "7 hari sebelum tempoh percubaan tamat",
+    "B": "14 hari sebelum tempoh percubaan tamat",
+    "C": "Selepas tempoh percubaan 2 tahun tamat"
+   }
+  },
+  "zh_fix": {
+   "q": "暂准驾照 (PDL) 何时可以转换为正式驾照 (CDL)？",
+   "o": {
+    "A": "暂准期结束前7天",
+    "B": "暂准期结束前14天",
+    "C": "2年暂准期届满后"
+   }
+  },
+  "en_fix": {
+   "q": "When can a Probationary Driving Licence (PDL) be changed to a Competent Driving Licence (CDL)?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "Question text says LDL but the 2-year probation is for PDL; fixed wording. Answer C fine.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-3-q20",
+  "ms": {
+   "q": "Adakah calon yang belum dikeluarkan Lesen Belajar Memandu (LDL) dibenarkan memandu kenderaan sekolah memandu di jalan raya untuk latihan amali?",
+   "o": {
+    "A": "Dibenarkan memandu di kawasan sekolah memandu sahaja",
+    "B": "Dibenarkan memandu",
+    "C": "Tidak dibenarkan memandu"
+   }
+  },
+  "zh_fix": {
+   "q": "未获发学习驾照 (LDL) 的考生是否可以驾驶驾校车辆上路进行实际驾驶练习？"
+  },
+  "en_fix": {
+   "q": "Is a candidate who has not been issued a Learner Driving Licence (LDL) allowed to drive a driving school vehicle on the road for practical driving?"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "C intended (question asks about the road). A is also factually plausible but not about road.",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-3-q21",
+  "ms": {
+   "q": "Tahap alkohol yang dibenarkan dalam nafas pemegang Lesen Belajar Memandu (LDL) yang sedang memandu ialah",
+   "o": {
+    "A": "0.20 mikrogram alkohol dalam 100 mililiter nafas",
+    "B": "0.00 mikrogram alkohol dalam 100 mililiter nafas",
+    "C": "0.50 mikrogram alkohol dalam 100 mililiter nafas"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q22",
+  "ms": {
+   "q": "Apakah warna plat 'P'?",
+   "o": {
+    "A": "Latar belakang putih dan huruf P merah",
+    "B": "Latar belakang merah dan huruf P putih",
+    "C": "Latar belakang merah dan huruf P hitam"
+   }
+  },
+  "zh_fix": {
+   "q": "“P”牌是什么颜色？",
+   "o": {
+    "A": "白底红色P字",
+    "B": "红底白色P字",
+    "C": "红底黑色P字"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q23",
+  "ms": {
+   "q": "Pilih kawasan yang dilarang meletak kenderaan: i) Perhentian bas ii) Berhampiran pili bomba iii) Di simpang atau selekoh iv) Di jalan yang mempunyai garisan berkembar",
+   "o": {
+    "A": "i, ii dan iii",
+    "B": "i, ii dan iv",
+    "C": "i, ii, iii dan iv"
+   }
+  },
+  "zh_fix": {
+   "q": "选择禁止停车的地方： i) 巴士站 ii) 消防栓附近 iii) 路口或弯道 iv) 有双线的道路上",
+   "o": {
+    "A": "i、ii 和 iii",
+    "B": "i、ii 和 iv",
+    "C": "i、ii、iii 和 iv"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "i, ii and iii",
+    "B": "i, ii and iv",
+    "C": "i, ii, iii and iv"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q24",
+  "ms": {
+   "q": "Sistem KEJARA bertujuan",
+   "o": {
+    "A": "Meningkatkan kadar kemalangan jalan raya",
+    "B": "Mengurangkan kadar kemalangan jalan raya",
+    "C": "Mengurangkan kadar kesesakan lalu lintas"
+   }
+  },
+  "zh_fix": {
+   "q": "KEJARA 制度的目的是",
+   "o": {
+    "A": "提高交通事故发生率",
+    "C": "减少交通拥堵"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-3-q25",
+  "ms": {
+   "q": "Pemohon ujian memandu mesti memenuhi syarat berikut sebelum dibenarkan menduduki ujian amali: i) Menghadiri kursus teori selama 5 jam ii) Lulus ujian undang-undang jalan raya (teori) iii) Menghadiri latihan amali selama 16 jam iv) Menghadiri pra-ujian di institut memandu",
+   "o": {
+    "A": "i, ii, iii dan iv",
+    "B": "i, ii dan iv",
+    "C": "i, iii dan iv"
+   }
+  },
+  "zh_fix": {
+   "q": "驾驶考试申请人在参加实际路考前必须满足以下要求： i) 参加5小时的理论课程 ii) 通过交通规则考试（理论） iii) 参加16小时的实际驾驶培训 iv) 在驾驶学院参加预考",
+   "o": {
+    "A": "i、ii、iii 和 iv",
+    "B": "i、ii 和 iv",
+    "C": "i、iii 和 iv"
+   }
+  },
+  "en_fix": {
+   "o": {
+    "A": "i, ii, iii and iv",
+    "B": "i, ii and iv",
+    "C": "i, iii and iv"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-4-q1",
+  "ms": {
+   "q": "Umur minimum yang layak bagi pemohon lesen memandu Kelas B2 dan Kelas D ialah",
+   "o": {
+    "A": "16 dan 17 tahun masing-masing, atau lebih",
+    "B": "15 dan 16 tahun masing-masing, atau lebih",
+    "C": "18 tahun dan ke atas"
+   }
+  },
+  "zh_fix": null,
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-4-q2",
+  "ms": {
+   "q": "Tempoh sah Lesen Memandu Percubaan ialah",
+   "o": {
+    "A": "3 tahun",
+    "B": "1 tahun",
+    "C": "2 tahun"
+   }
+  },
+  "zh_fix": {
+   "q": "暂准驾照的有效期为"
+  },
+  "en_fix": {
+   "q": "The validity period for the Probationary Driving Licence is"
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-4-q3",
+  "ms": {
+   "q": "Pilih pernyataan yang BETUL mengenai sistem KEJARA",
+   "o": {
+    "A": "Diwujudkan untuk mengurangkan kesedaran pemandu terhadap keselamatan jalan raya",
+    "B": "Diwujudkan untuk mengurangkan bilangan kemalangan jalan raya",
+    "C": "Diwujudkan untuk meningkatkan bilangan kemalangan jalan raya"
+   }
+  },
+  "zh_fix": {
+   "q": "选择有关 KEJARA 制度的正确说法",
+   "o": {
+    "C": "旨在增加道路事故数量"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-4-q4",
+  "ms": {
+   "q": "Pilih pernyataan yang BETUL mengenai Lesen Belajar Memandu (LDL)",
+   "o": {
+    "A": "Boleh diperbaharui setiap 3 atau 6 bulan",
+    "B": "Boleh diperbaharui setiap 2 atau 4 bulan",
+    "C": "Boleh diperbaharui setiap 6 atau 9 bulan"
+   }
+  },
+  "zh_fix": {
+   "q": "选择有关学习驾照 (LDL) 的正确说法",
+   "o": {
+    "B": "每2或4个月可更新一次"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-4-q5",
+  "ms": {
+   "q": "Berapakah tempoh sah keputusan ujian Bahagian II dan Bahagian III bagi permohonan Lesen Memandu Percubaan?",
+   "o": {
+    "A": "6 bulan selepas lulus ujian",
+    "B": "2 tahun selepas lulus ujian",
+    "C": "1 tahun selepas lulus ujian"
+   }
+  },
+  "zh_fix": {
+   "q": "申请暂准驾照时，第二部分和第三部分考试成绩的有效期是多久？"
+  },
+  "en_fix": {
+   "o": {
+    "B": "2 years after passing the tests"
+   }
+  },
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "medium"
+ },
+ {
+  "id": "section-c-c-question-set-4-q6",
+  "ms": {
+   "q": "Berikut adalah kesalahan di bawah Akta Pengangkutan Jalan 1987, KECUALI",
+   "o": {
+    "A": "Memandu dengan tali pinggang keledar dipakai",
+    "B": "Memandu melebihi had laju",
+    "C": "Memandu tanpa memakai tali pinggang keledar"
+   }
+  },
+  "zh_fix": {
+   "q": "以下都是《1987年陆路交通法令》规定的违法行为，除了",
+   "o": {
+    "B": "超速驾驶"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-4-q7",
+  "ms": {
+   "q": "Tali pinggang keledar hendaklah dipakai",
+   "o": {
+    "A": "hanya semasa memandu pada kelajuan tinggi",
+    "B": "pada setiap masa sebagai pemandu dan penumpang",
+    "C": "secara longgar di atas riba anda"
+   }
+  },
+  "zh_fix": {
+   "q": "安全带应该",
+   "o": {
+    "A": "仅在高速行驶时系上",
+    "B": "无论作为驾驶者还是乘客，都应随时系上",
+    "C": "松松地系在腿上"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "",
+  "conf": "high"
+ },
+ {
+  "id": "section-c-c-question-set-4-q8",
+  "ms": {
+   "q": "Antara kesalahan berikut, yang manakah boleh menyebabkan pemandu dikenakan mata demerit?",
+   "o": {
+    "A": "Memandu dengan cermat dan bertimbang rasa",
+    "B": "Menggunakan aplikasi navigasi semasa memandu",
+    "C": "Melanggar lampu isyarat merah"
+   }
+  },
+  "zh_fix": {
+   "o": {
+    "C": "闯红灯"
+   }
+  },
+  "en_fix": null,
+  "ans_ok": true,
+  "ans_suggest": null,
+  "reason": "B could be an offence if handling a phone, but C is clearly intended.",
+  "conf": "medium"
+ }
+]

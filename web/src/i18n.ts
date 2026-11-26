@@ -1,0 +1,202 @@
+/* 界面文案：zh 简体中文 · en English · ms Bahasa Melayu。缺的语言回落到 en。
+ * 题目本身的语言另外选（题目语言 = 考试时用的英文 / 马来文；对照翻译 = 中文 / 英文 / 马来文 / 不显示）。 */
+export type Lang = 'zh' | 'en' | 'ms';
+export const LANGS: { v: Lang; name: string }[] = [
+  { v: 'zh', name: '中文' },
+  { v: 'en', name: 'English' },
+  { v: 'ms', name: 'Bahasa Melayu' },
+];
+
+type Entry = { zh: string; en: string; ms?: string };
+const D: Record<string, Entry> = {
+  appName: { zh: 'KPP 驾考刷题', en: 'KPP Driving Theory', ms: 'Latihan Teori KPP' },
+  tabPractice: { zh: '刷题', en: 'Practice', ms: 'Latihan' },
+  tabExam: { zh: '模拟考', en: 'Mock test', ms: 'Ujian' },
+  tabSchools: { zh: '驾校行情', en: 'Schools', ms: 'Sekolah' },
+  tabMe: { zh: '我的', en: 'Me', ms: 'Saya' },
+
+  loading: { zh: '题库加载中…', en: 'Loading questions…', ms: 'Memuatkan soalan…' },
+  loadFail: { zh: '题库加载失败，请检查网络后重试', en: 'Could not load questions. Check your connection and retry.', ms: 'Gagal memuatkan soalan. Semak sambungan dan cuba lagi.' },
+  retry: { zh: '重试', en: 'Retry', ms: 'Cuba lagi' },
+  free: { zh: '免费', en: 'Free', ms: 'Percuma' },
+
+  secAll: { zh: '全部', en: 'All', ms: 'Semua' },
+  secA: { zh: '交通标志', en: 'Road signs', ms: 'Papan tanda' },
+  secB: { zh: '驾驶技巧', en: 'Driving', ms: 'Pemanduan' },
+  secC: { zh: '交通法规', en: 'Road law', ms: 'Undang-undang' },
+  modeOrder: { zh: '顺序', en: 'In order', ms: 'Ikut turutan' },
+  modeRandom: { zh: '随机', en: 'Shuffle', ms: 'Rawak' },
+  modeNew: { zh: '没做过', en: 'Unseen', ms: 'Belum dijawab' },
+  prev: { zh: '上一题', en: 'Previous', ms: 'Sebelum' },
+  next: { zh: '下一题', en: 'Next', ms: 'Seterusnya' },
+  correct: { zh: '答对了', en: 'Correct', ms: 'Betul' },
+  wrongAns: { zh: '答错了，正确答案是 {a}', en: 'Wrong. The answer is {a}', ms: 'Salah. Jawapan ialah {a}' },
+  autoNextHint: { zh: '答对自动下一题', en: 'Auto-next on correct', ms: 'Auto seterusnya jika betul' },
+  done: { zh: '已做 {n}', en: '{n} done', ms: '{n} dijawab' },
+  accuracy: { zh: '正确率 {p}%', en: '{p}% correct', ms: '{p}% betul' },
+  jumpTitle: { zh: '跳到第几题', en: 'Go to question', ms: 'Pergi ke soalan' },
+  go: { zh: '跳转', en: 'Go', ms: 'Pergi' },
+  cancel: { zh: '取消', en: 'Cancel', ms: 'Batal' },
+  ok: { zh: '好的', en: 'OK', ms: 'OK' },
+  allDone: { zh: '这一组做完了 🎉', en: 'You finished this set 🎉', ms: 'Set ini selesai 🎉' },
+  restart: { zh: '从头再来', en: 'Start over', ms: 'Mula semula' },
+  translation: { zh: '对照翻译', en: 'Translation', ms: 'Terjemahan' },
+  off: { zh: '不显示', en: 'Off', ms: 'Tutup' },
+
+  report: { zh: '纠错', en: 'Report', ms: 'Lapor' },
+  reportTitle: { zh: '这道题有问题？', en: 'Something wrong with this question?', ms: 'Ada masalah dengan soalan ini?' },
+  rAnswer: { zh: '答案不对', en: 'Wrong answer', ms: 'Jawapan salah' },
+  rTranslation: { zh: '翻译有误', en: 'Bad translation', ms: 'Terjemahan salah' },
+  rImage: { zh: '图片问题', en: 'Image problem', ms: 'Masalah gambar' },
+  rOther: { zh: '其他', en: 'Other', ms: 'Lain-lain' },
+  rSuggest: { zh: '你认为正确答案是', en: 'I think the answer is', ms: 'Saya rasa jawapannya' },
+  rNote: { zh: '补充说明（可选）', en: 'Details (optional)', ms: 'Butiran (pilihan)' },
+  rSend: { zh: '提交', en: 'Submit', ms: 'Hantar' },
+  rThanks: { zh: '收到，审核采纳后奖励 {n} 幸运币', en: 'Thanks! You get {n} coins if it’s accepted', ms: 'Terima kasih! {n} syiling jika diterima' },
+  rThanksAnon: { zh: '收到，谢谢你帮忙把题库变得更准', en: 'Thanks for helping keep the bank accurate', ms: 'Terima kasih kerana membantu' },
+
+  coins: { zh: '幸运币', en: 'Lucky Coins', ms: 'Syiling Tuah' },
+  coinUnit: { zh: '{n} 币', en: '{n} coins', ms: '{n} syiling' },
+  balance: { zh: '余额 {n}', en: 'Balance {n}', ms: 'Baki {n}' },
+  topUp: { zh: '充值', en: 'Top up', ms: 'Tambah nilai' },
+  notEnough: { zh: '幸运币不够，需要 {n}', en: 'Not enough coins, {n} needed', ms: 'Syiling tidak cukup, perlu {n}' },
+  login: { zh: '登录', en: 'Sign in', ms: 'Log masuk' },
+  loginHint: { zh: '用 LuckyLab 账号登录（面容 / 指纹，免密码），新号送 200 幸运币', en: 'Sign in with LuckyLab (Face ID / fingerprint, no password). New accounts get 200 coins.', ms: 'Log masuk dengan LuckyLab (Face ID / cap jari). Akaun baharu dapat 200 syiling.' },
+  loginNeed: { zh: '这个功能要先登录', en: 'Please sign in to use this', ms: 'Sila log masuk dahulu' },
+  logout: { zh: '退出登录', en: 'Sign out', ms: 'Log keluar' },
+  unlockFor: { zh: '{n} 幸运币解锁', en: 'Unlock for {n} coins', ms: 'Buka dengan {n} syiling' },
+  unlocked: { zh: '已解锁', en: 'Unlocked', ms: 'Dibuka' },
+  practiceFree: { zh: '刷题永久免费', en: 'Practice is always free', ms: 'Latihan sentiasa percuma' },
+
+  examTitle: { zh: 'KPP01 模拟考试', en: 'KPP01 mock test', ms: 'Ujian simulasi KPP01' },
+  examRule: { zh: '和真实考试一样：{q} 题 · {m} 分钟 · 答对 {p} 题通过', en: 'Same as the real test: {q} questions · {m} min · pass with {p}', ms: 'Sama seperti ujian sebenar: {q} soalan · {m} minit · lulus {p}' },
+  examLike: { zh: '和 JPJ 电脑考试一样', en: 'Just like the JPJ computer test', ms: 'Sama seperti ujian komputer JPJ' },
+  uQ: { zh: '题', en: 'questions', ms: 'soalan' },
+  uMin: { zh: '分钟', en: 'minutes', ms: 'minit' },
+  uPass: { zh: '题及格', en: 'to pass', ms: 'untuk lulus' },
+  examGo: { zh: '开始考试', en: 'Start test', ms: 'Mula ujian' },
+  examFmt: { zh: '考试形式', en: 'Format', ms: 'Format' },
+  fmtNew: { zh: '新制 70 题', en: 'New · 70', ms: 'Baharu · 70' },
+  fmtOld: { zh: '旧制 50 题', en: 'Old · 50', ms: 'Lama · 50' },
+  examLang: { zh: '考试语言', en: 'Test language', ms: 'Bahasa ujian' },
+  examNoTrans: { zh: '考试中不显示翻译，和真实考场一样', en: 'No translation during the test, just like the real one', ms: 'Tiada terjemahan semasa ujian, seperti ujian sebenar' },
+  examStart: { zh: '开始考试 · {n} 幸运币', en: 'Start · {n} coins', ms: 'Mula · {n} syiling' },
+  examSubmit: { zh: '交卷', en: 'Submit', ms: 'Hantar' },
+  examSubmitAsk: { zh: '还有 {n} 题没做，确定交卷？', en: '{n} unanswered. Submit anyway?', ms: '{n} belum dijawab. Hantar juga?' },
+  examQuit: { zh: '放弃考试', en: 'Quit', ms: 'Berhenti' },
+  examQuitAsk: { zh: '放弃后本场不退币，确定？', en: 'Coins for this test won’t be refunded. Quit?', ms: 'Syiling tidak dipulangkan. Berhenti?' },
+  timeLeft: { zh: '剩余', en: 'Left', ms: 'Baki' },
+  timeUp: { zh: '时间到，已自动交卷', en: 'Time’s up, submitted automatically', ms: 'Masa tamat, dihantar automatik' },
+  passed: { zh: '通过', en: 'PASS', ms: 'LULUS' },
+  failed: { zh: '未通过', en: 'FAIL', ms: 'GAGAL' },
+  scoreLine: { zh: '答对 {c} / {t}（及格 {p}）', en: '{c} / {t} correct (pass {p})', ms: '{c} / {t} betul (lulus {p})' },
+  reviewWrong: { zh: '看错题', en: 'Review mistakes', ms: 'Semak kesilapan' },
+  again: { zh: '再考一场', en: 'Take another', ms: 'Ujian lain' },
+  history: { zh: '考试记录', en: 'History', ms: 'Sejarah' },
+  yourAns: { zh: '你选 {a}', en: 'You chose {a}', ms: 'Anda pilih {a}' },
+  noAns: { zh: '没作答', en: 'Not answered', ms: 'Tidak dijawab' },
+  examResume: { zh: '有一场考试没做完，继续？', en: 'You have an unfinished test. Continue?', ms: 'Ada ujian belum selesai. Teruskan?' },
+  resume: { zh: '继续', en: 'Continue', ms: 'Teruskan' },
+
+  wrongSet: { zh: '错题集', en: 'Mistakes', ms: 'Kesilapan' },
+  wrongDesc: { zh: '刷题和考试答错的题自动收进来，已收 {n} 题', en: 'Questions you got wrong are saved here. {n} so far.', ms: 'Soalan yang salah disimpan di sini. {n} setakat ini.' },
+  wrongLocked: { zh: '错题一直免费记录，解锁后可以查看和反复重练（永久有效）', en: 'Mistakes are always recorded for free. Unlock once to review and redo them, forever.', ms: 'Kesilapan sentiasa direkod percuma. Buka sekali untuk semak dan ulang, selamanya.' },
+  wrongEmpty: { zh: '还没有错题，继续保持', en: 'No mistakes yet. Keep it up!', ms: 'Tiada kesilapan lagi!' },
+  wrongPractice: { zh: '重练错题', en: 'Redo mistakes', ms: 'Ulang kesilapan' },
+  wrongClear: { zh: '清空', en: 'Clear', ms: 'Kosongkan' },
+  wrongClearAsk: { zh: '清空全部 {n} 道错题？', en: 'Clear all {n} mistakes?', ms: 'Kosongkan semua {n}?' },
+  wrongRemove: { zh: '移出', en: 'Remove', ms: 'Buang' },
+  wrongMastered: { zh: '重练答对就自动移出', en: 'Answer correctly in redo to remove', ms: 'Jawab betul untuk buang' },
+  back: { zh: '返回', en: 'Back', ms: 'Kembali' },
+
+  schoolsTitle: { zh: '驾校学费行情', en: 'Driving school prices', ms: 'Harga sekolah memandu' },
+  schoolsWhy: { zh: '同一家驾校、同一种驾照，不同人报的价能差 RM 2000–3000。报名前先看看别人实际付了多少，拿着行情去谈价。', en: 'The same school can quote people RM 2,000–3,000 apart for the same licence. See what others actually paid before you sign up, then negotiate.', ms: 'Sekolah yang sama boleh beza RM 2,000–3,000 untuk lesen yang sama. Lihat harga sebenar orang lain sebelum mendaftar.' },
+  state: { zh: '州属', en: 'State', ms: 'Negeri' },
+  allStates: { zh: '全马', en: 'All Malaysia', ms: 'Seluruh Malaysia' },
+  searchSchool: { zh: '搜驾校名字', en: 'Search school name', ms: 'Cari nama sekolah' },
+  overall: { zh: '{s}整体行情（免费）', en: '{s} overview (free)', ms: 'Gambaran {s} (percuma)' },
+  reports: { zh: '{n} 条报价', en: '{n} reports', ms: '{n} laporan' },
+  median: { zh: '中位数', en: 'Median', ms: 'Median' },
+  range: { zh: '最低 – 最高', en: 'Low – high', ms: 'Rendah – tinggi' },
+  noSchools: { zh: '这里还没有人晒学费。第一个晒的人有奖励！', en: 'No prices shared here yet. Be the first and earn coins!', ms: 'Belum ada harga dikongsi. Jadi yang pertama dan dapat syiling!' },
+  shareMine: { zh: '晒我的学费 · 得 {n} 币', en: 'Share what I paid · +{n} coins', ms: 'Kongsi harga saya · +{n} syiling' },
+  shareMineNoReward: { zh: '晒我的学费', en: 'Share what I paid', ms: 'Kongsi harga saya' },
+  schoolLocked: { zh: '解锁后看这所驾校每一条报价：驾照类型、实付价格、包含什么、报名时间、砍价经验', en: 'Unlock to see every report for this school: licence, price paid, what’s included, when, and haggling tips', ms: 'Buka untuk lihat setiap laporan: lesen, harga, kandungan pakej, tarikh, dan tip tawar-menawar' },
+  unlockSchool: { zh: '{n} 币解锁这所驾校', en: 'Unlock school · {n} coins', ms: 'Buka sekolah · {n} syiling' },
+  spread: { zh: '最高比最低多付 RM {n}', en: 'Highest paid RM {n} more than lowest', ms: 'Tertinggi bayar RM {n} lebih' },
+  bargain: { zh: '谈价建议：先报中位数 RM {m}，低于它就是好价', en: 'Tip: open with the median, RM {m}. Anything under it is a good deal.', ms: 'Tip: mulakan dengan median RM {m}. Bawah itu harga baik.' },
+  mine: { zh: '我的', en: 'Mine', ms: 'Saya' },
+
+  formTitle: { zh: '晒学费', en: 'Share your price', ms: 'Kongsi harga' },
+  fSchool: { zh: '驾校名字', en: 'School name', ms: 'Nama sekolah' },
+  fSchoolPick: { zh: '选已有驾校，或输入新名字', en: 'Pick a school or type a new name', ms: 'Pilih atau taip nama baharu' },
+  fCity: { zh: '城市 / 地区（可选）', en: 'City / area (optional)', ms: 'Bandar / kawasan (pilihan)' },
+  fClass: { zh: '驾照类型', en: 'Licence', ms: 'Lesen' },
+  fPrice: { zh: '实际付的总价（RM）', en: 'Total you paid (RM)', ms: 'Jumlah dibayar (RM)' },
+  fYm: { zh: '报名时间', en: 'Signed up (month)', ms: 'Bulan daftar' },
+  fIncl: { zh: '价格包含', en: 'Price includes', ms: 'Harga termasuk' },
+  fNote: { zh: '备注 / 砍价经验（可选）', en: 'Notes / haggling tips (optional)', ms: 'Nota / tip (pilihan)' },
+  fSend: { zh: '提交', en: 'Submit', ms: 'Hantar' },
+  fThanks: { zh: '谢谢分享！', en: 'Thanks for sharing!', ms: 'Terima kasih!' },
+  fGained: { zh: '谢谢分享！+{n} 幸运币', en: 'Thanks! +{n} coins', ms: 'Terima kasih! +{n} syiling' },
+  fReward: { zh: '每所驾校第一次晒奖励 {n} 币（每人最多 {c} 次，还剩 {l} 次）。请按实际付款填写，不实报价会被删除。', en: '{n} coins for your first report per school (max {c}, {l} left). Please be accurate; fake reports are removed.', ms: '{n} syiling untuk laporan pertama setiap sekolah (maks {c}, baki {l}). Laporan palsu akan dibuang.' },
+  cls_D: { zh: 'D 汽车（手动挡）', en: 'D Car (manual)', ms: 'D Kereta (manual)' },
+  cls_DA: { zh: 'DA 汽车（自动挡）', en: 'DA Car (auto)', ms: 'DA Kereta (auto)' },
+  cls_B2: { zh: 'B2 摩托（≤250cc）', en: 'B2 Motorcycle (≤250cc)', ms: 'B2 Motosikal (≤250cc)' },
+  cls_B: { zh: 'B 摩托（全排量）', en: 'B Motorcycle (full)', ms: 'B Motosikal (penuh)' },
+  cls_BD: { zh: '摩托 + 汽车套餐', en: 'Motorcycle + car combo', ms: 'Pakej motosikal + kereta' },
+  incl_kpp01: { zh: 'KPP01 课程', en: 'KPP01 course', ms: 'Kursus KPP01' },
+  incl_ldl: { zh: 'L 牌（LDL）', en: 'L licence (LDL)', ms: 'Lesen L (LDL)' },
+  incl_jpj: { zh: 'JPJ 考试费', en: 'JPJ test fees', ms: 'Yuran ujian JPJ' },
+  incl_retest: { zh: '补考费', en: 'Re-test fees', ms: 'Yuran ujian semula' },
+  incl_pickup: { zh: '接送', en: 'Pick-up', ms: 'Ambil & hantar' },
+  incl_install: { zh: '可分期', en: 'Instalments', ms: 'Ansuran' },
+
+  tipTitle: { zh: '已经刷了 {n} 题，辛苦啦', en: '{n} questions done, nice work', ms: '{n} soalan selesai, syabas' },
+  tipBody: { zh: '题库靠大家纠错一点点变准，服务器也要钱。觉得有用的话，打赏几个幸运币支持一下？刷题永远免费。', en: 'This bank keeps getting more accurate thanks to your reports, and servers cost money. If it helps, tip a few Lucky Coins. Practice stays free.', ms: 'Bank soalan ini makin tepat berkat laporan anda. Jika membantu, beri tip beberapa syiling. Latihan kekal percuma.' },
+  tipLater: { zh: '下次再说', en: 'Maybe later', ms: 'Lain kali' },
+  tipThanks: { zh: '收到打赏，谢谢支持 ❤️', en: 'Thank you for the tip ❤️', ms: 'Terima kasih atas tip ❤️' },
+  tip: { zh: '打赏', en: 'Tip', ms: 'Tip' },
+
+  settings: { zh: '设置', en: 'Settings', ms: 'Tetapan' },
+  uiLang: { zh: '界面语言', en: 'App language', ms: 'Bahasa aplikasi' },
+  qLang: { zh: '题目语言', en: 'Question language', ms: 'Bahasa soalan' },
+  qLangHint: { zh: 'JPJ 考试用英文或马来文，建议选你考试要用的语言', en: 'JPJ tests are in English or Malay. Pick the one you’ll use.', ms: 'Ujian JPJ dalam BM atau Inggeris. Pilih yang anda akan guna.' },
+  autoNext: { zh: '答对自动下一题', en: 'Auto-next on correct', ms: 'Auto seterusnya jika betul' },
+  autoWrong: { zh: '答错自动收进错题集', en: 'Save mistakes automatically', ms: 'Simpan kesilapan automatik' },
+  sound: { zh: '答题音效和振动', en: 'Sound & vibration', ms: 'Bunyi & getaran' },
+  stats: { zh: '我的进度', en: 'My progress', ms: 'Kemajuan saya' },
+  statDone: { zh: '做过', en: 'Seen', ms: 'Dijawab' },
+  statAcc: { zh: '正确率', en: 'Accuracy', ms: 'Ketepatan' },
+  statExams: { zh: '模考通过', en: 'Tests passed', ms: 'Ujian lulus' },
+  more: { zh: '更多 LuckyLab 应用', en: 'More LuckyLab apps', ms: 'Lagi aplikasi LuckyLab' },
+  account: { zh: '账号与设备', en: 'Account & devices', ms: 'Akaun & peranti' },
+  bankInfo: { zh: '题库 {n} 题 · 第 {v} 版', en: '{n} questions · version {v}', ms: '{n} soalan · versi {v}' },
+  disclaimer: { zh: '题目整理自公开的 KPP01 练习题，仅供练习，以 JPJ 官方为准。发现问题请点题目右上角「纠错」。', en: 'Questions are compiled from public KPP01 practice material for study only; JPJ is the authority. Spot a mistake? Tap “Report” on the question.', ms: 'Soalan dikumpul daripada bahan latihan KPP01 awam untuk ulang kaji sahaja; JPJ adalah rujukan rasmi. Jumpa kesilapan? Tekan “Lapor”.' },
+  admin: { zh: '纠错审核', en: 'Review reports', ms: 'Semak laporan' },
+  accept: { zh: '采纳', en: 'Accept', ms: 'Terima' },
+  reject: { zh: '忽略', en: 'Dismiss', ms: 'Abai' },
+  setAns: { zh: '改答案为 {a}', en: 'Set answer {a}', ms: 'Tetapkan {a}' },
+  err: { zh: '出错了，请重试', en: 'Something went wrong, try again', ms: 'Ralat, cuba lagi' },
+};
+
+let cur: Lang = 'zh';
+export const setLang = (l: Lang) => { cur = l; document.documentElement.lang = l === 'zh' ? 'zh-CN' : l; };
+export const getLang = () => cur;
+export function t(k: string, v?: Record<string, string | number>): string {
+  const e = D[k];
+  let s = e ? (e[cur] ?? e.en) : k;
+  if (v) for (const [a, b] of Object.entries(v)) s = s.split(`{${a}}`).join(String(b));
+  return s;
+}
+/** 浏览器语言 → 默认界面语言 */
+export function detectLang(): Lang {
+  const q = new URLSearchParams(location.search).get('lang');
+  if (q && /^(zh|en|ms)/.test(q)) return q.slice(0, 2) as Lang;
+  for (const l of navigator.languages || [navigator.language]) {
+    if (/^zh/i.test(l)) return 'zh';
+    if (/^(ms|id)/i.test(l)) return 'ms';
+    if (/^en/i.test(l)) return 'en';
+  }
+  return 'en';
+}

@@ -1,0 +1,19 @@
+{
+  // KPP 驾考刷题：前端 web/（Vite 构建到 web/dist）+ 接口 worker/index.js（/api/*）
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "kpp",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-28",
+  "assets": { "directory": "./web/dist", "binding": "ASSETS", "run_worker_first": ["/api/*", "/KPP-Test/*", "/__devlogin"], "not_found_handling": "single-page-application" },
+  "routes": [{ "pattern": "kpp.luckylab.cc", "custom_domain": true }],
+  "workers_dev": true,
+  "d1_databases": [
+    // 已创建（APAC）。表结构和题库在首次请求时自动建 / 导入
+    { "binding": "DB", "database_name": "kpp", "database_id": "523480f0-0124-4cdf-a723-b95e7402eaeb" }
+  ],
+  // 账号和幸运币走 LuckyLab（callmeli/holdem 仓库的 paycenter/），同一个 Cloudflare 账号内用 Service Binding 调用
+  "services": [{ "binding": "PAY", "service": "paycenter" }],
+  // ADMIN_UIDS：LuckyLab 账号 ID（逗号分隔），「我的」里会出现「纠错审核」
+  "vars": { "ADMIN_UIDS": "" },
+  "observability": { "enabled": true }
+}

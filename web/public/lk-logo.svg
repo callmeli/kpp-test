@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="lkm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3cf"/><stop offset=".55" stop-color="#e8c26a"/><stop offset="1" stop-color="#a9802f"/></linearGradient>
+    <linearGradient id="lkp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3f55"/><stop offset="1" stop-color="#151827"/></linearGradient>
+    <radialGradient id="lks" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff8e1" stop-opacity=".9"/><stop offset="1" stop-color="#ffe5a3" stop-opacity="0"/></radialGradient>
+  </defs>
+  <circle cx="32" cy="10" r="10" fill="url(#lks)"/>
+  <path fill="url(#lkm)" d="M32 1.5c.9 5.6 2.4 7.1 8 8-5.6.9-7.1 2.4-8 8-.9-5.6-2.4-7.1-8-8 5.6-.9 7.1-2.4 8-8z"/>
+  <g fill="none" stroke="url(#lkm)" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M9.5 24.5 2.5 41M9.5 24.5 16.5 41M54.5 24.5 47.5 41M54.5 24.5 61.5 41"/>
+  </g>
+  <path fill="url(#lkp)" stroke="url(#lkm)" stroke-width="1.5" stroke-linejoin="round" d="M1.5 41h16L9.5 50zM46.5 41h16l-8 9z"/>
+  <path fill="url(#lkm)" d="M7 22.9 28 22.2h8l21 .7v2.2l-21 .7h-8L7 25.1z"/>
+  <circle cx="9.5" cy="24" r="2.3" fill="url(#lkm)"/><circle cx="54.5" cy="24" r="2.3" fill="url(#lkm)"/>
+  <path fill="url(#lkm)" d="M30.2 28h3.6l1.6 23h-6.8z"/>
+  <rect x="22" y="51" width="20" height="3.2" rx="1" fill="url(#lkm)"/>
+  <rect x="17" y="55.6" width="30" height="3.6" rx="1.4" fill="url(#lkm)"/>
+  <circle cx="32" cy="24" r="4.6" fill="#0b0a10" stroke="url(#lkm)" stroke-width="2.4"/>
+  <g fill="url(#lkm)"><circle cx="7.4" cy="33.4" r="2.3"/><circle cx="11.6" cy="33.4" r="2.3"/><circle cx="7.4" cy="37.6" r="2.3"/><circle cx="11.6" cy="37.6" r="2.3"/></g><circle cx="9.5" cy="35.5" r=".9" fill="#a9802f"/>
+  <path d="M9.5 35.5q1.2 3.2 3.4 4.6" fill="none" stroke="url(#lkm)" stroke-width="1"/>
+  <g transform="rotate(-8 54.5 35.5)"><rect x="49.8" y="30.8" width="9.4" height="9.4" rx="2" fill="url(#lkm)"/>
+    <g fill="#2a2110"><circle cx="52.2" cy="33.2" r=".95"/><circle cx="56.8" cy="33.2" r=".95"/><circle cx="54.5" cy="35.5" r=".95"/><circle cx="52.2" cy="37.8" r=".95"/><circle cx="56.8" cy="37.8" r=".95"/></g></g>
+</svg>
