@@ -29,7 +29,9 @@ for f in sorted(glob.glob(P('data/bank_fixes/review_*.json'))):
 manual = json.load(open(P('data/bank_fixes/manual.json'))) if os.path.exists(P('data/bank_fixes/manual.json')) else {}
 drop = set(manual.get('drop', []))
 ans_fix = manual.get('answers', {})
-notes = manual.get('notes', {})   # 答题后显示的说明（比如法规已更新）：{id: {zh, en, ms}}
+notes = manual.get('notes', {})
+# 来源站马来文版（ujiankpp.com）里能确定对上的题：用它的原文盖掉机器翻译。两站的干扰项不一样，只有 47 题对得上
+ms_site = json.load(open(P('data/bank_fixes/ms_site.json'))) if os.path.exists(P('data/bank_fixes/ms_site.json')) else {}   # 答题后显示的说明（比如法规已更新）：{id: {zh, en, ms}}
 
 SEC = {'section-a': 'A', 'section-b': 'B', 'section-c': 'C'}
 out, stats = [], {'ms': 0, 'zh_fix': 0, 'en_fix': 0, 'ans_fix': 0, 'dropped': 0}
@@ -41,7 +43,10 @@ for q in qs:
     z = zh.get(q['id'], {})
     zf = fx.get('zh_fix') or {}
     ef = fx.get('en_fix') or {}
-    ms = fx.get('ms') or {}
+    ms = dict(fx.get('ms') or {})
+    if q['id'] in ms_site:
+        ms = {'q': ms_site[q['id']]['q'], 'o': {**(ms.get('o') or {}), **ms_site[q['id']].get('o', {})}}
+        stats['ms_site'] = stats.get('ms_site', 0) + 1
     t = {'en': (ef.get('q') or q['question']).strip(), 'zh': (zf.get('q') or z.get('question') or '').strip() or None, 'ms': (ms.get('q') or '').strip() or None}
     if t['ms']: stats['ms'] += 1
     if zf: stats['zh_fix'] += 1
