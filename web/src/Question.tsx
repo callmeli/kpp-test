@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { t } from './i18n';
 import { api, Q, tx, txOr } from './lib';
-import { Sheet, toast, useApp } from './ui';
+import { Icon, Sheet, toast, useApp } from './ui';
 
 type Props = {
   q: Q;
@@ -24,7 +24,7 @@ export function QuestionView({ q, picked, reveal, noTrans, onPick, num }: Props)
   return (
     <div className="qv">
       <div className="q-head">
-        <span className="q-sec">{num}<b>{t('sec' + q.s)}</b></span>
+        <span className="q-sec"><b>{t('sec' + q.s)}</b>{num && <i>{num}</i>}</span>
         <button className="link small" onClick={() => setRep(true)}>{t('report')}</button>
       </div>
       <h2 className="q-text">{txOr(q.t, ql)}</h2>
@@ -39,15 +39,13 @@ export function QuestionView({ q, picked, reveal, noTrans, onPick, num }: Props)
           const st = reveal && picked ? (o.l === q.a ? 'right' : o.l === picked ? 'wrong' : 'dim') : picked === o.l ? 'sel' : '';
           return (
             <button key={o.l} className={'opt ' + st} onClick={() => onPick(o.l)} disabled={reveal && !!picked}>
-              <span className="opt-l">{o.l}</span>
+              <span className="opt-l">{st === 'right' ? <Icon n="check" size={16} /> : st === 'wrong' ? <Icon n="x" size={16} /> : o.l}</span>
               {o.img ? <img src={o.img} alt={'Option ' + o.l} /> : (
                 <span className="opt-body">
                   <span>{txOr(o.t, ql)}</span>
                   {tr !== 'off' && tx(o.t, tr) && <small>{tx(o.t, tr)}</small>}
                 </span>
               )}
-              {st === 'right' && <span className="mark" aria-label={t('correct')}>✓</span>}
-              {st === 'wrong' && <span className="mark" aria-label="✗">✗</span>}
             </button>
           );
         })}

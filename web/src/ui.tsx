@@ -97,3 +97,16 @@ export const Seg = <T extends string>({ value, onChange, items }: { value: T; on
     {items.map((x) => <button key={x.v} role="tab" aria-selected={value === x.v} className={value === x.v ? 'on' : ''} onClick={() => onChange(x.v)}>{x.label}</button>)}
   </div>
 );
+
+/* 线条图标（和底部导航同一种描边） */
+const PATHS: Record<string, string> = {
+  left: 'M15 5l-7 7 7 7', right: 'M9 5l7 7-7 7', down: 'M6 9l6 6 6-6', back: 'M15 5l-7 7 7 7',
+  check: 'M5 12.5l4.5 4.5L19 7.5', x: 'M6 6l12 12M18 6L6 18',
+  filter: 'M4 6h16M7 12h10M10 18h4', grid: 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z',
+  clock: 'M12 7v5l3 3M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z', flag: 'M5 21V4h11l-1.5 4L16 12H5',
+  book: 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11', tool: 'M14 6a4 4 0 0 0 5 5l-8 8a2.1 2.1 0 0 1-3-3z',
+  lock: 'M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z', doc: 'M6 3h9l4 4v14H6zM9 12h7M9 16h7', target: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+};
+export const Icon = ({ n, size = 20 }: { n: string; size?: number }) => (
+  <svg className="ic" viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={PATHS[n] || ''} /></svg>
+);

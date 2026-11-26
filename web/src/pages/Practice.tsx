@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { t } from '../i18n';
 import { addWrong, api, bank, beep, countAnswer, delWrong, getProgress, load, mark, nonce, qById, save, loginUrl } from '../lib';
 import { QuestionView } from '../Question';
-import { CoinIcon, CoinPill, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
+import { CoinIcon, CoinPill, Icon, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
 import { trackPractice } from '../utils/analytics';
 
 type Sec = 'all' | 'A' | 'B' | 'C';
@@ -30,6 +30,7 @@ export function Practice() {
   const [picked, setPicked] = useState<string | null>(null);
   const [tipN, setTipN] = useState<number | null>(null);
   const [jump, setJump] = useState(false);
+  const [filter, setFilter] = useState(false);
   const [prog, setProg] = useState(getProgress);
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -52,58 +53,71 @@ export function Practice() {
     if (ok && redo) delWrong(q.id);   // 重练答对 → 移出错题集
     const tipAt = countAnswer();
     if (tipAt) { setTipN(tipAt); return; }
-    if (ok && set.autoNext && !q.n) timer.current = setTimeout(() => go(1), 650);
+    if (ok && set.autoNext && !q.n) timer.current = setTimeout(() => go(1), 700);
   };
 
   const done = Object.keys(prog).length, right = Object.values(prog).filter((x) => x === 1).length;
   const secCount = (s: Sec) => (s === 'all' ? bank().length : bank().filter((x) => x.s === s).length);
 
+  const acc = done ? Math.round((right / done) * 100) : 0;
+  const ok = !!q && picked === q.a;
   return (
-    <div className="page">
+    <div className="page has-dock">
       <header className="top">
-        {redo ? <button className="link" onClick={() => setPracticeIds(null)}>← {t('back')}</button> : <h1>{t('appName')}</h1>}
+        {redo ? <button className="link" onClick={() => setPracticeIds(null)}><Icon n="back" /> {t('wrongSet')}</button> : <h1><img src="/icon.svg" width={26} height={26} alt="" /> {t('appName')}</h1>}
         <CoinPill />
       </header>
 
-      {!redo && (
-        <>
-          <div className="scroll-x">
-            <Seg value={sec} onChange={setSec} items={(['all', 'A', 'B', 'C'] as Sec[]).map((s) => ({ v: s, label: <>{t(s === 'all' ? 'secAll' : 'sec' + s)} <i>{secCount(s)}</i></> }))} />
-          </div>
-          <div className="stat-strip">
-            <span>{t('done', { n: `${done}/${bank().length}` })} · {t('accuracy', { p: done ? Math.round((right / done) * 100) : 0 })}</span>
-            <span className="mini"><Seg value={mode} onChange={(m) => { setMode(m); setSeed((x) => x + 1); }} items={[{ v: 'order', label: t('modeOrder') }, { v: 'random', label: t('modeRandom') }, { v: 'new', label: t('modeNew') }]} /></span>
-          </div>
-        </>
-      )}
-      {redo && <p className="muted center">{t('wrongMastered')}</p>}
-
+      <div className="toolbar">
+        {redo ? <span className="muted small">{t('wrongMastered')}</span> : (
+          <button className="filter" onClick={() => setFilter(true)}>
+            <Icon n="filter" /> <b>{t(sec === 'all' ? 'secAll' : 'sec' + sec)}</b><span>{t('mode' + mode[0].toUpperCase() + mode.slice(1))}</span><Icon n="down" />
+          </button>
+        )}
+        {!redo && <span className="acc"><b>{acc}%</b> {t('statAcc')} · {done}/{bank().length}</span>}
+      </div>
       {list.length > 0 && <div className="bar" aria-hidden="true"><i style={{ width: `${(Math.min(i + (picked ? 1 : 0), list.length) / list.length) * 100}%` }} /></div>}
 
       {q ? (
-        <div className="card q-card" key={q.id}>
-          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length} · `} />
-          {picked && (
-            <div className={'verdict ' + (picked === q.a ? 'ok' : 'no')}>
-              {picked === q.a ? t('correct') : t('wrongAns', { a: q.a })}
-            </div>
-          )}
+        <div className="q-card" key={q.id}>
+          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length}`} />
         </div>
       ) : (
         <div className="card empty">
+          <div className="empty-ic"><Icon n="check" /></div>
           <p>{t('allDone')}</p>
           <button className="btn primary" onClick={() => { if (redo) setPracticeIds(null); else { setI(0); setSeed((x) => x + 1); } }}>{redo ? t('back') : t('restart')}</button>
         </div>
       )}
 
       {q && (
-        <nav className="pager">
-          <button className="btn ghost" disabled={i === 0} onClick={() => go(-1)}>{t('prev')}</button>
-          <button className="pos" onClick={() => setJump(true)}>{i + 1}<small>/{list.length}</small></button>
-          <button className={'btn ' + (picked ? 'primary' : 'ghost')} onClick={() => go(1)}>{t('next')}</button>
+        <nav className={'dock' + (picked ? (ok ? ' ok' : ' no') : '')}>
+          {picked ? (
+            <>
+              <div className="dock-msg"><span className="dock-ic"><Icon n={ok ? 'check' : 'x'} /></span><span>{ok ? t('correct') : t('wrongAns', { a: q.a })}</span></div>
+              <button className="btn solid" onClick={() => go(1)}>{t('next')} <Icon n="right" /></button>
+            </>
+          ) : (
+            <>
+              <button className="ic-btn" disabled={i === 0} onClick={() => go(-1)} aria-label={t('prev')}><Icon n="left" /></button>
+              <button className="pos" onClick={() => setJump(true)}><b>{i + 1}</b> / {list.length}</button>
+              <button className="ic-btn" onClick={() => go(1)} aria-label={t('next')}><Icon n="right" /></button>
+            </>
+          )}
         </nav>
       )}
 
+      <Sheet open={filter} onClose={() => setFilter(false)} title={t('tabPractice')}>
+        <div className="pick-list">
+          {(['all', 'A', 'B', 'C'] as Sec[]).map((s) => (
+            <button key={s} className={sec === s ? 'on' : ''} onClick={() => setSec(s)}>
+              <span>{t(s === 'all' ? 'secAll' : 'sec' + s)}</span><i>{secCount(s)}</i>{sec === s && <Icon n="check" />}
+            </button>
+          ))}
+        </div>
+        <div className="center-row"><Seg value={mode} onChange={(m) => { setMode(m); setSeed((x) => x + 1); }} items={[{ v: 'order', label: t('modeOrder') }, { v: 'random', label: t('modeRandom') }, { v: 'new', label: t('modeNew') }]} /></div>
+        <button className="btn primary block" onClick={() => setFilter(false)}>{t('ok')}</button>
+      </Sheet>
       <JumpSheet open={jump} max={list.length} onClose={() => setJump(false)} onGo={(n) => { setJump(false); setPicked(null); setI(n - 1); }} />
       <TipSheet n={tipN} onClose={() => { setTipN(null); if (picked && q && picked === q.a && set.autoNext) go(1); }} loggedIn={!!me?.user} />
     </div>

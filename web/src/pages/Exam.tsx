@@ -1,9 +1,9 @@
 /* 模拟考试：和 JPJ 电脑考试一样 50 题 / 45 分钟 / 42 题及格；每场扣幸运币，开考时扣（同一 nonce 不重扣） */
 import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n';
-import { addWrong, api, bank, load, nonce, Q, qById, save } from '../lib';
+import { addWrong, api, bank, load, loginUrl, nonce, Q, qById, save } from '../lib';
 import { QuestionView } from '../Question';
-import { CoinIcon, CoinPill, confirmBox, LoginCard, Seg, toast, useApp, useSpendError } from '../ui';
+import { CoinIcon, CoinPill, confirmBox, Icon, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
 import { trackExam } from '../utils/analytics';
 
 const N = 50, MIN = 45, PASS = 42;
@@ -33,6 +33,9 @@ export function Exam({ active }: { active: boolean }) {
   const [now, setNow] = useState(Date.now());
   const [hist, setHist] = useState<{ ts: number; score: number; total: number; passed: number }[]>([]);
   const finishing = useRef(false);
+  const [sheet, setSheet] = useState(false);
+  // 考试中隐藏底部导航
+  useEffect(() => { document.body.classList.toggle('focus', !!run && active); return () => document.body.classList.remove('focus'); }, [run, active]);
 
   useEffect(() => { save('exam', run); }, [run]);
   useEffect(() => { if (!run) return; const h = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(h); }, [run]);
@@ -66,34 +69,38 @@ export function Exam({ active }: { active: boolean }) {
     setBusy(false);
   };
 
-  /* ---------- 考试中 ---------- */
+  /* ---------- 考试中：全屏专注（隐藏底部导航） ---------- */
   if (run) {
-    const q = qById(run.ids[run.i]) as Q, answered = Object.keys(run.ans).length;
-    const setI = (i: number) => { setRun({ ...run, i }); window.scrollTo({ top: 0 }); };
+    const q = qById(run.ids[run.i]) as Q, answered = Object.keys(run.ans).length, last = run.i === run.ids.length - 1;
+    const setI = (i: number) => { setRun({ ...run, i }); setSheet(false); window.scrollTo({ top: 0 }); };
+    const submit = async () => { const un = run.ids.length - answered; if (!un || (await confirmBox(t('examSubmitAsk', { n: un }), t('examSubmit')))) finish(run); };
     return (
-      <div className="page exam-run">
+      <div className="page has-dock exam-run">
         <header className="top">
-          <button className="link" onClick={async () => { if (await confirmBox(t('examQuitAsk'), t('examQuit'), true)) { setRun(null); } }}>{t('examQuit')}</button>
-          <span className={'timer' + (left < 300 ? ' warn' : '')}>⏱ {mmss(left)}</span>
-          <button className="btn primary sm" onClick={async () => { const un = run.ids.length - answered; if (!un || (await confirmBox(t('examSubmitAsk', { n: un }), t('examSubmit')))) finish(run); }}>{t('examSubmit')}</button>
+          <button className="ic-btn" aria-label={t('examQuit')} onClick={async () => { if (await confirmBox(t('examQuitAsk'), t('examQuit'), true)) setRun(null); }}><Icon n="x" /></button>
+          <span className={'timer' + (left < 300 ? ' warn' : '')}><Icon n="clock" size={18} /> {mmss(left)}</span>
+          <button className="btn primary sm" onClick={submit}>{t('examSubmit')}</button>
         </header>
         <div className="bar"><i style={{ width: `${(answered / run.ids.length) * 100}%` }} /></div>
-        <div className="card q-card">
-          <QuestionView q={q} picked={run.ans[q.id] || null} reveal={false} noTrans num={`${run.i + 1} / ${run.ids.length} · `}
+        <div className="q-card" key={q.id}>
+          <QuestionView q={q} picked={run.ans[q.id] || null} reveal={false} noTrans num={`${run.i + 1} / ${run.ids.length}`}
             onPick={(l) => {
-              const ans = { ...run.ans, [q.id]: l };
-              setRun({ ...run, ans });
-              if (run.i < run.ids.length - 1) setTimeout(() => setRun((r) => (r && r.i === run.i ? { ...r, i: r.i + 1 } : r)), 280);
+              setRun({ ...run, ans: { ...run.ans, [q.id]: l } });
+              if (!last) setTimeout(() => setRun((r) => (r && r.i === run.i ? { ...r, i: r.i + 1 } : r)), 320);
             }} />
         </div>
-        <nav className="pager">
-          <button className="btn ghost" disabled={run.i === 0} onClick={() => setI(run.i - 1)}>{t('prev')}</button>
-          <span className="pos">{answered}<small>/{run.ids.length}</small></span>
-          <button className="btn ghost" disabled={run.i === run.ids.length - 1} onClick={() => setI(run.i + 1)}>{t('next')}</button>
+        <nav className="dock">
+          <button className="ic-btn" disabled={run.i === 0} onClick={() => setI(run.i - 1)} aria-label={t('prev')}><Icon n="left" /></button>
+          <button className="pos" onClick={() => setSheet(true)}><Icon n="grid" size={18} /> <b>{answered}</b> / {run.ids.length}</button>
+          {last ? <button className="btn primary sm" onClick={submit}>{t('examSubmit')}</button>
+            : <button className="ic-btn" onClick={() => setI(run.i + 1)} aria-label={t('next')}><Icon n="right" /></button>}
         </nav>
-        <div className="grid-nums">
-          {run.ids.map((id, k) => <button key={id} className={(run.ans[id] ? 'a' : '') + (k === run.i ? ' cur' : '')} onClick={() => setI(k)}>{k + 1}</button>)}
-        </div>
+        <Sheet open={sheet} onClose={() => setSheet(false)} title={`${answered} / ${run.ids.length}`}>
+          <div className="grid-nums">
+            {run.ids.map((id, k) => <button key={id} className={(run.ans[id] ? 'a' : '') + (k === run.i ? ' cur' : '')} onClick={() => setI(k)}>{k + 1}</button>)}
+          </div>
+          <button className="btn primary block" onClick={submit}>{t('examSubmit')}</button>
+        </Sheet>
       </div>
     );
   }
@@ -101,15 +108,19 @@ export function Exam({ active }: { active: boolean }) {
   /* ---------- 成绩 ---------- */
   if (done) {
     const pass = done.score >= PASS, wrongIds = done.ids.filter((id) => done.ans[id] !== qById(id)?.a);
+    const pct = done.score / done.ids.length, C = 2 * Math.PI * 52;
     return (
       <div className="page">
         <header className="top"><h1>{t('examTitle')}</h1><CoinPill /></header>
         <div className={'card result ' + (pass ? 'pass' : 'fail')}>
-          <div className="big-score">{done.score}<small>/{done.ids.length}</small></div>
+          <div className="ring">
+            <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" className="ring-bg" /><circle cx="60" cy="60" r="52" className="ring-fg" strokeDasharray={`${C * pct} ${C}`} /></svg>
+            <div className="big-score">{done.score}<small>/{done.ids.length}</small></div>
+          </div>
           <div className="badge">{pass ? t('passed') : t('failed')}</div>
-          <p>{t('scoreLine', { c: done.score, t: done.ids.length, p: PASS })}</p>
+          <p className="muted">{t('scoreLine', { c: done.score, t: done.ids.length, p: PASS })}</p>
           <div className="row2">
-            {wrongIds.length > 0 && <button className="btn ghost" onClick={() => setReview(!review)}>{t('reviewWrong')} ({wrongIds.length})</button>}
+            {wrongIds.length > 0 && <button className="btn ghost" onClick={() => setReview(!review)}>{t('reviewWrong')} · {wrongIds.length}</button>}
             <button className="btn primary" onClick={() => { setDone(null); }}>{t('again')}</button>
           </div>
         </div>
@@ -117,7 +128,7 @@ export function Exam({ active }: { active: boolean }) {
           const q = qById(id)!;
           return (
             <div className="card q-card" key={id}>
-              <QuestionView q={q} picked={done.ans[id] || '-'} reveal onPick={() => {}} num={`${k + 1} · `} />
+              <QuestionView q={q} picked={done.ans[id] || '-'} reveal onPick={() => {}} num={`${k + 1} / ${wrongIds.length}`} />
               <div className="verdict no">{done.ans[id] ? t('yourAns', { a: done.ans[id] }) : t('noAns')} · {t('wrongAns', { a: q.a })}</div>
             </div>
           );
@@ -132,18 +143,21 @@ export function Exam({ active }: { active: boolean }) {
     <div className="page">
       <header className="top"><h1>{t('examTitle')}</h1><CoinPill /></header>
       <div className="card hero-exam">
-        <div className="hero-ic" aria-hidden="true">🚦</div>
-        <p className="lead">{t('examRule', { q: N, m: MIN, p: PASS })}</p>
+        <p className="eyebrow">{t('examLike')}</p>
+        <div className="tiles">
+          <div><Icon n="doc" size={22} /><b>{N}</b><span>{t('uQ')}</span></div>
+          <div><Icon n="clock" size={22} /><b>{MIN}</b><span>{t('uMin')}</span></div>
+          <div><Icon n="target" size={22} /><b>{PASS}</b><span>{t('uPass')}</span></div>
+        </div>
         <div className="field-row">
-          <span>{t('examLang')}</span>
+          <span className="muted small">{t('examLang')}</span>
           <Seg value={set.ql} onChange={(v) => setSet({ ql: v })} items={[{ v: 'en', label: 'English' }, { v: 'ms', label: 'Bahasa Melayu' }]} />
         </div>
-        <p className="muted small">{t('examNoTrans')} · {t('practiceFree')}</p>
         {me?.user ? (
-          <button className="btn primary block lg" disabled={busy || bank().length < N} onClick={start}><CoinIcon size={18} /> {t('examStart', { n: price })}</button>
-        ) : null}
+          <button className="btn primary block lg" disabled={busy || bank().length < N} onClick={start}>{t('examGo')} <span className="price"><CoinIcon size={18} /> {price}</span></button>
+        ) : <a className="btn primary block lg" href={loginUrl()}>{t('login')}</a>}
+        <p className="muted small">{me?.user ? t('examNoTrans') : t('loginHint')}</p>
       </div>
-      {!me?.user && <LoginCard />}
       {hist.length > 0 && (
         <div className="card">
           <h3>{t('history')}</h3>

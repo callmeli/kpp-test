@@ -70,6 +70,11 @@ const D: Record<string, Entry> = {
 
   examTitle: { zh: 'KPP01 模拟考试', en: 'KPP01 mock test', ms: 'Ujian simulasi KPP01' },
   examRule: { zh: '和真实考试一样：{q} 题 · {m} 分钟 · 答对 {p} 题通过', en: 'Same as the real test: {q} questions · {m} min · pass with {p}', ms: 'Sama seperti ujian sebenar: {q} soalan · {m} minit · lulus {p}' },
+  examLike: { zh: '和 JPJ 电脑考试一样', en: 'Just like the JPJ computer test', ms: 'Sama seperti ujian komputer JPJ' },
+  uQ: { zh: '题', en: 'questions', ms: 'soalan' },
+  uMin: { zh: '分钟', en: 'minutes', ms: 'minit' },
+  uPass: { zh: '题及格', en: 'to pass', ms: 'untuk lulus' },
+  examGo: { zh: '开始考试', en: 'Start test', ms: 'Mula ujian' },
   examLang: { zh: '考试语言', en: 'Test language', ms: 'Bahasa ujian' },
   examNoTrans: { zh: '考试中不显示翻译，和真实考场一样', en: 'No translation during the test, just like the real one', ms: 'Tiada terjemahan semasa ujian, seperti ujian sebenar' },
   examStart: { zh: '开始考试 · {n} 幸运币', en: 'Start · {n} coins', ms: 'Mula · {n} syiling' },

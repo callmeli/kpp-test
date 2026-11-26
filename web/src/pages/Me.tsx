@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { LANGS, t } from '../i18n';
 import { accountUrl, api, clearWrong, delWrong, getProgress, getWrong, qById, syncWrong, txOr, walletUrl, WrongItem } from '../lib';
-import { CoinIcon, confirmBox, LoginCard, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
+import { CoinIcon, confirmBox, Icon, LoginCard, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
 
 export function Me({ active }: { active: boolean }) {
   const { me, set, setSet, refresh } = useApp();
@@ -40,8 +40,8 @@ export function Me({ active }: { active: boolean }) {
       </div>
 
       <button className="card row-btn" onClick={() => setWrongOpen(true)}>
-        <span>📕 {t('wrongSet')}</span>
-        <span className="muted">{me?.unlocks?.includes('wrong') ? t('unlocked') : t('unlockFor', { n: me?.econ.wrong ?? 50 })} ›</span>
+        <span><Icon n="book" /> {t('wrongSet')}</span>
+        <span className="muted">{me?.unlocks?.includes('wrong') ? t('unlocked') : <><Icon n="lock" size={16} /> {me?.econ.wrong ?? 50}</>} <Icon n="right" size={18} /></span>
       </button>
 
       <div className="card settings">
@@ -60,10 +60,10 @@ export function Me({ active }: { active: boolean }) {
         <Toggle label={t('sound')} on={set.sound} set={(v) => setSet({ sound: v })} />
       </div>
 
-      {me?.user?.admin && <button className="card row-btn" onClick={() => setAdmin(true)}><span>🛠 {t('admin')}</span><span>›</span></button>}
+      {me?.user?.admin && <button className="card row-btn" onClick={() => setAdmin(true)}><span><Icon n="tool" /> {t('admin')}</span><Icon n="right" size={18} /></button>}
 
       <a className="card row-btn more" href="https://luckylab.cc/?from=kpp">
-        <span><img src="/lk-logo.svg" alt="" width={22} height={22} /> {t('more')}</span><span>›</span>
+        <span><img src="/lk-logo.svg" alt="" width={22} height={22} /> {t('more')}</span><Icon n="right" size={18} />
       </a>
       {me?.user && <button className="link danger center block" onClick={logout}>{t('logout')}</button>}
       <p className="muted small center">{me && t('bankInfo', { n: me.bankN, v: me.bankV })}</p>
