@@ -16,6 +16,9 @@
 - **三种语言**：界面 中文 / English / Bahasa Melayu；题目语言 English / Bahasa Melayu（JPJ 考试用这两种），对照翻译 中 / 英 / 马 / 不显示。
 - **打赏**：去掉支付宝收款码，改成幸运币打赏：每刷 100 题，在第 30–95 题之间随机弹一次（10 / 30 / 66 币，可直接「下次再说」）。
 
+## 视觉
+暖黑 + 金色，和 LuckyLab 总站 / 德州局一家；系统规则按开源 [taste-skill](https://github.com/Leonxlnx/taste-skill)（MIT）整理，写在 `web/src/styles.css` 顶部：一套间距（4–48）和一族圆角（8 / 12 / 20）、界面中性色为主只有一个强调色、每屏一个实心主按钮 + 一种描边次按钮、不用渐变 / 阴影 / 毛玻璃、卡片里不套盒子、正文 ≥ 16px、悬停上移按下下沉。字体 Sora + Figtree（`web/public/fonts/`，SIL OFL）。
+
 ## 幸运币（价格在 `worker/index.js` 的 `ECON`，前端从 `/api/me` 读）
 | 功能 | 价格 |
 |---|---|

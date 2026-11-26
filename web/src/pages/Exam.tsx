@@ -44,7 +44,7 @@ export function Exam({ active }: { active: boolean }) {
   const finish = async (r: Run, timeUp = false) => {
     if (finishing.current) return; finishing.current = true;
     const score = r.ids.filter((id) => r.ans[id] === qById(id)?.a).length;
-    r.ids.forEach((id) => { const q = qById(id); if (q && r.ans[id] && r.ans[id] !== q.a && set.autoWrong) addWrong(id, r.ans[id]);   // 没作答的不算错题 });
+    r.ids.forEach((id) => { const q = qById(id); if (q && r.ans[id] && r.ans[id] !== q.a && set.autoWrong) addWrong(id, r.ans[id]); /* 没作答的不算错题 */ });
     setDone({ ids: r.ids, ans: r.ans, score, timeUp }); setRun(null); setReview(false);
     trackExam.submit(score, score >= PASS, r.ids.length);
     if (timeUp) toast(t('timeUp'));
