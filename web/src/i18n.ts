@@ -78,6 +78,8 @@ const D: Record<string, Entry> = {
   examFmt: { zh: '考试形式', en: 'Format', ms: 'Format' },
   fmtNew: { zh: '新制 70 题', en: 'New · 70', ms: 'Baharu · 70' },
   fmtOld: { zh: '旧制 50 题', en: 'Old · 50', ms: 'Lama · 50' },
+  kbdPractice: { zh: '键盘：1 2 3 选答案 · ← → 换题 · Enter 下一题', en: 'Keys: 1 2 3 to answer · ← → to move · Enter for next', ms: 'Kekunci: 1 2 3 jawab · ← → tukar · Enter seterusnya' },
+  kbdExam: { zh: '键盘：1 2 3 选答案 · ← → 换题', en: 'Keys: 1 2 3 to answer · ← → to move', ms: 'Kekunci: 1 2 3 jawab · ← → tukar' },
   examLang: { zh: '考试语言', en: 'Test language', ms: 'Bahasa ujian' },
   examNoTrans: { zh: '考试中不显示翻译，和真实考场一样', en: 'No translation during the test, just like the real one', ms: 'Tiada terjemahan semasa ujian, seperti ujian sebenar' },
   examStart: { zh: '开始考试 · {n} 幸运币', en: 'Start · {n} coins', ms: 'Mula · {n} syiling' },

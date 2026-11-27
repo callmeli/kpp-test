@@ -41,6 +41,8 @@ export function Exam({ active }: { active: boolean }) {
   const [hist, setHist] = useState<{ ts: number; score: number; total: number; passed: number }[]>([]);
   const finishing = useRef(false);
   const [sheet, setSheet] = useState(false);
+  const keyRef = useRef<(e: KeyboardEvent) => void>(() => {});
+  useEffect(() => { const k = (e: KeyboardEvent) => keyRef.current(e); addEventListener('keydown', k); return () => removeEventListener('keydown', k); }, []);
   // 考试中隐藏底部导航
   useEffect(() => { document.body.classList.toggle('focus', !!run && active); return () => document.body.classList.remove('focus'); }, [run, active]);
 
@@ -81,6 +83,12 @@ export function Exam({ active }: { active: boolean }) {
   if (run) {
     const q = qById(run.ids[run.i]) as Q, answered = Object.keys(run.ans).length, last = run.i === run.ids.length - 1;
     const setI = (i: number) => { setRun({ ...run, i }); setSheet(false); window.scrollTo({ top: 0 }); };
+    const keyNav = (e: KeyboardEvent) => {
+      if (!active || e.metaKey || e.ctrlKey || e.altKey || (e.target as HTMLElement)?.closest?.('input,textarea,select,[role=dialog]')) return;
+      if (e.key === 'ArrowLeft' && run.i > 0) { e.preventDefault(); setI(run.i - 1); }
+      else if (e.key === 'ArrowRight' && !last) { e.preventDefault(); setI(run.i + 1); }
+    };
+    keyRef.current = keyNav;
     const submit = async () => { const un = run.ids.length - answered; if (!un || (await confirmBox(t('examSubmitAsk', { n: un }), t('examSubmit')))) finish(run); };
     return (
       <div className="page has-dock exam-run">
@@ -91,12 +99,20 @@ export function Exam({ active }: { active: boolean }) {
         </header>
         <div className="bar"><i style={{ width: `${(answered / run.ids.length) * 100}%` }} /></div>
         <div className="q-card" key={q.id}>
-          <QuestionView q={q} picked={run.ans[q.id] || null} reveal={false} noTrans num={`${run.i + 1} / ${run.ids.length}`}
+          <QuestionView q={q} picked={run.ans[q.id] || null} reveal={false} noTrans keys={active} num={`${run.i + 1} / ${run.ids.length}`}
             onPick={(l) => {
               setRun({ ...run, ans: { ...run.ans, [q.id]: l } });
               if (!last) setTimeout(() => setRun((r) => (r && r.i === run.i ? { ...r, i: r.i + 1 } : r)), 320);
             }} />
         </div>
+        <aside className="exam-aside">
+          <div className="aside-h"><b>{answered}</b> / {run.ids.length}</div>
+          <div className="grid-nums">
+            {run.ids.map((id, k) => <button key={id} className={(run.ans[id] ? 'a' : '') + (k === run.i ? ' cur' : '')} onClick={() => setI(k)}>{k + 1}</button>)}
+          </div>
+          <button className="btn primary block" onClick={submit}>{t('examSubmit')}</button>
+          <p className="muted small kbd-hint">{t('kbdExam')}</p>
+        </aside>
         <nav className="dock">
           <div className="btn-row">
             <button className="btn secondary" disabled={run.i === 0} onClick={() => setI(run.i - 1)}>{t('prev')}</button>

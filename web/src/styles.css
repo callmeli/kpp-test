@@ -309,5 +309,97 @@ body.focus .tabbar { display: none; }
 .boot { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s-4); color: var(--muted); padding: var(--gut); text-align: center; }
 .boot img { border-radius: var(--r-md); }
 
-@media (min-width: 640px) { .q-text { font-size: 24px; } .page { gap: var(--s-6); } }
+@media (min-width: 640px) { .q-text { font-size: 22px; } }
+
+/* 只在桌面出现的元素 */
+.side-brand, .side-foot, .exam-aside, .kbd-hint, .key { display: none; }
+
+/* ===== 桌面网页版（≥ 960px）：左侧导航栏 + 宽版内容
+ * - 底部 Tab 变成左侧 232px 的竖向导航（品牌、四个入口、幸运币 / LuckyLab 放底部）
+ * - 刷题 / 考试：题目两栏（左题干和图，右选项），支持键盘；考试右侧常驻答题卡
+ * - 驾校、我的：卡片两列；弹层变成居中对话框 */
+@media (min-width: 960px) {
+  :root { --gut: 40px; --side: 232px; }
+  body { font-size: 16px; }
+  .app { max-width: none; margin: 0 0 0 var(--side); padding: 0 var(--gut) var(--s-7); }
+  .app > section > .page { max-width: 1080px; margin: 0 auto; }
+  .page.has-dock { padding-bottom: 96px; }
+  .top { margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut); height: 64px; }
+  .top + .bar { top: 64px; }
+
+  .tabbar { top: 0; right: auto; width: var(--side); flex-direction: column; justify-content: flex-start; align-items: stretch; gap: var(--s-1); padding: var(--s-5) var(--s-3); border-top: 0; border-right: 1px solid var(--line); }
+  .side-brand { display: flex; align-items: center; gap: var(--s-3); padding: 0 var(--s-3) var(--s-5); margin-bottom: var(--s-3); border-bottom: 1px solid var(--line); color: var(--ink); font: 600 16px/1.2 var(--f-d); letter-spacing: -.01em; }
+  .side-brand img { border-radius: var(--r-sm); flex: none; }
+  .tabbar button { flex: none; max-width: none; flex-direction: row; justify-content: flex-start; gap: var(--s-3); height: 44px; padding: 0 var(--s-3); border-radius: var(--r-sm); font-size: 15px; }
+  .tabbar button.on { background: #f4efe612; }
+  .side-foot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-3); margin-top: auto; padding: var(--s-4) var(--s-3) 0; border-top: 1px solid var(--line); }
+  @media (hover: hover) { .tabbar button:hover:not(.on) { background: #f4efe60a; color: var(--ink); } }
+  /* 侧栏已经有币和登录，页内顶栏右边的就不重复了 */
+  .top > .pill { display: none; }
+  .filter img { display: none; }
+  .schools > .top + *, .me > .top + * { margin-top: 0; }
+  .schools, .me { padding-top: 0; row-gap: var(--s-5); }
+  .schools > .top, .me > .top { margin-bottom: var(--s-1); }
+
+  /* 题目两栏 */
+  .q-card { max-width: 1080px; }
+  .qv.has-img, .qv:not(.has-img) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); align-items: start; }
+  .qv:not(.has-img) { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+  .q-side .opts { margin-top: 0; }
+  .q-side { padding-top: 44px; }
+  .q-imgs { margin-top: var(--s-5); padding: var(--s-4); }
+  .q-imgs img { max-height: 220px; }
+  .q-imgs.n2 img, .q-imgs.n3 img { max-height: 160px; }
+  .q-text { font-size: 24px; }
+  .opt { min-height: 60px; padding: var(--s-3) var(--s-4); }
+  .img-opts .opt img { height: 120px; }
+  .key { display: grid; place-items: center; order: 3; margin-left: auto; width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); font: 500 12px/1 var(--f-d); flex: none; }
+  .img-opts .key { margin: 0; order: 0; }
+  .opt:has(.key) { position: relative; }
+  .kbd-hint { display: block; }
+  .practice .kbd-hint { margin-top: calc(var(--s-2) * -1); }
+
+  /* 底部操作条只盖内容区 */
+  .dock { left: var(--side); bottom: 0; padding-bottom: var(--s-3); }
+  .dock > * { max-width: 1080px; }
+  .dock.one { padding-left: var(--gut); padding-right: var(--gut); }
+  .dock.one .dock-msg { max-width: none; }
+
+  /* 考试：右侧答题卡 */
+  .exam-run { display: grid; grid-template-columns: minmax(0, 1fr) 280px; column-gap: var(--s-6); align-items: start; }
+  .exam-run > .top, .exam-run > .bar { grid-column: 1 / -1; }
+  .exam-run > .q-card { grid-column: 1; }
+  .exam-run .qv.has-img, .exam-run .qv:not(.has-img) { grid-template-columns: 1fr; gap: 0; }
+  .exam-run .q-side { padding-top: var(--s-5); }
+  .exam-aside { display: flex; flex-direction: column; gap: var(--s-4); grid-column: 2; grid-row: 3 / span 2; position: sticky; top: 88px; padding: var(--s-5); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--g-alt); }
+  .exam-aside .grid-nums { grid-template-columns: repeat(7, 1fr); gap: 6px; margin: 0; }
+  .exam-aside .grid-nums button { font-size: 12px; }
+  .aside-h { font: 600 14px/1 var(--f-d); color: var(--muted); } .aside-h b { font-size: 24px; color: var(--ink); }
+  .exam-run .top .btn.secondary.sm { display: none; }
+  .exam-run .dock { left: var(--side); right: calc(280px + var(--s-6) + var(--gut)); }
+  body.focus .tabbar { display: flex; }
+  body.focus .dock { bottom: 0; }
+
+  .exam-intro, .result { max-width: 720px; }
+  .exam-intro { margin: 0 auto; }
+
+  /* 驾校、我的：两列 */
+  .schools { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-5) var(--s-6); align-items: start; }
+  .schools > .top, .schools > .lead, .schools > .filters, .schools > .btn { grid-column: 1 / -1; }
+  .schools > .filters { max-width: 640px; }
+  .schools > .btn { max-width: 360px; }
+  .schools > .card { grid-column: 1; position: sticky; top: 88px; }
+  .schools > .school-list { grid-column: 2; grid-row: span 3; }
+  .schools > .card.empty { grid-column: 1 / -1; position: static; }
+  .me { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-5) var(--s-6); align-items: start; }
+  .me > .top, .me > .center, .me > p, .me > .link { grid-column: 1 / -1; }
+  .me > .settings { grid-row: span 4; }
+
+  /* 弹层：居中对话框 */
+  .mask { align-items: center; padding: var(--s-6); }
+  .sheet { max-width: 520px; max-height: 84vh; border-radius: var(--r-lg); padding: var(--s-6); border: 1px solid var(--line); animation: pop 200ms var(--ease); }
+  @keyframes pop { from { opacity: 0; transform: scale(.97); } }
+  .toast { top: var(--s-5); }
+}
+@media (min-width: 1280px) { :root { --side: 256px; --gut: 56px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

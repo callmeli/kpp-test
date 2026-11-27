@@ -47,7 +47,7 @@ export function Schools({ active }: { active: boolean }) {
   const econ = me?.econ;
   const canEarn = !!me?.user && (me.reportsLeft ?? 0) > 0;
   return (
-    <div className="page">
+    <div className="page schools">
       <header className="top"><h1>{t('schoolsTitle')}</h1><CoinPill /></header>
       <p className="lead">{t('schoolsWhy')}</p>
       <div className="filters">

@@ -11,7 +11,7 @@ type Mode = 'order' | 'random' | 'new';
 
 function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 
-export function Practice() {
+export function Practice({ active = true }: { active?: boolean }) {
   const { set, practiceIds, setPracticeIds, me } = useApp();
   const redo = !!practiceIds;   // 错题重练
   const [sec, setSec] = useState<Sec>(() => load('sec', 'all'));
@@ -40,6 +40,16 @@ export function Practice() {
   useEffect(() => () => clearTimeout(timer.current), []);
 
   const q = list[i] ? qById(list[i]) : undefined;
+  // 键盘（桌面）：← 上一题，→ / Enter / 空格 下一题；选答案由 QuestionView 处理（1 2 3 / A B C）
+  useEffect(() => {
+    if (!active) return;
+    const k = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || (e.target as HTMLElement)?.closest?.('input,textarea,select,[role=dialog]')) return;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+      else if (e.key === 'ArrowRight' || ((e.key === 'Enter' || e.key === ' ') && picked)) { e.preventDefault(); go(1); }
+    };
+    addEventListener('keydown', k); return () => removeEventListener('keydown', k);
+  });
   const go = (d: number) => { clearTimeout(timer.current); setPicked(null); setI((x) => Math.max(0, Math.min(list.length, x + d))); window.scrollTo({ top: 0 }); };
 
   const pick = (l: string) => {
@@ -75,7 +85,7 @@ export function Practice() {
 
       {q ? (
         <div className="q-card" key={q.id}>
-          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length}`} onNum={() => setJump(true)}
+          <QuestionView q={q} picked={picked} reveal onPick={pick} num={`${i + 1} / ${list.length}`} onNum={() => setJump(true)} keys={active}
             nav={<>
               <button className="ic-btn sm" disabled={i === 0} onClick={() => go(-1)} aria-label={t('prev')}><Icon n="left" size={18} /></button>
               <button className="ic-btn sm" onClick={() => go(1)} aria-label={t('next')}><Icon n="right" size={18} /></button>
@@ -89,6 +99,7 @@ export function Practice() {
         </div>
       )}
 
+      {q && <p className="muted small kbd-hint">{t('kbdPractice')}</p>}
       {q && picked && (
         <nav className="dock one" aria-live="polite">
           <p className={'dock-msg ' + (ok ? 'ok' : 'no')}><Icon n={ok ? 'check' : 'x'} size={18} /> {ok ? t('correct') : t('wrongAns', { a: q.a })}</p>

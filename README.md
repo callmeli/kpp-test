@@ -20,6 +20,9 @@
 ## 视觉
 暖黑 + 金色，和 LuckyLab 总站 / 德州局一家；系统规则按开源 [taste-skill](https://github.com/Leonxlnx/taste-skill)（MIT）整理，写在 `web/src/styles.css` 顶部：一套间距（4–48）和一族圆角（8 / 12 / 20）、界面中性色为主只有一个强调色、每屏一个实心主按钮 + 一种描边次按钮、不用渐变 / 阴影 / 毛玻璃、卡片里不套盒子、正文 ≥ 16px、悬停上移按下下沉。字体 Sora + Figtree（`web/public/fonts/`，SIL OFL）。
 
+## 网页版（桌面）
+同一个页面，宽度 ≥ 960px 时切成桌面布局（`web/src/styles.css` 末尾）：左侧竖向导航（品牌、四个入口、幸运币 / LuckyLab），刷题题目两栏（左题干和图、右选项），考试右侧常驻答题卡，驾校 / 我的两列，弹层变居中对话框。键盘：1 2 3（或 A B C）选答案，← → 换题，Enter 下一题。
+
 ## 幸运币（价格在 `worker/index.js` 的 `ECON`，前端从 `/api/me` 读）
 | 功能 | 价格 |
 |---|---|

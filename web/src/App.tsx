@@ -5,7 +5,7 @@ import { Exam } from './pages/Exam';
 import { Me } from './pages/Me';
 import { Practice } from './pages/Practice';
 import { Schools } from './pages/Schools';
-import { AppCtx, Confirmer, Tab, Toaster } from './ui';
+import { AppCtx, CoinPill, Confirmer, Tab, Toaster } from './ui';
 import { trackPageView } from './utils/analytics';
 
 const TABS: { k: Tab; icon: JSX.Element }[] = [
@@ -58,17 +58,19 @@ export default function App() {
   return (
     <AppCtx.Provider value={ctx}>
       <main className="app" key={set.ui}>
-        <section hidden={tab !== 'practice'}><Practice key={practiceIds ? 'redo' : 'all'} /></section>
+        <section hidden={tab !== 'practice'}><Practice key={practiceIds ? 'redo' : 'all'} active={tab === 'practice'} /></section>
         <section hidden={tab !== 'exam'}><Exam active={tab === 'exam'} /></section>
         <section hidden={tab !== 'schools'}><Schools active={tab === 'schools'} /></section>
         <section hidden={tab !== 'me'}><Me active={tab === 'me'} /></section>
       </main>
       <nav className="tabbar">
+        <a className="side-brand" href="#practice" onClick={(e) => { e.preventDefault(); setTab('practice'); }}><img src="/icon.svg" width={32} height={32} alt="" /><span>{t('appName')}</span></a>
         {TABS.map((x) => (
           <button key={x.k} className={tab === x.k ? 'on' : ''} onClick={() => { setTab(x.k); window.scrollTo({ top: 0 }); }} aria-current={tab === x.k ? 'page' : undefined}>
             {x.icon}<span>{t(NAMES[x.k])}</span>
           </button>
         ))}
+        <div className="side-foot"><CoinPill /><a href="https://luckylab.cc/?from=kpp" className="muted small">LuckyLab</a></div>
       </nav>
       <Toaster /><Confirmer />
     </AppCtx.Provider>
