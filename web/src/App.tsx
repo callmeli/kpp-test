@@ -6,7 +6,7 @@ import { Me } from './pages/Me';
 import { Practice } from './pages/Practice';
 import { Schools } from './pages/Schools';
 import { AppCtx, CoinPill, Confirmer, Tab, Toaster } from './ui';
-import { trackPageView } from './utils/analytics';
+import { ltIdentify, trackPageView } from './utils/analytics';
 
 const TABS: { k: Tab; icon: JSX.Element }[] = [
   { k: 'practice', icon: <svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z" /><path d="M8 10h8M8 14h8M8 18h5" /></svg> },
@@ -26,12 +26,12 @@ export default function App() {
 
   const setSet = (s: Partial<Settings>) => setSetState((o) => { const n = { ...o, ...s }; save('set', n); return n; });
   const refresh = useCallback(async () => {
-    try { const m = await api<MeT>('/me'); setMe(m); setLoggedIn(!!m.user); if (m.user) flushWrong(); } catch { /* 离线：照常用本机题库 */ }
+    try { const m = await api<MeT>('/me'); setMe(m); setLoggedIn(!!m.user); ltIdentify(m.user?.id); if (m.user) flushWrong(); } catch { /* 离线：照常用本机题库 */ }
   }, []);
   const boot = useCallback(async () => {
     setReady('load');
     let m: MeT | null = null;
-    try { m = await api<MeT>('/me'); setMe(m); setLoggedIn(!!m.user); } catch { /* 离线 */ }
+    try { m = await api<MeT>('/me'); setMe(m); setLoggedIn(!!m.user); ltIdentify(m.user?.id); } catch { /* 离线 */ }
     try { await loadBank(m?.bankV); setReady('ok'); } catch { setReady('fail'); return; }
     if (m?.user) syncWrong(!!m.unlocks?.includes('wrong')).catch(() => {});
   }, []);

@@ -1,5 +1,6 @@
 /* 数据层：接口、题库（服务端下发 + 本机缓存）、本机进度、错题集同步 */
 import { getLang, Lang } from './i18n';
+import { ltHeaders } from './utils/analytics';
 
 export type TL = { en: string; zh?: string | null; ms?: string | null };
 export type Opt = { l: string; t?: TL; img?: string };
@@ -13,7 +14,8 @@ export type Me = {
 
 export class ApiError extends Error { status: number; code: string; data: any; constructor(s: number, c: string, d: any) { super(c); this.status = s; this.code = c; this.data = d; } }
 export async function api<T = any>(path: string, body?: unknown): Promise<T> {
-  const r = await fetch('/api' + path, body === undefined ? { credentials: 'include' } : { method: 'POST', credentials: 'include', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+  // 带上埋点的设备 ID / 首次渠道（x-lt-*），服务端事件靠它和网页事件对上
+  const r = await fetch('/api' + path, body === undefined ? { credentials: 'include', headers: ltHeaders() } : { method: 'POST', credentials: 'include', headers: { 'content-type': 'application/json', ...ltHeaders() }, body: JSON.stringify(body) });
   const j = await r.json().catch(() => ({}));
   if (!r.ok || j.ok === false) throw new ApiError(r.status, j.error || 'error', j);
   return j as T;

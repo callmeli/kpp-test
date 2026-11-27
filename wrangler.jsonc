@@ -5,7 +5,9 @@
   "name": "kpp",
   "main": "worker/index.js",
   "compatibility_date": "2026-10-28",
-  "assets": { "directory": "./web/dist", "binding": "ASSETS", "run_worker_first": ["/api/*", "/KPP-Test/*", "/__devlogin", "/", "/index.html"], "not_found_handling": "single-page-application" },
+  // nodejs_als：埋点用 AsyncLocalStorage 收集一次请求里的事件（worker/lt.js）
+  "compatibility_flags": ["nodejs_als"],
+  "assets": { "directory": "./web/dist", "binding": "ASSETS", "run_worker_first": ["/api/*", "/lt/*", "/KPP-Test/*", "/__devlogin", "/", "/index.html"], "not_found_handling": "single-page-application" },
   "routes": [{ "pattern": "kpp.luckylab.cc", "custom_domain": true }],
   "workers_dev": true,
   "d1_databases": [
@@ -13,7 +15,11 @@
     { "binding": "DB", "database_name": "kpp", "database_id": "523480f0-0124-4cdf-a723-b95e7402eaeb" }
   ],
   // 账号和幸运币走 LuckyLab（callmeli/holdem 仓库的 paycenter/），同一个 Cloudflare 账号内用 Service Binding 调用
-  "services": [{ "binding": "PAY", "service": "paycenter" }],
+  "services": [
+    { "binding": "PAY", "service": "paycenter" },
+    // 埋点：luckylab analytics（callmeli/meantobe 仓库 analytics/，独立 Worker「analytics」），见 worker/lt.js
+    { "binding": "LT", "service": "analytics", "entrypoint": "Track" }
+  ],
   // ADMIN_UIDS：LuckyLab 账号 ID（逗号分隔），「我的」里会出现「纠错审核」
   "vars": { "ADMIN_UIDS": "" },
   "observability": { "enabled": true }

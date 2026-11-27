@@ -4,6 +4,7 @@
  * - 幸运币：全在 LuckyLab 平台（env.PAY.coinSpend / coinCredit / coinWallet）。刷题免费；模拟考试、错题集、驾校行情、打赏扣币。
  */
 import SEED from './bank.json';
+import { ltRun, lt, ltProxy } from './lt.js';
 
 const APP = 'kpp';
 const CANON_HOST = 'kpp.luckylab.cc';
@@ -114,6 +115,7 @@ async function who(env, req) {
 async function balance(env, uid) { try { return (await pay(env).coinWallet(uid)).lc; } catch (e) { console.error('coinWallet', e); return null; } }
 async function spend(env, uid, amount, item, ref) {
   const r = await pay(env).coinSpend({ uid, app: APP, item, amount, ref: 'kpp:' + ref });
+  lt(r && r.ok ? 'coin_spend' : 'coin_short', uid, { item: String(item).split(':')[0], cost: amount });   // 幸运币花在哪 / 哪里不够
   return { ...r, lc: await balance(env, uid) };
 }
 const isAdmin = (env, me) => !!me && String(env.ADMIN_UIDS || '').split(',').map((s) => s.trim()).filter(Boolean).includes(me.id);
@@ -129,6 +131,7 @@ async function unlock(env, me, item, price) {
   const r = await spend(env, me.id, price, item, 'unlock:' + me.id + ':' + item);
   if (!r.ok) return r;
   await db.prepare('INSERT OR IGNORE INTO unlocks (uid, item, ts) VALUES (?, ?, ?)').bind(me.id, item, Date.now()).run();
+  lt('unlock', me.id, { item: item.split(':')[0], price });
   return { ok: true, lc: r.lc };
 }
 
@@ -168,6 +171,9 @@ async function api(env, req, url, ctx) {
       out.wrongN = w.n;
       const rw = await db.prepare('SELECT COUNT(*) n FROM prices WHERE uid = ? AND rewarded = 1').bind(me.id).first();
       out.reportsLeft = Math.max(0, ECON.reportCap - rw.n);
+      // 埋点：这个 LuckyLab 账号第一次用驾考 = signup（埋点上线前就用过的老用户，有 linked 记录的，不算新用户）
+      const seen = await db.prepare('INSERT OR IGNORE INTO kv (k, v) VALUES (?, ?)').bind('seen:' + me.id, String(Date.now())).run();
+      if (seen.meta && seen.meta.changes && !(await kvGet(db, 'linked:' + me.id))) lt('signup', me.id, { method: 'luckylab' });
       if (!(await kvGet(db, 'linked:' + me.id))) ctx.waitUntil(Promise.resolve(pay(env).link(me.id, APP)).then(() => kvSet(db, 'linked:' + me.id, 1)).catch(() => {}));
     }
     return json(out);
@@ -263,11 +269,13 @@ async function api(env, req, url, ctx) {
     const r = await spend(env, me.id, ECON.exam, 'exam', 'exam:' + id);
     if (!r.ok) return bad(r.error || 'not_enough', 402, { lc: r.lc, need: ECON.exam });
     await db.prepare('INSERT OR IGNORE INTO exams (id, uid, ts) VALUES (?, ?, ?)').bind(id, me.id, Date.now()).run();
+    lt('exam_start', me.id, { exam: id });
     return json({ ok: true, id, lc: r.lc });
   }
   if (path === '/exam/finish' && m === 'POST') {
     const id = clip(body.id, 60), total = Math.max(0, Math.min(100, Number(body.total) | 0)), score = Math.max(0, Math.min(total, Number(body.score) | 0));
-    await db.prepare('UPDATE exams SET done = ?, score = ?, total = ?, passed = ? WHERE id = ? AND uid = ? AND done IS NULL').bind(Date.now(), score, total, body.passed ? 1 : 0, id, me.id).run();
+    const fin = await db.prepare('UPDATE exams SET done = ?, score = ?, total = ?, passed = ? WHERE id = ? AND uid = ? AND done IS NULL').bind(Date.now(), score, total, body.passed ? 1 : 0, id, me.id).run();
+    if (fin.meta && fin.meta.changes) lt('exam_finish', me.id, { exam: id, score, total, passed: !!body.passed });
     return json({ ok: true });
   }
   if (path === '/exams' && m === 'GET') {
@@ -282,6 +290,7 @@ async function api(env, req, url, ctx) {
     const r = await spend(env, me.id, amount, 'tip', ref);
     if (!r.ok) return bad(r.error || 'not_enough', 402, { lc: r.lc, need: amount });
     await db.prepare('INSERT OR IGNORE INTO tips (ref, uid, amount, ts) VALUES (?, ?, ?, ?)').bind(ref, me.id, amount, Date.now()).run();
+    lt('tip', me.id, { amount });
     return json({ ok: true, lc: r.lc });
   }
 
@@ -373,8 +382,10 @@ async function api(env, req, url, ctx) {
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
+    const ltp = await ltProxy(req, env, url);   // /lt/*：网页埋点转发（见 lt.js）
+    if (ltp) return ltp;
     if (url.pathname.startsWith('/api/')) {
-      try { return await api(env, req, url, ctx); }
+      try { return await ltRun(req, env, ctx, () => api(env, req, url, ctx)); }
       catch (e) { console.error(e); return bad('server_error', 500); }
     }
     // 本地开发假登录：/__devlogin?next=… 设 Cookie dev_uid（只在 DEV_LK=1 时可用，线上不要配）
