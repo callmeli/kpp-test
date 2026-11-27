@@ -19,7 +19,7 @@ export function Me({ active }: { active: boolean }) {
   };
 
   return (
-    <div className="page">
+    <div className="page me">
       <header className="top"><h1>{t('tabMe')}</h1></header>
 
       {me?.user ? (
