@@ -91,8 +91,18 @@ export const initAnalytics = () => {
   }]);
 };
 
+/* luckylab analytics（index.html 里的 lt，见 worker/lt.js）：GA 之外再记一份到自己的分析后台。
+ * 只记有分析价值的动作；逐题的「下一题 / 上一题 / 提交」太多，不记。模拟考试的开始 / 交卷由服务端记（exam_start / exam_finish）。 */
+const LT_EVENTS = new Set(['practice_start', 'practice_add_to_wrong_set', 'wrong_questions_view', 'wrong_questions_start_practice', 'wrong_questions_clear_all', 'settings_change_language', 'exam_time_up', 'exam_exit', 'error']);
+const ltTrack = (e: string, p?: Record<string, unknown>) => { try { (window as any).lt && (window as any).lt.track(e, p || null); } catch { /* 埋点失败不影响使用 */ } };
+export const ltIdentify = (uid?: string | null) => { try { if (uid) (window as any).lt && (window as any).lt.identify(uid); } catch { /* */ } };
+export const ltHeaders = (): Record<string, string> => {
+  try { const c = (window as any).lt && (window as any).lt.ctx && (window as any).lt.ctx(); return c ? { 'x-lt-a': c.anon_id || '', 'x-lt-s': c.utm_source || '', 'x-lt-r': c.ref || '' } : {}; } catch { return {}; }
+};
+
 // 跟踪页面访问
 export const trackPageView = (path: string, title?: string) => {
+  ltTrack('tab_view', { tab: path });
   if (!isAnalyticsEnabled()) return;
 
   window.gtag('config', GA_MEASUREMENT_ID, {
@@ -108,6 +118,7 @@ export const trackEvent = (
     [key: string]: string | number | boolean;
   }
 ) => {
+  if (LT_EVENTS.has(eventName)) { const { event_category, ...rest } = eventParams || {}; ltTrack(eventName, rest); }
   if (!isAnalyticsEnabled()) return;
 
   try {

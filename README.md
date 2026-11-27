@@ -348,3 +348,9 @@ npm run build
 ## 许可证
 
 本项目仅用于个人学习使用，请勿用于商业用途。
+
+## 埋点分析（luckylab analytics）
+除了 GA，事件也发到 luckylab analytics（`callmeli/meantobe` 仓库 `analytics/`，独立 Worker「analytics」），看板在 `https://analytics.luckylab.workers.dev/admin`。走 Service Binding（`wrangler.jsonc` 里的 `LT`），不用配密钥；没有绑定时埋点全部静默跳过。代码在 `worker/lt.js`。
+
+- 网页：`web/index.html` 开头的占位脚本 + `web/src/utils/analytics.ts`（GA 的事件里挑有分析价值的同步一份；逐题的下一题 / 提交不记）。`/api` 请求带 `x-lt-*` 头。
+- 服务端事件：`signup`（某个 LuckyLab 账号第一次打开驾考；埋点上线前用过的老用户不算）、`exam_start` / `exam_finish`（分数、是否通过）、`unlock`（错题集 / 驾校报价）、`tip`、`coin_spend` / `coin_short`。
