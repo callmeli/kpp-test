@@ -7,8 +7,9 @@ android {
         applicationId "cc.luckylab.kpp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        // 每次上传商店 versionCode 都要比上次大：CI 里用运行编号（KPP_VERSION_CODE），本地默认 1
+        versionCode((System.getenv("KPP_VERSION_CODE") ?: "1") as int)
+        versionName System.getenv("KPP_VERSION_NAME") ?: "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,8 +17,22 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    // 正式包签名（上传密钥）：密钥库文件和密码都从环境变量来（CI 里是 GitHub Secrets），不进仓库。
+    // 没配的时候 release 包不签名，只能用来检查能不能编译过。见仓库 README「App 版」一节
+    signingConfigs {
+        release {
+            def ks = System.getenv("KPP_KEYSTORE")
+            if (ks) {
+                storeFile file(ks)
+                storePassword System.getenv("KPP_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("KPP_KEY_ALIAS") ?: "upload"
+                keyPassword System.getenv("KPP_KEY_PASSWORD") ?: System.getenv("KPP_KEYSTORE_PASSWORD")
+            }
+        }
+    }
     buildTypes {
         release {
+            if (System.getenv("KPP_KEYSTORE")) signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

@@ -73,3 +73,7 @@ Thumbs.db
 
 # App 构建产物（npm run build:app）
 web/dist-app/
+# App 工程里的图标、启动图（上面的 *.png 会把它们挡住，CI 上编译会缺图）
+!web/assets/*.png
+!web/android/app/src/main/res/**/*.png
+!web/ios/App/App/Assets.xcassets/**/*.png

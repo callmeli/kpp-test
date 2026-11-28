@@ -1,0 +1,92 @@
+# KPP App（iOS / Android）的构建和上传。说明见 README「App 版（iOS / Android）」。
+# 什么都没配：两个平台都只检查能不能编译过（Android 出未签名包，iOS 编模拟器版）。
+# 配了下面的 Secrets 就自动签名并上传到商店的测试渠道（Google Play 内部测试 / TestFlight），正式发布还是在商店后台点。
+#   Android：KPP_KEYSTORE_B64（上传密钥库 .jks 的 base64）、KPP_KEYSTORE_PASSWORD、KPP_KEY_ALIAS（默认 upload）、KPP_KEY_PASSWORD（默认同密钥库密码）
+#            PLAY_SERVICE_ACCOUNT_JSON（有 Play 管理中心「发布到测试渠道」权限的服务账号，整段 JSON）
+#   iOS：    APPLE_TEAM_ID、ASC_KEY_ID、ASC_ISSUER_ID、ASC_KEY_P8（App Store Connect API 密钥，App 管理权限，.p8 文件内容）
+name: App build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['web/**', 'scripts/app-bank.mjs', '.github/workflows/app.yml']
+
+concurrency:
+  group: app-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      KPP_VERSION_CODE: ${{ github.run_number }}
+      KPP_VERSION_NAME: 1.0.${{ github.run_number }}
+      HAS_KEY: ${{ secrets.KPP_KEYSTORE_B64 != '' }}
+      HAS_PLAY: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: web/package-lock.json }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21, cache: gradle }
+      - name: Build web (app mode) and sync
+        working-directory: web
+        run: npm ci && npm run build:app && npx cap sync android
+      - name: Upload key
+        if: env.HAS_KEY == 'true'
+        run: echo "${{ secrets.KPP_KEYSTORE_B64 }}" | base64 -d > "$RUNNER_TEMP/upload.jks" && echo "KPP_KEYSTORE=$RUNNER_TEMP/upload.jks" >> "$GITHUB_ENV"
+      - name: Build AAB
+        working-directory: web/android
+        env:
+          KPP_KEYSTORE_PASSWORD: ${{ secrets.KPP_KEYSTORE_PASSWORD }}
+          KPP_KEY_ALIAS: ${{ secrets.KPP_KEY_ALIAS }}
+          KPP_KEY_PASSWORD: ${{ secrets.KPP_KEY_PASSWORD }}
+        run: ./gradlew bundleRelease --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kpp-android-${{ github.run_number }}
+          path: web/android/app/build/outputs/bundle/release/*.aab
+          retention-days: 30
+      # 第一个版本要先在 Play 管理中心手动上传一次（Google 的规定），之后这一步才能自动传
+      - name: Upload to Google Play (internal testing)
+        if: env.HAS_KEY == 'true' && env.HAS_PLAY == 'true'
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: cc.luckylab.kpp
+          releaseFiles: web/android/app/build/outputs/bundle/release/app-release.aab
+          track: internal
+          status: completed
+
+  ios:
+    runs-on: macos-15
+    timeout-minutes: 40
+    env:
+      HAS_ASC: ${{ secrets.ASC_KEY_P8 != '' && secrets.APPLE_TEAM_ID != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: web/package-lock.json }
+      - name: Build web (app mode) and sync
+        working-directory: web
+        run: npm ci && npm run build:app && npx cap sync ios
+      - name: Compile check (simulator, unsigned)
+        if: env.HAS_ASC != 'true'
+        working-directory: web/ios/App
+        run: xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | tail -20
+      - name: Archive and upload to TestFlight
+        if: env.HAS_ASC == 'true'
+        working-directory: web/ios/App
+        env:
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          set -o pipefail
+          KEY="$RUNNER_TEMP/AuthKey.p8"; printf '%s' "$ASC_KEY_P8" > "$KEY"
+          AUTH=(-allowProvisioningUpdates -authenticationKeyPath "$KEY" -authenticationKeyID "${{ secrets.ASC_KEY_ID }}" -authenticationKeyIssuerID "${{ secrets.ASC_ISSUER_ID }}")
+          xcodebuild -project App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" DEVELOPMENT_TEAM="${{ secrets.APPLE_TEAM_ID }}" CODE_SIGN_STYLE=Automatic \
+            CURRENT_PROJECT_VERSION=${{ github.run_number }} MARKETING_VERSION=1.0.${{ github.run_number }} "${AUTH[@]}" archive | tail -30
+          printf '%s' '<?xml version="1.0" encoding="UTF-8"?><plist version="1.0"><dict><key>method</key><string>app-store-connect</string><key>destination</key><string>upload</string><key>signingStyle</key><string>automatic</string><key>teamID</key><string>${{ secrets.APPLE_TEAM_ID }}</string></dict></plist>' > "$RUNNER_TEMP/export.plist"
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/App.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/export.plist" -exportPath "$RUNNER_TEMP/out" "${AUTH[@]}" | tail -30

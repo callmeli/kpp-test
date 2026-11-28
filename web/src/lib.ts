@@ -5,7 +5,7 @@ import { ltHeaders } from './utils/analytics';
 /* App 版（iOS / Android，npm run build:app 构建）：页面在手机里本地打开，接口跨域调 kpp.luckylab.cc；
  * 不用账号、不用幸运币，商店里买断「全部解锁」后带解锁凭证（x-kpp-ent 头，见 worker/iap.js） */
 export const APP = import.meta.env.VITE_APP === '1';
-const API_BASE = APP ? (import.meta.env.VITE_API_BASE || 'https://kpp.luckylab.cc') : '';
+const API_BASE = APP ? (import.meta.env.VITE_API_BASE ?? 'https://kpp.luckylab.cc') : '';   // VITE_API_BASE= （空）：测试时和接口同源
 export const entToken = () => load<string>('ent', '');
 /** App 里买断过（本机有服务端发的解锁凭证） */
 export const isPro = () => APP && !!entToken();

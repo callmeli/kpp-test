@@ -63,6 +63,38 @@ npx wrangler dev --var DEV_LK:1        # http://127.0.0.1:8787 ；DEV_LK 时打�
 cd web && npm run dev                  # 前端热更新（/api 代理到 8787）
 ```
 
+## App 版（iOS / Android）
+网页原样打包成 App（Capacitor，工程在 `web/android/`、`web/ios/`），**不用账号、不用幸运币**：刷题免费，商店里一次买断「全部解锁」（模拟考不限次、错题集、所有驾校报价）。
+
+**怎么工作**
+- `npm run build:app`（在 `web/` 里）= 用 `--mode app`（`web/.env.app`，`VITE_APP=1`）构建到 `web/dist-app/`，再下载一份线上题库打进去（`scripts/app-bank.mjs`），第一次打开没网也能刷。`npm run app:sync` = 构建 + `cap sync`。
+- 页面在手机里本地打开（Android 是 `https://localhost`，iOS 是 `capacitor://localhost`），接口跨域调 `https://kpp.luckylab.cc/api/*`（Worker 只给这两个来源开跨域，见 `worker/iap.js` 的 `cors`）。
+- 买断：App 用 `@capgo/native-purchases`（Google Play Billing / StoreKit 2）付款 → 把凭据发到 `POST /api/iap/verify` → 服务端向 Google / Apple 核实 → 发一个签名的解锁凭证存在手机上，之后请求都带 `x-kpp-ent` 头。代码在 `web/src/iap.ts`、`worker/iap.js`；购买记录在 D1 的 `iap` 表。
+- App 里隐藏了：登录、幸运币、充值、打赏、晒学费 / 写补充（这些要账号，留在网页版）、LuckyLab 其他应用的链接。模拟考记录、错题集只存在手机上。App 里不加载埋点。
+- 隐私政策：`https://kpp.luckylab.cc/privacy`（`web/public/privacy.html`，中英马三语），两个商店都填这个地址。
+- 商品 ID：`kpp_unlock_all`（两个商店都建这个，非消耗型 / 一次性商品）。包名 / Bundle ID：`cc.luckylab.kpp`。
+- 已知限制：退款后已发出的解锁凭证不会自动失效（要接商店的服务器通知才能做到）。
+
+**测试**
+```bash
+node test/iap.test.mjs        # 购买校验：本地模拟 Google / Apple 接口，校验 JWT 签名、待付款 / 退款 / 别的 App 的交易、凭证伪造、跨域（要先 cd web && npm run build）
+cd web && VITE_API_BASE= npx vite build --mode app --outDir /tmp/app-test && cp dist-app/bank.json /tmp/app-test/ && cd ..
+APP_DIST=/tmp/app-test node test/app-ui.test.mjs   # App 界面：没买时的付费墙、买断后全部解锁、没网用内置题库
+```
+真正的付款只能在真机上测：Android 用 Play 管理中心的「内部测试」+ 许可测试账号，iOS 用 TestFlight 沙盒账号。
+
+**本地出包**：Android 要 JDK 21 + Android SDK（platform 36），`cd web/android && ./gradlew bundleRelease`；签名用环境变量 `KPP_KEYSTORE`（.jks 路径）、`KPP_KEYSTORE_PASSWORD`、`KPP_KEY_ALIAS`（默认 upload）。iOS 要 Mac + Xcode：`npx cap open ios`。
+图标 / 启动图：`node scripts/app-assets.cjs` 画原图（`web/assets/`），再 `npx @capacitor/assets generate` 生成各尺寸（命令见脚本开头）。
+
+**CI（`.github/workflows/app.yml`）**：推到 main（改了 `web/`）或手动运行。没配 Secrets 时只检查能不能编译过；配了就自动签名并上传到 Google Play 内部测试 / TestFlight。
+
+**上架要准备的（都要用你自己的账号）**
+1. Cloudflare Worker `kpp` 加 Secret：`IAP_SECRET`（随便一串长随机字符）；Android 的 `GOOGLE_PLAY_SA`（服务账号 JSON 整段）；iOS 的 `APPLE_IAP_KEY`（App 内购买项目密钥 .p8 内容）、`APPLE_IAP_KEY_ID`、`APPLE_ISSUER_ID`。没配的平台，购买校验会返回 `iap_off`。
+2. Google Play：开发者账号（25 美元，一次性）→ 建应用 `cc.luckylab.kpp` → 先手动传一个 AAB 到内部测试（有了 BILLING 权限才能建商品）→ 建商品 `kpp_unlock_all` 定价 → Google Cloud 开 Google Play Android Developer API、建服务账号，在 Play 管理中心「用户和权限」里加上它（查看财务数据 + 发布到测试渠道）。新个人账号要 12 人封闭测试 14 天才能正式发布。
+3. 上传密钥：`keytool -genkeypair -keystore upload.jks -alias upload -keyalg RSA -keysize 2048 -validity 10000`，base64 后放 GitHub Secrets（见 workflow 开头的列表）。密钥库自己备份好，丢了要找 Google 重置。
+4. App Store：开发者计划（99 美元 / 年）→ App Store Connect 建 App（Bundle ID `cc.luckylab.kpp`）→ 签好「付费 App 协议」（银行、税务，不签内购用不了）→ 建 App 内购买项目 `kpp_unlock_all`（非消耗型）→「用户和访问 → 集成」里建 App 内购买项目密钥（给 Worker）和 App Store Connect API 密钥（给 CI）。
+5. 两边的隐私申报：只收集「购买记录」，不关联身份，不用于追踪。
+
 ## SEO（搜索引擎收录，`worker/seo.js`）
 - `/robots.txt`、`/sitemap.xml`（首页 × 3 种语言：`/?lang=zh`、`/?lang=en`、`/?lang=ms`，带 hreflang）由 Worker 生成。这两个地址写在 `wrangler.jsonc` 的 `run_worker_first` 里，不然会被单页应用兜底成首页 HTML。
 - 首页 `<head>` 按语言输出：title、description、canonical（指向自己的 `?lang=xx`）、hreflang（x-default = 英文）、og / twitter 分享卡片、JSON-LD（WebApplication）。文案在 `worker/seo.js` 的 `META`。
