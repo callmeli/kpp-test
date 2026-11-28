@@ -282,6 +282,13 @@ select.input option { background: var(--g-up); }
 .wrong-list p { margin-bottom: var(--s-1); }
 .wrong-list .muted { display: flex; justify-content: space-between; align-items: center; }
 .login-card { display: flex; flex-direction: column; gap: var(--s-4); }
+/* App 版：解锁按钮 / 已解锁标记、买断弹层 */
+button.pill { background: transparent; cursor: pointer; }
+.pill.pro { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+.pro-list { list-style: none; padding: 0; margin: 0 0 var(--s-5); display: grid; gap: var(--s-3); }
+.pro-list li { display: flex; gap: var(--s-2); align-items: flex-start; line-height: 1.5; }
+.pro-list .ic { color: var(--action); flex: none; margin-top: 2px; }
+.sheet .btn.block + .btn.block { margin-top: var(--s-3); }
 .login-card p { color: var(--muted); }
 
 /* 底部导航：不透明底 + 一条细线 */

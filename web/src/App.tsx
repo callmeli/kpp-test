@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { detectLang, setLang, t } from './i18n';
-import { api, defaultSettings, flushWrong, load, loadBank, Me as MeT, save, setLoggedIn, Settings, syncWrong } from './lib';
+import { api, APP, defaultSettings, flushWrong, isPro, load, loadBank, Me as MeT, save, setLoggedIn, Settings, syncWrong } from './lib';
+import { restore } from './iap';
 import { Exam } from './pages/Exam';
 import { Me } from './pages/Me';
 import { Practice } from './pages/Practice';
 import { Schools } from './pages/Schools';
-import { AppCtx, CoinPill, Confirmer, Tab, Toaster } from './ui';
+import { AppCtx, CoinPill, Confirmer, Paywall, Tab, Toaster } from './ui';
 import { ltIdentify, trackPageView } from './utils/analytics';
 
 const TABS: { k: Tab; icon: JSX.Element }[] = [
@@ -23,6 +24,9 @@ export default function App() {
   const [ready, setReady] = useState<'load' | 'ok' | 'fail'>('load');
   const [tab, setTab] = useState<Tab>(() => (location.hash.slice(1) as Tab) in NAMES ? (location.hash.slice(1) as Tab) : 'practice');
   const [practiceIds, setPracticeIds] = useState<string[] | null>(null);
+  const [pro, setPro] = useState(isPro);
+  // App：本机没有解锁凭证时，静默问一下商店有没有买过（重装 / 换手机后自动找回，不弹任何东西）
+  useEffect(() => { if (APP && !pro) restore(false).then((r) => r === 'ok' && setPro(isPro())); }, []);   // eslint-disable-line react-hooks/exhaustive-deps
 
   const setSet = (s: Partial<Settings>) => setSetState((o) => { const n = { ...o, ...s }; save('set', n); return n; });
   const refresh = useCallback(async () => {
@@ -41,7 +45,7 @@ export default function App() {
   useEffect(() => { const v = () => document.visibilityState === 'visible' && refresh(); document.addEventListener('visibilitychange', v); return () => document.removeEventListener('visibilitychange', v); }, [refresh]);
 
   const ctx = {
-    me, refresh, set, setSet, practiceIds, setPracticeIds,
+    me, refresh, set, setSet, practiceIds, setPracticeIds, pro, setPro,
     setCoins: (n: number | null | undefined) => { if (typeof n === 'number') setMe((m) => (m ? { ...m, coins: n } : m)); },
     go: (k: Tab) => setTab(k),
   };
@@ -70,9 +74,9 @@ export default function App() {
             {x.icon}<span>{t(NAMES[x.k])}</span>
           </button>
         ))}
-        <div className="side-foot"><CoinPill /><a href="https://luckylab.cc/?from=kpp" className="muted small">LuckyLab</a></div>
+        <div className="side-foot"><CoinPill />{!APP && <a href="https://luckylab.cc/?from=kpp" className="muted small">LuckyLab</a>}</div>
       </nav>
-      <Toaster /><Confirmer />
+      <Toaster /><Confirmer />{APP && <Paywall />}
     </AppCtx.Provider>
   );
 }

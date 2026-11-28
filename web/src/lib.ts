@@ -2,20 +2,30 @@
 import { getLang, Lang } from './i18n';
 import { ltHeaders } from './utils/analytics';
 
+/* App 版（iOS / Android，npm run build:app 构建）：页面在手机里本地打开，接口跨域调 kpp.luckylab.cc；
+ * 不用账号、不用幸运币，商店里买断「全部解锁」后带解锁凭证（x-kpp-ent 头，见 worker/iap.js） */
+export const APP = import.meta.env.VITE_APP === '1';
+const API_BASE = APP ? (import.meta.env.VITE_API_BASE || 'https://kpp.luckylab.cc') : '';
+export const entToken = () => load<string>('ent', '');
+/** App 里买断过（本机有服务端发的解锁凭证） */
+export const isPro = () => APP && !!entToken();
+
 export type TL = { en: string; zh?: string | null; ms?: string | null };
 export type Opt = { l: string; t?: TL; img?: string };
 export type Q = { id: string; s: 'A' | 'B' | 'C'; t: TL; o: Opt[]; a: string; img?: string[]; n?: TL };
 export type Econ = { exam: number; wrong: number; school: number; report: number; reportCap: number; fix: number; tips: number[] };
 export type Me = {
   bankV: number; bankN: number; econ: Econ; states: string[]; classes: string[]; lk: boolean;
-  user: null | { id: string; name: string; admin: boolean };
+  user: null | { id: string; name: string; admin: boolean }; ent?: boolean;
   coins?: number | null; unlocks?: string[]; wrongN?: number; reportsLeft?: number;
 };
 
 export class ApiError extends Error { status: number; code: string; data: any; constructor(s: number, c: string, d: any) { super(c); this.status = s; this.code = c; this.data = d; } }
 export async function api<T = any>(path: string, body?: unknown): Promise<T> {
   // 带上埋点的设备 ID / 首次渠道（x-lt-*），服务端事件靠它和网页事件对上
-  const r = await fetch('/api' + path, body === undefined ? { credentials: 'include', headers: ltHeaders() } : { method: 'POST', credentials: 'include', headers: { 'content-type': 'application/json', ...ltHeaders() }, body: JSON.stringify(body) });
+  const h: Record<string, string> = { ...ltHeaders(), ...(APP && entToken() ? { 'x-kpp-ent': entToken() } : {}) };
+  const credentials: RequestCredentials = APP ? 'omit' : 'include';   // App 里没有登录 Cookie，靠解锁凭证
+  const r = await fetch(API_BASE + '/api' + path, body === undefined ? { credentials, headers: h } : { method: 'POST', credentials, headers: { 'content-type': 'application/json', ...h }, body: JSON.stringify(body) });
   const j = await r.json().catch(() => ({}));
   if (!r.ok || j.ok === false) throw new ApiError(r.status, j.error || 'error', j);
   return j as T;
@@ -36,13 +46,18 @@ export async function loadBank(v?: number): Promise<Q[]> {
   const cached = load<{ v: number; qs: Q[] } | null>('bank', null);
   if (cached && (v === undefined || cached.v === v)) { setBank(cached.qs); return BANK; }
   try {
-    const r = await fetch('/api/bank' + (v ? '?v=' + v : ''));
+    const r = await fetch(API_BASE + '/api/bank' + (v ? '?v=' + v : ''));
     if (!r.ok) throw new Error('bank ' + r.status);
     const j = await r.json();
     setBank(j.qs);
     save('bank', { v: j.v, qs: j.qs });
   } catch (e) {
-    if (cached) setBank(cached.qs); else throw e;
+    if (cached) { setBank(cached.qs); return BANK; }
+    if (!APP) throw e;
+    // App 第一次打开就没网：用打包进 App 的那份题库（scripts/app-bank.mjs 构建时下载）
+    const j = await (await fetch('/bank.json')).json();
+    setBank(j.qs);
+    save('bank', { v: j.v, qs: j.qs });
   }
   return BANK;
 }

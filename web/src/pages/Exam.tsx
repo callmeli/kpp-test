@@ -1,9 +1,9 @@
 /* 模拟考试：默认按 2025-08 起的合并卷（KPP Gabungan）70 题 / 75 分钟 / 56 题及格，也可以选旧制 50 题 / 45 分钟 / 42 题；每场扣幸运币，开考时扣（同一 nonce 不重扣） */
 import { useEffect, useRef, useState } from 'react';
 import { t } from '../i18n';
-import { addWrong, api, bank, load, loginUrl, nonce, Q, qById, save } from '../lib';
+import { addWrong, api, APP, bank, load, loginUrl, nonce, Q, qById, save } from '../lib';
 import { QuestionView } from '../Question';
-import { CoinIcon, CoinPill, confirmBox, Icon, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
+import { CoinIcon, CoinPill, confirmBox, Icon, openPaywall, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
 import { trackExam } from '../utils/analytics';
 
 // JPJ 2025-08 起汽车 + 摩托理论合并成一张卷（KPP Gabungan）：70 题、1 小时 15 分、56 题及格；之前是 50 题、45 分钟、42 题
@@ -29,7 +29,7 @@ function draw(N: number): string[] {
 const mmss = (s: number) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
 
 export function Exam({ active }: { active: boolean }) {
-  const { me, set, setSet, setCoins, refresh } = useApp();
+  const { me, set, setSet, setCoins, refresh, pro } = useApp();
   const onErr = useSpendError();
   const [run, setRun] = useState<Run | null>(() => load<Run | null>('exam', null));
   const [done, setDone] = useState<Done | null>(null);
@@ -48,7 +48,10 @@ export function Exam({ active }: { active: boolean }) {
 
   useEffect(() => { save('exam', run); }, [run]);
   useEffect(() => { if (!run) return; const h = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(h); }, [run]);
-  useEffect(() => { if (me?.user && active && !run) api('/exams').then((r) => setHist(r.list)).catch(() => {}); }, [me?.user, active, run, done]);
+  useEffect(() => {
+    if (APP) { if (active && !run) setHist(load('hist', [])); return; }   // App：考试记录存本机
+    if (me?.user && active && !run) api('/exams').then((r) => setHist(r.list)).catch(() => {});
+  }, [me?.user, active, run, done]);
 
   const finish = async (r: Run, timeUp = false) => {
     if (finishing.current) return; finishing.current = true;
@@ -58,13 +61,22 @@ export function Exam({ active }: { active: boolean }) {
     setDone({ ids: r.ids, ans: r.ans, score, pass, timeUp }); setRun(null); setReview(false);
     trackExam.submit(score, score >= pass, r.ids.length);
     if (timeUp) toast(t('timeUp'));
-    api('/exam/finish', { id: r.id, score, total: r.ids.length, passed: score >= pass }).catch(() => {});
+    if (APP) save('hist', [{ ts: Date.now(), score, total: r.ids.length, passed: score >= pass ? 1 : 0 }, ...load<unknown[]>('hist', [])].slice(0, 30));
+    else api('/exam/finish', { id: r.id, score, total: r.ids.length, passed: score >= pass }).catch(() => {});
     finishing.current = false;
   };
   const left = run ? Math.max(0, Math.round((run.end - now) / 1000)) : 0;
   useEffect(() => { if (run && left <= 0) finish(run, true); }, [left, run]);   // eslint-disable-line react-hooks/exhaustive-deps
 
   const start = async () => {
+    if (APP) {   // App：买断后不限次数，本机出卷，不用经过服务端
+      if (!pro) { openPaywall(); return; }
+      setDone(null);
+      setRun({ id: 'a' + nonce(), ids: draw(N), ans: {}, end: Date.now() + MIN * 60e3, i: 0, pass: PASS });
+      trackExam.start(N, MIN);
+      window.scrollTo({ top: 0 });
+      return;
+    }
     setBusy(true);
     const nn = load('examNonce', '') || nonce(); save('examNonce', nn);   // 网络重试用同一个 nonce，不会重复扣
     try {
@@ -182,10 +194,12 @@ export function Exam({ active }: { active: boolean }) {
           <span className="muted small">{t('examLang')}</span>
           <Seg value={set.ql} onChange={(v) => setSet({ ql: v })} items={[{ v: 'en', label: 'English' }, { v: 'ms', label: 'Bahasa Melayu' }]} />
         </div>
-        {me?.user ? (
+        {APP ? (
+          <button className="btn primary block" disabled={bank().length < N} onClick={start}>{pro ? t('examGo') : <><Icon n="lock" size={18} /> {t('unlockAll')}</>}</button>
+        ) : me?.user ? (
           <button className="btn primary block" disabled={busy || bank().length < N} onClick={start}>{t('examGo')} · <CoinIcon size={18} /> {price}</button>
         ) : <a className="btn primary block" href={loginUrl()}>{t('login')}</a>}
-        <p className="muted small">{me?.user ? t('examNoTrans') : t('loginHint')}</p>
+        <p className="muted small">{APP ? (pro ? t('examNoTrans') : t('examLocked')) : me?.user ? t('examNoTrans') : t('loginHint')}</p>
       </div>
       {hist.length > 0 && (
         <div className="card">

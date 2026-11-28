@@ -6,13 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:app": "tsc && vite build --mode app --outDir dist-app && node ../scripts/app-bank.mjs dist-app",
+    "app:sync": "npm run build:app && cap sync"
   },
   "dependencies": {
+    "@capacitor/core": "^8.6.3",
+    "@capgo/native-purchases": "^8.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@capacitor/android": "^8.6.3",
+    "@capacitor/cli": "^8.6.3",
+    "@capacitor/ios": "^8.6.3",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",

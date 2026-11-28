@@ -1,0 +1,7 @@
+{
+  "appId": "cc.luckylab.kpp",
+  "appName": "KPP Practice",
+  "webDir": "dist-app",
+  "android": { "allowMixedContent": false },
+  "ios": { "contentInset": "never" }
+}

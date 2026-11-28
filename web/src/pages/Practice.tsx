@@ -1,7 +1,7 @@
 /* 刷题：免费。分类 + 顺序 / 随机 / 没做过；答对自动下一题；答错收进错题集；每 100 题随机提醒一次打赏 */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { t } from '../i18n';
-import { addWrong, api, bank, beep, countAnswer, delWrong, getProgress, load, mark, nonce, qById, save, loginUrl } from '../lib';
+import { addWrong, api, APP, bank, beep, countAnswer, delWrong, getProgress, load, mark, nonce, qById, save, loginUrl } from '../lib';
 import { QuestionView } from '../Question';
 import { CoinIcon, CoinPill, Icon, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
 import { trackPractice } from '../utils/analytics';
@@ -61,7 +61,7 @@ export function Practice({ active = true }: { active?: boolean }) {
     trackPractice.submit(ok);
     if (!ok && set.autoWrong) addWrong(q.id, l);
     if (ok && redo) delWrong(q.id);   // 重练答对 → 移出错题集
-    const tipAt = countAnswer();
+    const tipAt = APP ? null : countAnswer();   // App 版没有打赏（不用幸运币）
     if (tipAt) { setTipN(tipAt); return; }
     if (ok && set.autoNext && !q.n) timer.current = setTimeout(() => go(1), 700);
   };

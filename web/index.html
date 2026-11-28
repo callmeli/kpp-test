@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <script>/* 埋点（luckylab analytics）：先固定设备 ID 和首次渠道，真正的 SDK /lt/t.js 异步加载后接管排队的事件。见 worker/lt.js */
+    <script>/* 埋点（luckylab analytics）：先固定设备 ID 和首次渠道，真正的 SDK /lt/t.js 异步加载后接管排队的事件。见 worker/lt.js
+     * App 版（Android 上是 https://localhost，iOS 上是 capacitor://localhost）不加载 SDK：App 里不做统计（隐私政策里也这么写） */
 (function(w,d,K){var S=w.localStorage,g=function(k){try{return S.getItem('lt_'+k)}catch(e){return null}},s=function(k,v){try{S.setItem('lt_'+k,v)}catch(e){}};
 if(!g('anon'))s('anon','a_'+Date.now().toString(36)+Math.random().toString(36).slice(2,10));
 var q=new URLSearchParams(w.location.search),rh='';try{rh=d.referrer?new URL(d.referrer).hostname:''}catch(e){}
@@ -11,7 +12,7 @@ if(!g('utm')&&q.get('utm_source'))s('utm',q.get('utm_source').slice(0,64));if(!g
 if(!g('utm'))s('utm',rh&&rh!==w.location.hostname?'referral:'+rh:'direct');
 var Q=[];w.lt={q:Q,init:function(o){Q.push(['init',o])},track:function(e,p){Q.push(['track',e,p])},identify:function(u){Q.push(['identify',u])},
 ctx:function(){return{anon_id:g('anon'),utm_source:g('utm'),ref:g('ref')}}};w.lt.init({key:K});
-if(/^https?:$/.test(w.location.protocol)){var t=d.createElement('script');t.async=1;t.src='/lt/t.js';d.head.appendChild(t)}})(window,document,'kpp');</script>
+if(/^https?:$/.test(w.location.protocol)&&!(w.location.hostname==='localhost'&&!w.location.port)){var t=d.createElement('script');t.async=1;t.src='/lt/t.js';d.head.appendChild(t)}})(window,document,'kpp');</script>
     <title>KPP 驾考刷题 · Malaysia KPP01 Driving Theory Test Practice</title>
     <meta name="description" content="马来西亚 KPP01 驾照理论考试题库：免费刷题，中文 / English / Bahasa Melayu 对照，模拟考试、错题集、驾校学费行情。Free KPP01 practice in English, Malay and Chinese." />
     <meta name="theme-color" content="#0b0a10" />

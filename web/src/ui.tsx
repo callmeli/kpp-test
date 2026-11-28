@@ -2,12 +2,14 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { t } from './i18n';
-import { ApiError, loginUrl, Me, Settings, walletUrl } from './lib';
+import { APP, ApiError, isPro, loginUrl, Me, Settings, walletUrl } from './lib';
+import * as iap from './iap';
 
 export type Ctx = {
   me: Me | null; refresh: () => Promise<void>; setCoins: (n: number | null | undefined) => void;
   set: Settings; setSet: (s: Partial<Settings>) => void;
   go: (tab: Tab, sub?: string) => void;
+  pro: boolean; setPro: (v: boolean) => void;   // App 版：买断过没有
   practiceIds: string[] | null; setPracticeIds: (ids: string[] | null) => void;
 };
 export type Tab = 'practice' | 'exam' | 'schools' | 'me';
@@ -65,7 +67,8 @@ export function Confirmer() {
 /* ---------- 幸运币 ---------- */
 export const CoinIcon = ({ size = 16 }: { size?: number }) => <img className="coin-ic" src="/coin.webp" width={size} height={size} alt="" />;
 export function CoinPill() {
-  const { me } = useApp();
+  const { me, pro } = useApp();
+  if (APP) return pro ? <span className="pill pro"><Icon n="check" size={16} />{t('proActive')}</span> : <button className="pill" onClick={openPaywall}><Icon n="lock" size={16} />{t('unlockAll')}</button>;
   if (!me?.user) return <a className="pill" href={loginUrl()}>{t('login')}</a>;
   return <a className="pill coin" href={walletUrl()} title={t('topUp')}><CoinIcon />{me.coins ?? '—'}</a>;
 }
@@ -74,6 +77,7 @@ export function CoinPill() {
 export function useSpendError() {
   const { setCoins } = useApp();
   return async (e: unknown) => {
+    if (APP && e instanceof ApiError && (e.status === 401 || e.status === 402)) { openPaywall(); return; }
     if (e instanceof ApiError) {
       if (e.status === 401) { if (await confirmBox(t('loginNeed'), t('login'))) location.href = loginUrl(); return; }
       if (e.status === 402) { setCoins(e.data?.lc); if (await confirmBox(t('notEnough', { n: e.data?.need ?? '' }), t('topUp'))) location.href = walletUrl(); return; }
@@ -82,8 +86,14 @@ export function useSpendError() {
   };
 }
 
-/** 未登录时的引导卡片 */
+/** 未登录时的引导卡片（App 版没有登录：换成解锁卡片） */
 export function LoginCard() {
+  if (APP) return (
+    <div className="card login-card">
+      <p>{t('proTitle')}</p>
+      <button className="btn primary block" onClick={openPaywall}><Icon n="lock" size={18} /> {t('unlockAll')}</button>
+    </div>
+  );
   return (
     <div className="card login-card">
       <p>{t('loginHint')}</p>
@@ -110,3 +120,34 @@ const PATHS: Record<string, string> = {
 export const Icon = ({ n, size = 20 }: { n: string; size?: number }) => (
   <svg className="ic" viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={PATHS[n] || ''} /></svg>
 );
+
+/* ---------- App 版：买断弹层 ---------- */
+let pushPay: () => void = () => {};
+export const openPaywall = () => pushPay();
+export function Paywall() {
+  const { setPro, refresh } = useApp();
+  const [open, setOpen] = useState(false);
+  const [p, setP] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  useEffect(() => { pushPay = () => setOpen(true); }, []);
+  useEffect(() => { if (open && !p) iap.price().then(setP); }, [open, p]);
+  const done = async (r: iap.Result, restoring: boolean) => {
+    if (r === 'ok') { setPro(isPro()); setOpen(false); toast(t('proThanks')); await refresh(); return; }
+    if (r === 'pending') toast(t('proPending'));
+    else if (r === 'net') toast(t('proNet'));
+    else if (r === 'none' && restoring) toast(t('proNone'));
+    else if (r !== 'cancel') toast(t('err'));
+  };
+  const run = async (restoring: boolean) => { setBusy(true); try { await done(restoring ? await iap.restore(true) : await iap.buy(), restoring); } finally { setBusy(false); } };
+  return (
+    <Sheet open={open} onClose={() => !busy && setOpen(false)} title={t('proTitle')}>
+      <ul className="pro-list">
+        {['proItem1', 'proItem2', 'proItem3'].map((k) => <li key={k}><Icon n="check" size={18} /> {t(k)}</li>)}
+      </ul>
+      <button className="btn primary block" disabled={busy} onClick={() => run(false)}>{t('proBuy', { p: p || '…' })}</button>
+      <button className="btn secondary block" disabled={busy} onClick={() => run(true)}>{t('proRestore')}</button>
+      <p className="muted small">{t('proNote')} {t('proPayBy', { s: iap.storeName() })}</p>
+      <p className="muted small"><a href="https://kpp.luckylab.cc/privacy" target="_blank" rel="noreferrer">{t('privacy')}</a></p>
+    </Sheet>
+  );
+}

@@ -1,7 +1,7 @@
 /* 驾校学费行情：大家晒实付价格。各州整体行情免费；某所驾校的逐条报价要解锁（晒过这所的自己免费看）；晒学费有奖励 */
 import { useCallback, useEffect, useState } from 'react';
 import { t } from '../i18n';
-import { api, load, save } from '../lib';
+import { APP, api, load, save } from '../lib';
 import { CoinIcon, CoinPill, LoginCard, Sheet, toast, useApp, useSpendError } from '../ui';
 
 type Stat = { cls: string; n: number; min: number; max: number; med: number };
@@ -30,7 +30,7 @@ function Stats({ list }: { list: Stat[] }) {
 }
 
 export function Schools({ active }: { active: boolean }) {
-  const { me } = useApp();
+  const { me, pro } = useApp();
   const [state, setState] = useState<string>(() => load('state', ''));
   const [qq, setQq] = useState('');
   const [data, setData] = useState<{ overall: Stat[]; list: School[] } | null>(null);
@@ -40,7 +40,7 @@ export function Schools({ active }: { active: boolean }) {
   const reload = useCallback(() => {
     const p = new URLSearchParams(); if (state) p.set('state', state); if (qq.trim()) p.set('q', qq.trim());
     api('/schools?' + p).then(setData).catch(() => toast(t('err')));
-  }, [state, qq]);
+  }, [state, qq, pro]);
   useEffect(() => { save('state', state); }, [state]);
   useEffect(() => { if (!active) return; const h = setTimeout(reload, qq ? 300 : 0); return () => clearTimeout(h); }, [reload, active]);   // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -58,9 +58,11 @@ export function Schools({ active }: { active: boolean }) {
         <input className="input" placeholder={t('searchSchool')} value={qq} onChange={(e) => setQq(e.target.value)} />
       </div>
 
-      <button className="btn secondary block" onClick={() => setForm({})}>
-        {canEarn ? <><CoinIcon size={18} /> {t('shareMine', { n: econ!.report })}</> : t('shareMineNoReward')}
-      </button>
+      {!APP && (   /* App 版不用账号，晒学费、写补充留在网页版 */
+        <button className="btn secondary block" onClick={() => setForm({})}>
+          {canEarn ? <><CoinIcon size={18} /> {t('shareMine', { n: econ!.report })}</> : t('shareMineNoReward')}
+        </button>
+      )}
 
       {data && data.overall.length > 0 && (
         <div className="card">
@@ -90,11 +92,11 @@ export function Schools({ active }: { active: boolean }) {
 }
 
 function SchoolSheet({ id, onClose, onShare }: { id: string | null; onClose: () => void; onShare: (sid: string) => void }) {
-  const { me, setCoins } = useApp();
+  const { me, setCoins, pro } = useApp();
   const onErr = useSpendError();
   const [d, setD] = useState<Detail | null>(null);
   const [busy, setBusy] = useState(false);
-  const get = useCallback(() => { if (id) api<Detail>('/schools/' + id).then(setD).catch(() => toast(t('err'))); }, [id]);
+  const get = useCallback(() => { if (id) api<Detail>('/schools/' + id).then(setD).catch(() => toast(t('err'))); }, [id, pro]);   // 刚买断：带上凭证重新取，报价直接打开
   useEffect(() => { setD(null); get(); }, [get]);
   const unlock = async () => {
     setBusy(true);
@@ -152,7 +154,7 @@ function SchoolSheet({ id, onClose, onShare }: { id: string | null; onClose: () 
               {me?.user ? <button className="btn primary block" disabled={busy || !d.n} onClick={unlock}><CoinIcon size={18} /> {t('unlockSchool', { n: d.price })}</button> : <LoginCard />}
             </div>
           )}
-          <button className="btn secondary block" onClick={() => onShare(d.school.id)}>{t('shareMineNoReward')}</button>
+          {!APP && <button className="btn secondary block" onClick={() => onShare(d.school.id)}>{t('shareMineNoReward')}</button>}
         </>
       )}
     </Sheet>

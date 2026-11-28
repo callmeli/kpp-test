@@ -1,12 +1,21 @@
 /* 我的：账号与幸运币、进度、错题集（记录免费，查看 / 重练要解锁）、设置、纠错审核（管理员）、更多 LuckyLab 应用 */
 import { useEffect, useState } from 'react';
 import { LANGS, t } from '../i18n';
-import { accountUrl, api, clearWrong, delWrong, getProgress, getWrong, qById, syncWrong, txOr, walletUrl, WrongItem } from '../lib';
-import { CoinIcon, confirmBox, Icon, LoginCard, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
+import { accountUrl, api, APP, clearWrong, delWrong, getProgress, getWrong, isPro, qById, syncWrong, txOr, walletUrl, WrongItem } from '../lib';
+import { CoinIcon, confirmBox, Icon, LoginCard, openPaywall, Seg, Sheet, toast, useApp, useSpendError } from '../ui';
+import { restore } from '../iap';
 
 export function Me({ active }: { active: boolean }) {
-  const { me, set, setSet, refresh } = useApp();
+  const { me, set, setSet, refresh, pro, setPro } = useApp();
   const [wrongOpen, setWrongOpen] = useState(false);
+  const [restoring, setRestoring] = useState(false);
+  const doRestore = async () => {
+    setRestoring(true);
+    const r = await restore(true);
+    setRestoring(false);
+    if (r === 'ok') { setPro(isPro()); toast(t('proThanks')); refresh(); }
+    else toast(t(r === 'pending' ? 'proPending' : r === 'net' ? 'proNet' : r === 'none' ? 'proNone' : 'err'));
+  };
   const [admin, setAdmin] = useState(false);
   const p = getProgress(), done = Object.keys(p).length, right = Object.values(p).filter((x) => x === 1).length;
   const [wn, setWn] = useState(getWrong().length);
@@ -22,7 +31,10 @@ export function Me({ active }: { active: boolean }) {
     <div className="page me">
       <header className="top"><h1>{t('tabMe')}</h1></header>
 
-      {me?.user ? (
+      {APP ? (
+        pro ? <div className="card row-btn"><span><Icon n="check" /> {t('proActive')}</span></div>
+          : <button className="card row-btn" onClick={openPaywall}><span><Icon n="lock" /> {t('unlockAll')}</span><Icon n="right" size={18} /></button>
+      ) : me?.user ? (
         <div className="card me-card">
           <div className="avatar">{(me.user.name.match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase()}</div>
           <div className="me-info"><b>{me.user.name}</b><a className="muted small" href={accountUrl()}>{t('account')} →</a></div>
@@ -41,7 +53,7 @@ export function Me({ active }: { active: boolean }) {
 
       <button className="card row-btn" onClick={() => setWrongOpen(true)}>
         <span><Icon n="book" /> {t('wrongSet')}</span>
-        <span className="muted">{me?.unlocks?.includes('wrong') ? t('unlocked') : <><Icon n="lock" size={16} /> {me?.econ.wrong ?? 50}</>} <Icon n="right" size={18} /></span>
+        <span className="muted">{(APP ? pro : me?.unlocks?.includes('wrong')) ? t('unlocked') : <><Icon n="lock" size={16} /> {APP ? '' : me?.econ.wrong ?? 50}</>} <Icon n="right" size={18} /></span>
       </button>
 
       <div className="card settings">
@@ -62,9 +74,16 @@ export function Me({ active }: { active: boolean }) {
 
       {me?.user?.admin && <button className="card row-btn" onClick={() => setAdmin(true)}><span><Icon n="tool" /> {t('admin')}</span><Icon n="right" size={18} /></button>}
 
-      <a className="card row-btn more" href="https://luckylab.cc/?from=kpp">
-        <span><img src="/lk-logo.svg" alt="" width={22} height={22} /> {t('more')}</span><Icon n="right" size={18} />
-      </a>
+      {APP ? (
+        <>
+          {!pro && <button className="card row-btn" disabled={restoring} onClick={doRestore}><span><Icon n="check" /> {t('proRestore')}</span><Icon n="right" size={18} /></button>}
+          <a className="card row-btn" href="https://kpp.luckylab.cc/privacy" target="_blank" rel="noreferrer"><span><Icon n="doc" /> {t('privacy')}</span><Icon n="right" size={18} /></a>
+        </>
+      ) : (
+        <a className="card row-btn more" href="https://luckylab.cc/?from=kpp">
+          <span><img src="/lk-logo.svg" alt="" width={22} height={22} /> {t('more')}</span><Icon n="right" size={18} />
+        </a>
+      )}
       {me?.user && <button className="link danger center block" onClick={logout}>{t('logout')}</button>}
       <p className="muted small center">{me && t('bankInfo', { n: me.bankN, v: me.bankV })}</p>
       <p className="muted small center pad">{t('disclaimer')}</p>
@@ -80,9 +99,9 @@ const Toggle = ({ label, on, set }: { label: string; on: boolean; set: (v: boole
 );
 
 function WrongSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const { me, set, setCoins, refresh, setPracticeIds, go } = useApp();
+  const { me, set, setCoins, refresh, setPracticeIds, go, pro } = useApp();
   const onErr = useSpendError();
-  const isOpen = !!me?.unlocks?.includes('wrong');
+  const isOpen = APP ? pro : !!me?.unlocks?.includes('wrong');   // App：错题集只在本机，买断后直接看
   const [list, setList] = useState<WrongItem[]>(getWrong);
   const [busy, setBusy] = useState(false);
   useEffect(() => { if (open && me?.user) syncWrong(isOpen).then(() => setList(getWrong())).catch(() => {}); else if (open) setList(getWrong()); }, [open, isOpen, me?.user]);

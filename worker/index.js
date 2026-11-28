@@ -2,10 +2,12 @@
  * - 题库在 D1（表 q），首次请求 / 题库版本升级时由 worker/bank.json 导入；管理员采纳纠错后直接改库，不用重新部署。
  * - 账号用 LuckyLab（luckylab.cc 的 Cookie lk_s，经 env.PAY 的 RPC session() 读取），本应用不建自己的账号表、不发令牌。
  * - 幸运币：全在 LuckyLab 平台（env.PAY.coinSpend / coinCredit / coinWallet）。刷题免费；模拟考试、错题集、驾校行情、打赏扣币。
+ * - App 版（app/ 目录，iOS / Android）不用账号也不用幸运币：商店里一次买断，带 x-kpp-ent 头 = 全部解锁（见 iap.js）。
  */
 import SEED from './bank.json';
 import { ltRun, lt, ltProxy } from './lt.js';
 import { robots, sitemap, homePage } from './seo.js';
+import { entOf, iapVerify, cors } from './iap.js';   // App 版（iOS / Android）的内购校验和解锁凭证
 
 const APP = 'kpp';
 const CANON_HOST = 'kpp.luckylab.cc';
@@ -160,10 +162,17 @@ async function api(env, req, url, ctx) {
   }
 
   const me = await who(env, req);
+  const ent = await entOf(env, req);   // App 里买断过（x-kpp-ent 头）= 全部解锁
+
+  if (path === '/iap/verify' && m === 'POST') {
+    const r = await iapVerify(env, req, body, db);
+    if (r.first) lt('pay_success', null, { item: 'app_unlock', platform: body.platform });
+    return json(r.body, r.status);
+  }
 
   if (path === '/me') {
     const b = await bank(db);
-    const out = { ok: true, bankV: b.v, bankN: b.n, econ: ECON, states: STATES, classes: CLASSES, lk: !!pay(env), user: null };
+    const out = { ok: true, bankV: b.v, bankN: b.n, econ: ECON, states: STATES, classes: CLASSES, lk: !!pay(env), user: null, ent };
     if (me) {
       out.user = { id: me.id, name: me.name, admin: isAdmin(env, me) };
       out.coins = await balance(env, me.id);
@@ -204,7 +213,7 @@ async function api(env, req, url, ctx) {
     const un = new Set(me ? await unlocked(db, me.id) : []);
     // 各州整体行情免费看（只给区间和中位数），具体某所驾校的报价要解锁
     const all = await db.prepare('SELECT p.cls, p.price FROM prices p JOIN schools s ON s.id = p.sid WHERE p.hidden = 0 AND s.hidden = 0' + (STATES.includes(st) ? ' AND s.state = ?' : '')).bind(...(STATES.includes(st) ? [st] : [])).all();
-    return json({ ok: true, overall: stats(all.results), list: r.results.map((x) => ({ ...x, open: un.has('school:' + x.id) })) });
+    return json({ ok: true, overall: stats(all.results), list: r.results.map((x) => ({ ...x, open: ent || un.has('school:' + x.id) })) });
   }
 
   if (path.startsWith('/schools/') && m === 'GET') {
@@ -213,7 +222,7 @@ async function api(env, req, url, ctx) {
     if (!s) return bad('not_found', 404);
     const rows = (await db.prepare('SELECT id, uid, cls, price, ym, incl, note, ts, rating, dur FROM prices WHERE sid = ? AND hidden = 0 ORDER BY ts DESC').bind(sid).all()).results;
     const mine = me ? rows.filter((x) => x.uid === me.id) : [];
-    const open = me && (mine.length || (await db.prepare('SELECT 1 FROM unlocks WHERE uid = ? AND item = ?').bind(me.id, 'school:' + sid).first()));
+    const open = ent || (me && (mine.length || (await db.prepare('SELECT 1 FROM unlocks WHERE uid = ? AND item = ?').bind(me.id, 'school:' + sid).first())));
     const rated = rows.filter((x) => x.rating);
     // 评分免费看；逐条报价、用时、补充内容要解锁
     const out = { ok: true, school: s, n: rows.length, open: !!open, price: ECON.school, rating: rated.length ? Math.round((rated.reduce((a, x) => a + x.rating, 0) / rated.length) * 10) / 10 : null, rn: rated.length };
@@ -386,8 +395,15 @@ export default {
     const ltp = await ltProxy(req, env, url);   // /lt/*：网页埋点转发（见 lt.js）
     if (ltp) return ltp;
     if (url.pathname.startsWith('/api/')) {
-      try { return await ltRun(req, env, ctx, () => api(env, req, url, ctx)); }
-      catch (e) { console.error(e); return bad('server_error', 500); }
+      // App（iOS / Android）的网页来源是 capacitor://localhost / https://localhost，跨域调这里的接口
+      const ch = cors(req);
+      if (req.method === 'OPTIONS') return new Response(null, { status: ch ? 204 : 405, headers: ch || {} });
+      let res;
+      try { res = await ltRun(req, env, ctx, () => api(env, req, url, ctx)); }
+      catch (e) { console.error(e); res = bad('server_error', 500); }
+      if (!ch) return res;
+      const h = new Headers(res.headers); for (const [k, v] of Object.entries(ch)) h.set(k, v);
+      return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
     }
     // 本地开发假登录：/__devlogin?next=… 设 Cookie dev_uid（只在 DEV_LK=1 时可用，线上不要配）
     if (url.pathname === '/__devlogin' && env.DEV_LK === '1') {

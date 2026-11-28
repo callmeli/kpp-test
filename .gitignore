@@ -70,3 +70,6 @@ Thumbs.db
 .env.*.local
 
 .wrangler/
+
+# App 构建产物（npm run build:app）
+web/dist-app/
