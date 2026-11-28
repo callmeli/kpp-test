@@ -17,9 +17,14 @@ if(/^https?:$/.test(w.location.protocol)){var t=d.createElement('script');t.asyn
     <meta name="theme-color" content="#0b0a10" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <link rel="apple-touch-icon" href="/icon-180.png" />
+    <!-- 首页经 Worker 输出时，title、description 和下面这几条会按语言换掉（worker/seo.js）；这里是其他路径兜底用的 -->
+    <link rel="canonical" href="https://kpp.luckylab.cc/" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="KPP 驾考刷题 · KPP01 Practice" />
     <meta property="og:description" content="免费刷 KPP01 题库，中英马三语对照，模拟考试按新制 70 题 75 分钟。" />
-    <meta property="og:image" content="https://kpp.luckylab.cc/icon-512.png" />
+    <meta property="og:url" content="https://kpp.luckylab.cc/" />
+    <meta property="og:image" content="https://kpp.luckylab.cc/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <div id="root"></div>

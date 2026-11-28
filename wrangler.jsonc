@@ -7,7 +7,8 @@
   "compatibility_date": "2026-10-28",
   // nodejs_als：埋点用 AsyncLocalStorage 收集一次请求里的事件（worker/lt.js）
   "compatibility_flags": ["nodejs_als"],
-  "assets": { "directory": "./web/dist", "binding": "ASSETS", "run_worker_first": ["/api/*", "/lt/*", "/KPP-Test/*", "/__devlogin", "/", "/index.html"], "not_found_handling": "single-page-application" },
+  // /robots.txt、/sitemap.xml 也要先过 Worker（worker/seo.js），不然会被单页应用兜底成首页 HTML
+  "assets": { "directory": "./web/dist", "binding": "ASSETS", "run_worker_first": ["/api/*", "/lt/*", "/KPP-Test/*", "/__devlogin", "/", "/index.html", "/robots.txt", "/sitemap.xml"], "not_found_handling": "single-page-application" },
   "routes": [{ "pattern": "kpp.luckylab.cc", "custom_domain": true }],
   "workers_dev": true,
   "d1_databases": [

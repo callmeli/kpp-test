@@ -25,6 +25,9 @@ screenshots/
 !web/public/images/**/*.png
 !web/public/images/**/*.jpg
 !web/public/images/**/*.jpeg
+# 允许站点图标和分享图（scripts/og.cjs 生成；之前被上面的 *.png 挡住，没进仓库）
+!web/public/icon-*.png
+!web/public/og.jpg
 
 # 进度文件（包含临时状态）
 scripts/progress.json

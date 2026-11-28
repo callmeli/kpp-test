@@ -5,6 +5,7 @@
  */
 import SEED from './bank.json';
 import { ltRun, lt, ltProxy } from './lt.js';
+import { robots, sitemap, homePage } from './seo.js';
 
 const APP = 'kpp';
 const CANON_HOST = 'kpp.luckylab.cc';
@@ -397,6 +398,13 @@ export default {
     if (url.hostname.endsWith('.workers.dev') && req.method === 'GET') return Response.redirect('https://' + CANON_HOST + url.pathname + url.search, 302);
     // 老的 GitHub Pages 路径 /KPP-Test/... → 根目录
     if (url.pathname.startsWith('/KPP-Test')) return Response.redirect(url.origin + (url.pathname.slice(9) || '/') + url.search, 301);
+    // SEO：robots、sitemap、首页按语言写 <head>（见 seo.js）。对外地址固定用正式域名，本地 / 预览用当前域名
+    if (req.method === 'GET') {
+      const origin = url.hostname.endsWith('luckylab.cc') ? 'https://' + CANON_HOST : url.origin;
+      if (url.pathname === '/robots.txt') return robots(origin);
+      if (url.pathname === '/sitemap.xml') return sitemap(origin);
+      if (url.pathname === '/' || url.pathname === '/index.html') return homePage(req, env, url, origin);
+    }
     return env.ASSETS.fetch(req);
   },
 };

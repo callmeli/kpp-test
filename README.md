@@ -63,6 +63,13 @@ npx wrangler dev --var DEV_LK:1        # http://127.0.0.1:8787 ；DEV_LK 时打�
 cd web && npm run dev                  # 前端热更新（/api 代理到 8787）
 ```
 
+## SEO（搜索引擎收录，`worker/seo.js`）
+- `/robots.txt`、`/sitemap.xml`（首页 × 3 种语言：`/?lang=zh`、`/?lang=en`、`/?lang=ms`，带 hreflang）由 Worker 生成。这两个地址写在 `wrangler.jsonc` 的 `run_worker_first` 里，不然会被单页应用兜底成首页 HTML。
+- 首页 `<head>` 按语言输出：title、description、canonical（指向自己的 `?lang=xx`）、hreflang（x-default = 英文）、og / twitter 分享卡片、JSON-LD（WebApplication）。文案在 `worker/seo.js` 的 `META`。
+- 分享图 `web/public/og.jpg`（1200×630）和主屏图标 `web/public/icon-180.png`：`node scripts/og.cjs`（要 playwright）重新生成。`.gitignore` 默认不收 png / jpg，这两个文件是单独放行的。
+- 上线后在 Google Search Console / Bing Webmaster 提交 `https://kpp.luckylab.cc/sitemap.xml`。
+- 还没做：题目内容是前端渲染的，搜索引擎拿到的首页只有标题和描述。想接「KPP01 题库 / contoh soalan KPP01」这类长尾词，要加服务端直接输出的内容页（像德州局的 `/rules`）。
+
 ## 接口
 | 接口 | 说明 |
 |---|---|
